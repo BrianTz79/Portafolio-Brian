@@ -1,11 +1,10 @@
 {
   "nav": {
     "brand": "Brian Tellez",
+    "home": "Home",
     "about": "About Me",
-    "experience": "Experience",
-    "skills": "Skills",
     "projects": "Projects",
-    "homelab": "Homelab"
+    "contact": "Contact"
   },
   "hero": {
     "title": "Brian Tellez",
@@ -116,17 +115,40 @@
       "status": "Continuous Development",
       "description": "Private comprehensive web platform integrating gamification and interactive multiplayer library features.",
       "view_more": "Explore IRIS"
-    },
+    }
+  },
+  "general_projects": {
+    "title": "Projects",
     "kanua": {
       "name": "Kanua Petto",
-      "status": "Base Finished",
+      "status": "Base Finished (Sept - Dec 2025)",
       "description": "Multi-platform persistent virtual pet ecosystem (Godot 4.5 C# and Cloud).",
       "view_more": "Explore Kanua"
     },
     "bots": {
       "name": "Discord Bots",
-      "status": "Development & Maintenance",
-      "description": "Automation and entertainment tools (MusicBot and TellezSound via audio injection)."
+      "status": "Continuous Maintenance (Dec 2025)",
+      "description": "Music Bot with YT/Spotify support and TellezSound: Full Stack Web App for instant audio injection bypassing Discord sound limits."
+    },
+    "sgv": {
+      "name": "Housing Management System",
+      "status": "In Development (Dec 2025)",
+      "description": "Dockerized Full Stack App (React, FastAPI, PostgreSQL) secured with CF Zero Trust for residential administration."
+    },
+    "clips": {
+      "name": "Video Clips Platform",
+      "status": "In Development (Dec 2025)",
+      "description": "Full Stack System (React, Node, DB) to handle media streams integrating hardware-accelerated AI auto-tagging."
+    },
+    "ourocore": {
+      "name": "OuroCore Web",
+      "status": "In Development (Sept 2025)",
+      "description": "Static corporate infrastructure. Designed with TailwindCSS, orchestrated with Nginx (Docker), and exposed via Cloudflare Tunnels."
+    },
+    "portfolio": {
+      "name": "Web Portfolio (This Site)",
+      "status": "Current Project (Apr 2026)",
+      "description": "Interactive One-Pager developed implementing modern UI/UX practices, dynamic themes, and native i18n without SSG dependencies."
     }
   },
   "homelab_details": {
@@ -238,6 +260,174 @@
       {
         "name": "Dedicated Hardware (Roadmap)",
         "desc": "Future development and production of an exclusive physical device."
+      }
+    ]
+  },
+  "about_details": {
+    "title": "Get to Know Me Better",
+    "story": [
+      "My name is Brian Guadalupe Tellez Escobar, and I am a passionate Computer Systems Engineering student. My technological story began driven by a genuine curiosity: I have never settled for just knowing how to use things, I always want to understand how they work from the inside out.",
+      "This same curiosity led me to build my own Homelab. What started as a simple hobby setting up dedicated servers to play with my friends (Minecraft, Terraria), quickly escalated into my own cloud architecture laboratory. Through intensive self-learning, I immersed myself in Linux systems administration, leaving the comfort of the GUI to master the command line, manage local networks, and expose services securely with Cloudflare tunnels.",
+      "To me, programming has never been an academic obligation or a work burden. I see it purely as the ultimate medium to bring my ideas to life. If I can imagine a system, a platform, or a solution, code is simply the brick I use to build it."
+    ]
+  },
+  "sgv_details": {
+    "title": "Housing Management System",
+    "status": "In Development (December 2025)",
+    "back": "Back to Portfolio",
+    "description_title": "Project Description",
+    "description": "Comprehensive SaaS (Multi-tenant) to modernize residential area administration. It allows local administrators to maintain strict financial control and residents to achieve real-time communication.",
+    "stack_title": "Tech Stack",
+    "stack": [
+      "React.js & Axios",
+      "CSS3 (Dynamic Theme)",
+      "Python FastAPI",
+      "PostgreSQL (SQLAlchemy)",
+      "JWT Auth",
+      "Docker & Nginx",
+      "Cloudflare Tunnels"
+    ],
+    "architecture_title": "Core Features",
+    "architecture_items": [
+      {
+        "name": "Multi-Tenant Architecture",
+        "desc": "SuperAdmin Dashboard to register condominiums as isolated clients with unique access codes."
+      },
+      {
+        "name": "Financial Control",
+        "desc": "Mass generation of charges, fines, and payment records that dynamically update balances."
+      },
+      {
+        "name": "Auditing (Logs)",
+        "desc": "Immutable log that tracks balance modifications, ensuring full financial transparency."
+      },
+      {
+        "name": "Support and Tickets",
+        "desc": "Asynchronous support module to report residential incidents directly to the executive board."
+      }
+    ]
+  },
+  "clips_details": {
+    "title": "ClipsBanana",
+    "status": "In Development (December 2025)",
+    "back": "Back to Portfolio",
+    "description_title": "General Overview",
+    "description": "Self-hosted streaming platform focused on video game clips. Integrates modular processing to bypass size limits on reverse proxies, using AI for quick cataloging.",
+    "stack_title": "Tech Stack",
+    "stack": [
+      "React & Zustand",
+      "Node.js & Express",
+      "Prisma ORM",
+      "PostgreSQL",
+      "Multer & FFmpeg",
+      "Docker Compose"
+    ],
+    "architecture_title": "Technical Achievements",
+    "architecture_items": [
+      {
+        "name": "Chunked Uploads",
+        "desc": "Block-based upload algorithm to accept massive 10GB+ videos bypassing Cloudflare limitations."
+      },
+      {
+        "name": "HTTP 206 Streaming",
+        "desc": "Controller that honors Range Requests, streaming partial video and mitigating server memory consumption."
+      },
+      {
+        "name": "Asynchronous Metric",
+        "desc": "5-second active iteration logic sequence in the player before certifying a view as authentic."
+      }
+    ]
+  },
+  "ourocore_details": {
+    "title": "OuroCore Web",
+    "status": "In Development (September 2025)",
+    "back": "Back to Portfolio",
+    "description_title": "General Overview",
+    "description": "The static corporate digital hub of our consulting and automation firm, deployed extremely optimized under Nginx Alpine.",
+    "stack_title": "Tech Stack",
+    "stack": [
+      "Semantic HTML5",
+      "CSS3 (UI Variables)",
+      "Vanilla JavaScript",
+      "Nginx Alpine",
+      "Docker",
+      "Formspree API"
+    ],
+    "architecture_title": "Key Features",
+    "architecture_items": [
+      {
+        "name": "Hybrid Architecture",
+        "desc": "Successful transition from a monolith to a static orchestration stacking Nginx over Docker for near-zero LCP speeds."
+      },
+      {
+        "name": "Dynamic Catalog",
+        "desc": "Pure front-end generation of modal components to bypass reloads and fluidify technical indexing."
+      },
+      {
+        "name": "Zero Trust Security",
+        "desc": "Closed network service exposed to the public ecosystem exclusively via Cloudflare reverse tunnels."
+      }
+    ]
+  },
+  "bots_details": {
+    "title": "Discord Ecosystem",
+    "status": "Continuous Maintenance (December 2025)",
+    "back": "Back to Portfolio",
+    "description_title": "TellezSound and Hybrid Mods",
+    "description": "An audio orchestration network for Discord. TellezSound provides an OAuth2 Web Platform to inject custom audio live into voice chats (bypassing micro-payments), joined by TellezBot to fetch audio from external sources.",
+    "stack_title": "Tech Stack",
+    "stack": [
+      "Python 3.11",
+      "FastAPI & Uvicorn",
+      "Discord.py API",
+      "Jinja2 & CSS",
+      "FFmpeg (PCM Audio)",
+      "Spotdl & YT-DLP"
+    ],
+    "architecture_title": "Distributed Architecture",
+    "architecture_items": [
+      {
+        "name": "Normalized Streaming",
+        "desc": "Asynchronous bypass and transcoding applying EBU R128 standard (loudnorm at -14 LUFS) instantly."
+      },
+      {
+        "name": "Phase Two Retrieval",
+        "desc": "Implementation of Two-Step Fetching in TellezBot that resolves the stream stream right before playback."
+      },
+      {
+        "name": "Secured Panel",
+        "desc": "Jinja rendered views with Discord SSO strictly restrict listed files according to predefined Guild proper RBAC."
+      }
+    ]
+  },
+  "portafolio_details": {
+    "title": "Web Personal Portfolio",
+    "status": "Current Version (April 2026)",
+    "back": "Back to Portfolio",
+    "description_title": "About This Platform",
+    "description": "Building this site meant going far beyond a simple web template. Natively designed as an interactive App under React Server Components emitting pure HTML/CSS, it represents a structured manifestation of my capabilities as a Full-Stack Developer.",
+    "stack_title": "Tech Stack",
+    "stack": [
+      "Next.js 14 (SSG)",
+      "Tailwind CSS v4",
+      "React Context (i18n)",
+      "next-themes",
+      "Docker Compose",
+      "Nginx Server"
+    ],
+    "architecture_title": "Engineering Solutions",
+    "architecture_items": [
+      {
+        "name": "Static Site Generation",
+        "desc": "Modular export where all rendering happens during the build phase (Node Container), delivering pre-generated optimized assets directly through Nginx maximizing LCP."
+      },
+      {
+        "name": "Custom i18n",
+        "desc": "Mathematical construction of a context without heavy native libraries, syncing dictionaries transparently with Local Storage in real time."
+      },
+      {
+        "name": "Multi-Page Architecture",
+        "desc": "Organic scalability adapting the nested router to display enriched profiles for each project without slowing down the main root render."
       }
     ]
   },

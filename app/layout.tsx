@@ -5,7 +5,6 @@ import { ThemeProvider } from "./components/ThemeProvider";
 import { I18nProvider } from "@/lib/i18n";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +20,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-98KZK05595"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-98KZK05595');
+          `
+        }} />
+      </head>
       <body className={`${inter.className} min-h-screen bg-background text-foreground antialiased flex flex-col`}>
         <I18nProvider>
           <ThemeProvider
@@ -36,9 +47,6 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </I18nProvider>
-        {process.env.NEXT_PUBLIC_GA_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
-        )}
       </body>
     </html>
   );
