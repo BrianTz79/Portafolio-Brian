@@ -33,11 +33,13 @@ export default function Home() {
 
       {/* Sobre Mí Section */}
       <section id="sobre-mi" className="py-20 bg-zinc-900/30 border-y border-zinc-800/50">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-left md:text-center">
           <h2 className="text-3xl font-bold mb-8">{t.about.title}</h2>
-          <p className="text-lg text-zinc-400 leading-relaxed">
-            {t.about.description}
-          </p>
+          <div className="space-y-6 text-lg text-zinc-400 leading-relaxed">
+            {t.about.description.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </section>
 

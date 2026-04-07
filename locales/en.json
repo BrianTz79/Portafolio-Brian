@@ -15,7 +15,11 @@
   },
   "about": {
     "title": "About Me",
-    "description": "8th semester student of Computer Systems Engineering at the Instituto Tecnológico de Tijuana (ITT), with a deep passion for building technological solutions from hardware to software. I am proactive, self-taught, and focused on problem-solving. My curiosity has led me to design and manage my own home server (homelab), giving me hands-on experience in networking and Linux systems administration. I am actively seeking dynamic, practical opportunities or a junior role where I can add value and continue to grow."
+    "description": [
+      "I am a passionate 8th-semester Computer Systems Engineering student at the Instituto Tecnológico de Tijuana (ITT). My vision of technology is not limited to writing code; I seek to understand and master the entire ecosystem, from the base hardware to cloud deployment. This curiosity drove me to design, assemble, and manage my own bare-metal server (homelab), which I use as my personal laboratory to master Fog Computing architectures, Docker orchestration, Linux systems administration, and network security.",
+      "I stand out for my capacity for self-directed learning and my focus on \"Deep Work\", which allows me to immerse myself in solving complex challenges during highly focused sessions. My short- and medium-term professional goal is to consolidate my profile as a DevOps and Full-Stack Engineer, mastering the development of scalable architectures.",
+      "Currently, I am actively seeking a Junior-level job opportunity or professional internship where I can contribute my creativity, my problem-solving work ethic, and my adaptability, while continuing to learn from experienced teams to build solutions that generate real impact."
+    ]
   },
   "experience": {
     "title": "Experience and Education",
@@ -56,44 +60,40 @@
     "title": "Skills and Tools",
     "categories": [
       {
-        "name": "Development",
-        "badges": [
-          "C#",
-          "Python",
-          "Kotlin",
-          "HTML",
-          "CSS",
-          "React",
-          "FastAPI",
-          "Godot Engine"
-        ]
+        "name": "💻 Programming Languages",
+        "badges": ["Python", "C# (.NET)", "Kotlin", "JavaScript / TypeScript", "HTML / CSS", "Haskell", "Prolog"]
       },
       {
-        "name": "Infrastructure",
-        "badges": [
-          "Ubuntu Server",
-          "Docker",
-          "Cloudflare Tunnels",
-          "SSH",
-          "Nginx"
-        ]
+        "name": "🌐 Web and Mobile Development",
+        "badges": ["React.js & Next.js", "Tailwind CSS", "FastAPI", "Node.js / Express", "Flutter", "WebSockets & REST APIs"]
       },
       {
-        "name": "Hardware",
-        "badges": [
-          "Raspberry Pi",
-          "Arduino",
-          "PC/Server Assembly",
-          "3D Printing"
-        ]
+        "name": "🗄️ Databases",
+        "badges": ["PostgreSQL", "MongoDB", "Firebase Realtime Database"]
       },
       {
-        "name": "Soft Skills",
-        "badges": [
-          "Self-taught",
-          "Problem Solving",
-          "Teamwork"
-        ]
+        "name": "⚙️ Infrastructure, Networking & Admin.",
+        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Network Config (Samba, FTP, SSH)", "Cloudflare Tunnels (Zero Trust)", "Nginx", "Git & GitHub"]
+      },
+      {
+        "name": "🔌 Hardware and IoT",
+        "badges": ["Custom Server Assembly (Bare-Metal)", "Raspberry Pi", "Arduino, ESP32", "Fog Computing Architecture"]
+      },
+      {
+        "name": "🎨 Creativity and 3D Design",
+        "badges": ["3D Modeling & Animation (Blender)", "3D Printing"]
+      },
+      {
+        "name": "🛠️ Development Environments & Tools",
+        "badges": ["Visual Studio 2022", "VS Code", "Android Studio", "Godot Engine 4.5", "Windows Environments", "Microsoft Office"]
+      },
+      {
+        "name": "🗣️ Languages",
+        "badges": ["Spanish: Native (Oral and Written)", "English: Basic / Technical (Oral and Written)"]
+      },
+      {
+        "name": "🧠 Soft Skills",
+        "badges": ["Self-directed Learning", "Deep Work (Immersive focus)", "Creative Problem Solving", "Critical and Analytical Thinking", "Adaptability and Resilience", "Teamwork and Collaboration", "Proactivity and Project Management"]
       }
     ]
   },

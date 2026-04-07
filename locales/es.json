@@ -15,7 +15,11 @@
   },
   "about": {
     "title": "Sobre Mí",
-    "description": "Estudiante de 8º semestre de Ingeniería en Sistemas Computacionales en el Instituto Tecnológico de Tijuana (ITT), con una profunda pasión por construir soluciones tecnológicas desde el hardware hasta el software. Soy proactivo, autodidacta y enfocado en la resolución de problemas. Mi curiosidad me ha llevado a diseñar y administrar mi propio servidor doméstico (homelab), dándome experiencia práctica en redes y administración de sistemas Linux. Busco activamente oportunidades dinámicas, prácticas o un rol junior donde pueda aportar valor y seguir creciendo."
+    "description": [
+      "Soy un apasionado estudiante de 8º semestre de Ingeniería en Sistemas Computacionales en el Instituto Tecnológico de Tijuana (ITT). Mi visión de la tecnología no se limita a escribir código; busco comprender y dominar todo el ecosistema, desde el hardware base hasta el despliegue en la nube. Esta curiosidad me impulsó a diseñar, ensamblar y administrar mi propio servidor bare-metal (homelab), el cual utilizo como mi laboratorio personal para dominar arquitecturas de Fog Computing, orquestación con Docker, administración de sistemas Linux y seguridad en redes.",
+      "Me destaco por mi capacidad de aprendizaje autónomo y mi enfoque de \"Deep Work\" (trabajo inmersivo), lo que me permite sumergirme en la resolución de retos complejos durante sesiones de alta concentración. Mi meta profesional a corto y mediano plazo es consolidar mi perfil como Ingeniero DevOps y Full-Stack, dominando el desarrollo de arquitecturas escalables.",
+      "Actualmente, busco activamente una oportunidad laboral de nivel Junior o prácticas profesionales donde pueda aportar mi creatividad, mi ética de trabajo resolutiva y mi capacidad de adaptación, mientras sigo aprendiendo de equipos experimentados para construir soluciones que generen un impacto real."
+    ]
   },
   "experience": {
     "title": "Experiencia y Educación",
@@ -42,13 +46,13 @@
         "title": "Ingeniería en Sistemas Computacionales",
         "company": "Instituto Tecnológico de Tijuana (ITT)",
         "date": "En curso",
-        "description": "Promedio acumulado: 9.1."
+        "description": "Promedio acumulado: 9.1 / 10."
       },
       {
         "title": "Dibujo Arquitectónico",
         "company": "Preparatoria Federal Lázaro Cárdenas",
         "date": "Finalizado",
-        "description": "Promedio final: 8.6."
+        "description": "Promedio final: 8.6 / 10."
       }
     ]
   },
@@ -56,44 +60,40 @@
     "title": "Aptitudes y Herramientas",
     "categories": [
       {
-        "name": "Desarrollo",
-        "badges": [
-          "C#",
-          "Python",
-          "Kotlin",
-          "HTML",
-          "CSS",
-          "React",
-          "FastAPI",
-          "Godot Engine"
-        ]
+        "name": "💻 Lenguajes de Programación",
+        "badges": ["Python", "C# (.NET)", "Kotlin", "JavaScript / TypeScript", "HTML / CSS", "Haskell", "Prolog"]
       },
       {
-        "name": "Infraestructura",
-        "badges": [
-          "Ubuntu Server",
-          "Docker",
-          "Cloudflare Tunnels",
-          "SSH",
-          "Nginx"
-        ]
+        "name": "🌐 Desarrollo Web y Móvil",
+        "badges": ["React.js & Next.js", "Tailwind CSS", "FastAPI", "Node.js / Express", "Flutter", "WebSockets & REST APIs"]
       },
       {
-        "name": "Hardware",
-        "badges": [
-          "Raspberry Pi",
-          "Arduino",
-          "Ensamblaje de PC/Servidores",
-          "Impresión 3D"
-        ]
+        "name": "🗄️ Bases de Datos",
+        "badges": ["PostgreSQL", "MongoDB", "Firebase Realtime Database"]
       },
       {
-        "name": "Soft Skills",
-        "badges": [
-          "Autodidacta",
-          "Resolución de problemas",
-          "Trabajo en equipo"
-        ]
+        "name": "⚙️ Infraestructura, Redes y Adm.",
+        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Config. de Redes (Samba, FTP, SSH)", "Cloudflare Tunnels (Zero Trust)", "Nginx", "Git & GitHub"]
+      },
+      {
+        "name": "🔌 Hardware e IoT",
+        "badges": ["Ensamblaje de Servidores (Bare-Metal)", "Raspberry Pi", "Arduino, ESP32", "Arquitectura Fog Computing"]
+      },
+      {
+        "name": "🎨 Creatividad y Diseño 3D",
+        "badges": ["Modelado y Animación 3D (Blender)", "Impresión 3D"]
+      },
+      {
+        "name": "🛠️ Herramientas",
+        "badges": ["Visual Studio 2022", "VS Code", "Android Studio", "Godot Engine 4.5", "Entornos Windows", "Microsoft Office"]
+      },
+      {
+        "name": "🗣️ Idiomas",
+        "badges": ["Español: Nativo (Oral y Escrito)", "Inglés: Básico / Técnico (Oral y Escrito)"]
+      },
+      {
+        "name": "🧠 Soft Skills (Interpersonales)",
+        "badges": ["Aprendizaje Autónomo (Autodidacta)", "Deep Work (Trabajo Inmersivo)", "Resolución Creativa de Problemas", "Pensamiento Crítico y Analítico", "Adaptabilidad y Resiliencia", "Trabajo en Equipo y Colaboración", "Proactividad y Gestión de Proyectos"]
       }
     ]
   },
