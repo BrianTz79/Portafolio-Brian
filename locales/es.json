@@ -1,0 +1,247 @@
+{
+  "nav": {
+    "brand": "Brian Tellez",
+    "about": "Sobre Mí",
+    "experience": "Experiencia",
+    "skills": "Habilidades",
+    "projects": "Proyectos",
+    "homelab": "Homelab"
+  },
+  "hero": {
+    "title": "Brian Tellez",
+    "subtitle": "Ingeniero en Sistemas Computacionales | Full Stack & DevOps Explorer",
+    "view_projects": "Ver Proyectos",
+    "contact": "Contactar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": "Estudiante de 8º semestre de Ingeniería en Sistemas Computacionales en el Instituto Tecnológico de Tijuana (ITT), con una profunda pasión por construir soluciones tecnológicas desde el hardware hasta el software. Soy proactivo, autodidacta y enfocado en la resolución de problemas. Mi curiosidad me ha llevado a diseñar y administrar mi propio servidor doméstico (homelab), dándome experiencia práctica en redes y administración de sistemas Linux. Busco activamente oportunidades dinámicas, prácticas o un rol junior donde pueda aportar valor y seguir creciendo."
+  },
+  "experience": {
+    "title": "Experiencia y Educación",
+    "items": [
+      {
+        "title": "Cofundador y Desarrollador Full-Stack",
+        "company": "OuroCore",
+        "date": "Jun 2025 - Actualidad",
+        "description": "Desarrollo web (HTML/CSS/Python), infraestructura de hosting propio en Raspberry Pi 5 con Cloudflare Tunnels, y prototipado IoT."
+      },
+      {
+        "title": "Administrador de Servidor Doméstico",
+        "company": "Homelab",
+        "date": "Ago 2025 - Actualidad",
+        "description": "Ensamblaje de hardware, configuración de Ubuntu Server (CLI), acceso remoto seguro (SSH) y administración continua."
+      },
+      {
+        "title": "Desarrollador Android",
+        "company": "Feria de Proyectos ITT - Fruit Guard",
+        "date": "2024",
+        "description": "Creación de interfaz y base de datos (Firebase Realtime Database) usando Kotlin y Android Studio."
+      },
+      {
+        "title": "Ingeniería en Sistemas Computacionales",
+        "company": "Instituto Tecnológico de Tijuana (ITT)",
+        "date": "En curso",
+        "description": "Promedio acumulado: 9.1."
+      },
+      {
+        "title": "Dibujo Arquitectónico",
+        "company": "Preparatoria Federal Lázaro Cárdenas",
+        "date": "Finalizado",
+        "description": "Promedio final: 8.6."
+      }
+    ]
+  },
+  "skills": {
+    "title": "Aptitudes y Herramientas",
+    "categories": [
+      {
+        "name": "Desarrollo",
+        "badges": [
+          "C#",
+          "Python",
+          "Kotlin",
+          "HTML",
+          "CSS",
+          "React",
+          "FastAPI",
+          "Godot Engine"
+        ]
+      },
+      {
+        "name": "Infraestructura",
+        "badges": [
+          "Ubuntu Server",
+          "Docker",
+          "Cloudflare Tunnels",
+          "SSH",
+          "Nginx"
+        ]
+      },
+      {
+        "name": "Hardware",
+        "badges": [
+          "Raspberry Pi",
+          "Arduino",
+          "Ensamblaje de PC/Servidores",
+          "Impresión 3D"
+        ]
+      },
+      {
+        "name": "Soft Skills",
+        "badges": [
+          "Autodidacta",
+          "Resolución de problemas",
+          "Trabajo en equipo"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos Estrella",
+    "homelab": {
+      "name": "Infraestructura Homelab",
+      "status": "En Mantenimiento Continuo",
+      "description": "Diseño, ensamblaje y administración de servidor local propio de alto rendimiento.",
+      "view_more": "Detalles del Homelab"
+    },
+    "ada": {
+      "name": "Proyecto ADA",
+      "status": "En Desarrollo Activo",
+      "description": "Sistema de asistencia interactiva universitaria multimodal. Diseñado bajo el paradigma de Fog Computing.",
+      "view_more": "Explorar ADA"
+    },
+    "iris": {
+      "name": "Plataforma IRIS",
+      "status": "En Desarrollo Continuo",
+      "description": "Plataforma web integral de gamificación y biblioteca interactiva multijugador.",
+      "view_more": "Explorar IRIS"
+    },
+    "kanua": {
+      "name": "Kanua Petto",
+      "status": "Base Terminada",
+      "description": "Ecosistema de mascota virtual persistente multiplataforma (Godot 4.5 C# y Cloud).",
+      "view_more": "Explorar Kanua"
+    },
+    "bots": {
+      "name": "Discord Bots",
+      "status": "En Desarrollo y Mantenimiento",
+      "description": "Herramientas de automatización y entretenimiento (MusicBot y TellezSound con inyección de audio)."
+    }
+  },
+  "homelab_details": {
+    "title": "Homelab e Infraestructura",
+    "status": "Manteniendo desde Agosto 2025",
+    "back": "Volver al Portafolio",
+    "description_title": "Descripción y Objetivos",
+    "description": "Una de mis mayores fortalezas como desarrollador es la comprensión profunda del entorno donde se ejecuta el código. Para ello, he diseñado, ensamblado y administro mi propio servidor local de alto rendimiento. Esto me permite tener un entorno de pruebas real, orquestar contenedores y eliminar la dependencia de hostings de terceros.",
+    "hardware_title": "Hardware del Servidor (Bare-Metal)",
+    "specs": [
+      "Procesador: AMD Ryzen 5 9600X (6 Núcleos, 3.9GHz, AM5)",
+      "Placa Base: GIGABYTE B650 Eagle AX AM5 ATX (Wi-Fi 6E)",
+      "Memoria RAM: 64GB DDR5 Total (32GB Kingston Fury Beast + 32GB Corsair)",
+      "Almacenamiento: 1TB SSD Kingston NV3 M.2 NVMe 4.0 / 4TB HDD Seagate Barracuda",
+      "Refrigeración: Thermalright Phantom Spirit 120 SE",
+      "Fuente de Poder: MSI Mag A850GL PCIe5 850W (80+ Gold)",
+      "Gabinete: Rack 4U para Servidor"
+    ],
+    "plan_title": "Plan de Expansión",
+    "plan_desc": "Futura migración a una estructura de Rack completo, integración de switches administrables y sistemas UPS (baterías de respaldo) para alta disponibilidad.",
+    "orchestration_title": "Uso y Orquestación",
+    "orchestration_desc": "Alojamiento de bases de datos, despliegue de contenedores Docker (aplicaciones web y proyectos propios), gestión de túneles seguros con Cloudflare Zero Trust y hosteo dedicado de servidores de videojuegos (Minecraft, Factorio, Terraria) para gestión de comunidades."
+  },
+  "ada_details": {
+    "title": "Proyecto ADA",
+    "status": "En Desarrollo Activo (Inicio: Febrero 2026)",
+    "back": "Volver al Portafolio",
+    "description_title": "Descripción y Objetivos",
+    "description": "Sistema de asistencia interactiva universitaria multimodal. Diseñado bajo el paradigma de 'Fog Computing', descentralizando el procesamiento.",
+    "stack_title": "Stack Tecnológico",
+    "stack": [
+      "Raspberry Pi 5",
+      "Flutter",
+      "Python FastAPI",
+      "AI Middleware"
+    ],
+    "architecture_title": "Arquitectura Híbrida",
+    "architecture_items": [
+      {
+        "name": "Cliente (Edge)",
+        "desc": "Una Raspberry Pi 5 actúa como nodo interactivo con una interfaz de usuario desarrollada en Flutter."
+      },
+      {
+        "name": "Servidor (Backend)",
+        "desc": "Toda la carga de procesamiento pesado (IA, microservicios) se delega a mi servidor principal (Ryzen) para garantizar tiempos de respuesta óptimos."
+      }
+    ]
+  },
+  "iris_details": {
+    "title": "Plataforma IRIS",
+    "status": "En Desarrollo Continuo (Inicio: Septiembre 2025)",
+    "back": "Volver al Portafolio",
+    "description_title": "Descripción y Objetivos",
+    "description": "Plataforma web integral de acceso privado (frieren.idolrevenant.com). Trasciende el concepto de una biblioteca virtual, integrando una economía digital, minijuegos y un casino multijugador en tiempo real.",
+    "stack_title": "Stack Tecnológico",
+    "stack": [
+      "React.js",
+      "Vite",
+      "Tailwind CSS",
+      "Python FastAPI",
+      "WebSockets",
+      "MongoDB",
+      "Docker",
+      "Nginx",
+      "Cloudflare Tunnels"
+    ],
+    "architecture_title": "Funcionalidades Clave",
+    "architecture_items": [
+      {
+        "name": "Gestor Multimedia",
+        "desc": "Streaming de video nativo, lector de galerías capaz de procesar .ZIP/.RAR en el cliente, generación de miniaturas con FFmpeg y motor de recomendación."
+      },
+      {
+        "name": "Multijugador Real-Time",
+        "desc": "Casino virtual (Ruleta, Tragamonedas) y juegos de mesa (Blackjack, Texas Hold'em) sincronizados mediante WebSockets."
+      },
+      {
+        "name": "Economía y Gamificación",
+        "desc": "Autenticación JWT, tokens virtuales, mercado de valores automatizado (AMM) y roles."
+      },
+      {
+        "name": "Administración",
+        "desc": "Panel de control para moderación, limpieza profunda de DB y mantemimiento."
+      }
+    ]
+  },
+  "kanua_details": {
+    "title": "Kanua Petto",
+    "status": "Base Terminada (Sept 2025 - Dic 2025)",
+    "back": "Volver al Portafolio",
+    "description_title": "Descripción y Visión",
+    "description": "Proyecto que busca revolucionar la 'mascota virtual' tradicional para convertirla en un compañero digital persistente multiplataforma (PC, Móvil, Smartwatch).",
+    "stack_title": "Stack Tecnológico",
+    "stack": [
+      "Godot Engine 4.5",
+      "C# (.NET)",
+      "Arquitectura Cloud"
+    ],
+    "architecture_title": "Objetivos Estratégicos",
+    "architecture_items": [
+      {
+        "name": "Sincronización en la Nube",
+        "desc": "El estado de la mascota se mantiene en tiempo real entre plataformas."
+      },
+      {
+        "name": "IA Adaptativa (Roadmap)",
+        "desc": "Implementación de algoritmos para personalidad única basada en los patrones de interacción."
+      },
+      {
+        "name": "Hardware Dedicado (Roadmap)",
+        "desc": "Desarrollo y producción a futuro de un dispositivo físico exclusivo para la mascota."
+      }
+    ]
+  },
+  "footer": {
+    "text": "© 2026 Brian Tellez. Todos los derechos reservados."
+  }
+}
