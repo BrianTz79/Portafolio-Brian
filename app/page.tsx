@@ -41,7 +41,7 @@ export default function Home() {
           </div>
           <div className="mt-10">
              <Link href="/sobre-mi" className="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors group">
-               Conóceme mejor <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+               {t.ui?.read_more} <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
              </Link>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function Home() {
           
           <div className="mt-12">
              <Link href="/proyectos" className="inline-flex h-12 items-center justify-center rounded-lg border border-zinc-300 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 px-8 text-sm font-semibold text-zinc-900 dark:text-white transition-all hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:scale-105 active:scale-95">
-                Explorar todo mi trabajo
+                {t.ui?.explore_all}
              </Link>
           </div>
         </div>

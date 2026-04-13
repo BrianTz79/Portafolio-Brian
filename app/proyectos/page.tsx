@@ -51,7 +51,7 @@ export default function ProyectosPage() {
                   : "border border-zinc-300 dark:border-zinc-700 bg-white/50 dark:bg-zinc-900/50 text-zinc-900 dark:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800"
                 }`}
               >
-                 {project.view_more || "Ver Detalles"} <ArrowRight className="ml-2 w-4 h-4" />
+                 {project.view_more || t.ui?.view_details} <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -68,10 +68,10 @@ export default function ProyectosPage() {
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <div className="text-center mb-20">
           <h1 className="text-4xl md:text-6xl font-extrabold mb-6 text-zinc-900 dark:text-white">
-            Explorador de Proyectos
+            {t.proyectos_page?.title}
           </h1>
           <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-            Una mirada en profundidad a mi trabajo, infraestructura y contribuciones tecnológicas.
+            {t.proyectos_page?.subtitle}
           </p>
         </div>
 
@@ -79,7 +79,7 @@ export default function ProyectosPage() {
           {/* Render Featured Projects First */}
           <div className="flex items-center gap-4 mb-4">
             <div className="h-[1px] flex-1 bg-zinc-200 dark:bg-zinc-800" />
-            <span className="font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider uppercase text-sm">Proyectos Estrella</span>
+            <span className="font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider uppercase text-sm">{t.proyectos_page?.featured}</span>
             <div className="h-[1px] flex-1 bg-zinc-200 dark:bg-zinc-800" />
           </div>
           
@@ -91,7 +91,7 @@ export default function ProyectosPage() {
 
           <div className="flex items-center gap-4 py-8">
             <div className="h-[1px] flex-1 bg-zinc-200 dark:bg-zinc-800" />
-            <span className="font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider uppercase text-sm">Otros Desarrollos</span>
+            <span className="font-semibold text-zinc-500 dark:text-zinc-400 tracking-wider uppercase text-sm">{t.proyectos_page?.others}</span>
             <div className="h-[1px] flex-1 bg-zinc-200 dark:bg-zinc-800" />
           </div>
 

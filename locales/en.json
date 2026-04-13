@@ -12,6 +12,31 @@
     "view_projects": "View Projects",
     "contact": "Contact Me"
   },
+  "ui": {
+    "read_more": "Get to know me better",
+    "explore_all": "Explore all my work",
+    "view_details": "View Details"
+  },
+  "proyectos_page": {
+    "title": "Project Explorer",
+    "subtitle": "An in-depth look at my work, infrastructure, and technological contributions.",
+    "featured": "Featured Projects",
+    "others": "Other Developments"
+  },
+  "contacto": {
+    "title": "Networking & Contact",
+    "subtitle": "Do you have a job proposal or a project in mind? Let's talk about tech and development.",
+    "github_desc": "Explore my public repositories, scripts, and the source code of my infrastructure projects.",
+    "github_btn": "Explore",
+    "linkedin_desc": "Let's connect professionally. Here I share my journey and goals in the industry.",
+    "linkedin_btn": "Connect",
+    "mail_desc": "Send me a direct message for job proposals, interviews, or project planning.",
+    "mail_btn": "Write Email",
+    "mail_copy": "Copy Email",
+    "mail_copied": "Copied!",
+    "instagram_desc": "A more personal look at my daily life, my setup, and my creative environment.",
+    "instagram_btn": "View Profile"
+  },
   "about": {
     "title": "About Me",
     "description": [

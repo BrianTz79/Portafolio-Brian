@@ -1,21 +1,30 @@
 "use client";
 
 import { useTranslation } from "@/lib/i18n";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Copy, Check } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function ContactoPage() {
   const { t } = useTranslation();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault(); // Evitamos que el <Link> ejecute su acción
+    navigator.clipboard.writeText("brian.tellez79@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-20 transition-colors">
       <div className="container mx-auto px-4 md:px-6 max-w-5xl">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-zinc-900 dark:text-white">
-            Networking & Contacto
+            {t.contacto?.title}
           </h1>
           <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
-            ¿Tienes una propuesta laboral o un proyecto en mente? Hablemos sobre tecnología y desarrollo.
+            {t.contacto?.subtitle}
           </p>
         </div>
 
@@ -31,10 +40,10 @@ export default function ContactoPage() {
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">GitHub</h2>
             </div>
             <p className="text-zinc-600 dark:text-zinc-400 font-medium mb-6 flex-1 text-lg">
-              Explora mis repositorios públicos, scripts y el código fuente de mis proyectos de infraestructura.
+              {t.contacto?.github_desc}
             </p>
             <div className="mt-auto flex items-center text-zinc-500 group-hover:text-zinc-900 dark:text-zinc-400 dark:group-hover:text-white transition-colors font-semibold">
-              Explorar <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              {t.contacto?.github_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
@@ -47,26 +56,44 @@ export default function ContactoPage() {
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">LinkedIn</h2>
             </div>
             <p className="text-zinc-600 dark:text-zinc-400 font-medium mb-6 flex-1 text-lg">
-              Conectemos profesionalmente. Aquí comparto mi trayectoria y metas en la industria.
+              {t.contacto?.linkedin_desc}
             </p>
             <div className="mt-auto flex items-center text-zinc-500 group-hover:text-blue-600 dark:text-zinc-400 dark:group-hover:text-blue-400 transition-colors font-semibold">
-              Conectar <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              {t.contacto?.linkedin_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
-          {/* Mail */}
+          {/* Correo Personal */}
           <Link href="mailto:brian.tellez79@gmail.com" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/40 p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-900/20 flex flex-col items-start h-full">
             <div className="flex items-center gap-4 mb-4">
               <div className="flex items-center justify-center h-14 w-14 rounded-full bg-emerald-100 dark:bg-emerald-600 text-emerald-700 dark:text-white">
                  <Mail className="h-6 w-6" />
               </div>
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">Correo Personal</h2>
+              <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">Email</h2>
             </div>
-            <p className="text-zinc-600 dark:text-zinc-400 font-medium mb-6 flex-1 text-lg">
-              Envíame un mensaje directo para propuestas laborales, entrevistas o planeación de proyectos.
+            <p className="text-zinc-600 dark:text-zinc-400 font-medium mb-4 text-lg">
+               {t.contacto?.mail_desc}
             </p>
+            {/* Visualización del correo explícita con botón de copiar */}
+            <div className="w-full flex items-center justify-between bg-zinc-100 dark:bg-zinc-800/80 rounded-lg p-3 mb-6 border border-zinc-200 dark:border-zinc-700">
+               <span className="text-sm font-mono text-zinc-800 dark:text-zinc-300">brian.tellez79@gmail.com</span>
+               <button 
+                 onClick={handleCopyEmail}
+                 className="p-2 rounded-md hover:bg-zinc-200 dark:hover:bg-zinc-700 text-zinc-600 dark:text-zinc-400 transition-colors tooltip group-hover/btn relative flex items-center justify-center"
+                 title={t.contacto?.mail_copy}
+                 aria-label={t.contacto?.mail_copy}
+               >
+                 {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
+                 {copied && (
+                    <span className="absolute -top-8 bg-zinc-800 text-white text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap">
+                       {t.contacto?.mail_copied}
+                    </span>
+                 )}
+               </button>
+            </div>
+
              <div className="mt-auto flex items-center text-zinc-500 group-hover:text-emerald-600 dark:text-zinc-400 dark:group-hover:text-emerald-400 transition-colors font-semibold">
-              Escribir Email <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              {t.contacto?.mail_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
@@ -79,10 +106,10 @@ export default function ContactoPage() {
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">Instagram</h2>
             </div>
             <p className="text-zinc-600 dark:text-zinc-400 font-medium mb-6 flex-1 text-lg">
-              Un vistazo más personal a mi día a día, mi setup y mi entorno creativo.
+               {t.contacto?.instagram_desc}
             </p>
              <div className="mt-auto flex items-center text-zinc-500 group-hover:text-pink-600 dark:text-zinc-400 dark:group-hover:text-pink-400 transition-colors font-semibold">
-              Ver Perfil <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              {t.contacto?.instagram_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
           </Link>
 
