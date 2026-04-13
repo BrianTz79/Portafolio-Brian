@@ -9,8 +9,26 @@ import Footer from "./components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Brian Tellez | Portfolio",
-  description: "Portafolio de Proyectos - Ingeniería en Sistemas Computacionales. Experiencia en Homelab, DevOps y el ecosistema Full Stack.",
+  metadataBase: new URL("https://briantellez.ourocore.net"),
+  title: {
+    default: "Brian Tellez | Portafolio - Ingeniero en Sistemas & Full Stack",
+    template: "%s | Brian Tellez Portafolio"
+  },
+  description: "Descubre el portafolio de Brian Tellez, Ingeniero en Sistemas y Desarrollador Full Stack. Proyectos web, homelab, DevOps y soluciones tecnológicas.",
+  keywords: ["Brian Tellez", "Brian Tellez portafolio", "Ingeniero en Sistemas", "Full Stack", "Desarrollador Web", "DevOps"],
+  openGraph: {
+    title: "Brian Tellez | Portafolio - Ingeniero en Sistemas & Full Stack",
+    description: "Descubre el portafolio de Brian Tellez, Ingeniero en Sistemas y Desarrollador Full Stack. Proyectos web, homelab, DevOps y soluciones tecnológicas.",
+    url: "https://briantellez.ourocore.net",
+    siteName: "Brian Tellez",
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brian Tellez | Portafolio - Ingeniero en Sistemas & Full Stack",
+    description: "Descubre el portafolio de Brian Tellez, Ingeniero en Sistemas y Desarrollador Full Stack. Proyectos web, homelab, DevOps y soluciones tecnológicas.",
+  },
 };
 
 export default function RootLayout({
