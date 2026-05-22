@@ -199,27 +199,118 @@
   },
   "ada_details": {
     "title": "Proyecto ADA",
+    "subtitle": "Kiosco Interactivo con IA — Instituto Tecnológico de Tijuana",
     "status": "En Desarrollo Activo (Inicio: Febrero 2026)",
     "back": "Volver al Portafolio",
-    "description_title": "Descripción y Objetivos",
-    "description": "Sistema de asistencia interactiva universitaria multimodal. Diseñado bajo el paradigma de 'Fog Computing', descentralizando el procesamiento.",
-    "stack_title": "Stack Tecnológico",
-    "stack": [
-      "Raspberry Pi 5",
-      "Flutter",
-      "Python FastAPI",
-      "AI Middleware"
+    "team": "Brian Tellez & Fernando Urrea",
+    "context_label": "Contexto Institucional",
+
+    "problem_title": "El Problema",
+    "problem_body": "El campus del ITT recibe cada semestre a cientos de alumnos de nuevo ingreso que se enfrentan al mismo obstáculo: desorientación espacial y falta de acceso inmediato a información institucional. Las soluciones actuales —mapas estáticos, señalética física y consultas presenciales— son lentas, dependen de personal disponible y resultan inaccesibles para estudiantes con discapacidades visuales o motoras. ADA nació para resolver esto: un asistente de voz inteligente, disponible 24/7, que responde preguntas reales en lenguaje natural.",
+
+    "solution_title": "La Solución",
+    "solution_body": "ADA es un kiosco físico autónomo con pantalla táctil y botón físico push-to-talk. Al presionar el botón, el estudiante habla su pregunta en voz natural. El sistema transcribe el audio, comprende la intención semántica y responde con voz sintetizada y subtítulos en tiempo real —todo en menos de 8 segundos. Su base de conocimiento está construida sobre documentos oficiales del ITT mediante RAG (Retrieval-Augmented Generation), garantizando respuestas precisas y actualizadas.",
+
+    "interpreter_title": "ADA como Intérprete Dinámico",
+    "interpreter_body": "ADA implementa el paradigma de un intérprete dinámico de lenguaje: cada consulta de voz pasa por análisis léxico (Whisper ASR), análisis sintáctico (tokenización y chunking semántico), análisis semántico (Llama 3 vía Ollama) y ejecución inmediata de la respuesta. A diferencia de un compilador, no genera código persistente — procesa y responde al vuelo, reiniciando su estado tras 30 segundos de inactividad.",
+
+    "architecture_title": "Arquitectura Fog Computing",
+    "architecture_subtitle": "Dos nodos, una experiencia unificada",
+    "architecture_intro": "El diseño descentraliza el procesamiento entre un nodo Edge liviano y un nodo Fog con alta capacidad computacional, conectados en red local para minimizar latencia.",
+
+    "edge_title": "Nodo Edge — Raspberry Pi 5",
+    "edge_desc": "El cerebro físico del kiosco. Ejecuta la interfaz gráfica en Flutter (compilada para Linux ARM64), captura audio por micrófono USB, gestiona el botón físico push-to-talk via GPIO y reproduce la respuesta de audio sintetizado. Es el único punto de contacto con el usuario.",
+    "edge_specs": [
+      "Raspberry Pi 5 (8GB RAM)",
+      "Flutter Desktop (Linux ARM64)",
+      "Pantalla táctil 10\"",
+      "Botón arcade 30mm (GPIO)",
+      "Micrófono USB omnidireccional",
+      "Bocina amplificada"
     ],
-    "architecture_title": "Arquitectura Híbrida",
-    "architecture_items": [
+
+    "fog_title": "Nodo Fog — Servidor AMD Ryzen",
+    "fog_desc": "El motor de inteligencia del sistema. Aloja todos los microservicios de IA en contenedores independientes: el transcriptor de voz, el modelo de lenguaje, el motor de búsqueda semántica (RAG) y el sintetizador de voz. Se comunica con el Edge mediante WebSockets sobre red local.",
+    "fog_specs": [
+      "AMD Ryzen 5 9600X + 64GB DDR5",
+      "Whisper ASR (faster-whisper, Puerto 5000)",
+      "Ollama + Llama 3 Q4_K_M (Puerto 11434)",
+      "ChromaDB + Sentence-Transformers (RAG)",
+      "PiperTTS — voz es_MX (Puerto 5001)",
+      "Python FastAPI + WebSockets (Puerto 8000)"
+    ],
+
+    "pipeline_title": "Pipeline de Procesamiento",
+    "pipeline_steps": [
+      { "step": "1. Captura", "desc": "El usuario presiona el botón físico y habla. El audio se captura en formato WAV." },
+      { "step": "2. Transcripción (Léxico)", "desc": "faster-whisper convierte el audio a texto, identificando tokens fonéticos del idioma." },
+      { "step": "3. Recuperación (RAG)", "desc": "ChromaDB realiza búsqueda semántica en los documentos del ITT para recuperar contexto relevante." },
+      { "step": "4. Comprensión (Semántico)", "desc": "Llama 3 analiza la intención del usuario y genera una respuesta contextualizada." },
+      { "step": "5. Síntesis y Karaoke", "desc": "PiperTTS convierte el texto a audio. La UI reproduce el audio y resalta cada palabra en los subtítulos en tiempo real." }
+    ],
+
+    "features_title": "Funcionalidades Clave",
+    "features": [
       {
-        "name": "Cliente (Edge)",
-        "desc": "Una Raspberry Pi 5 actúa como nodo interactivo con una interfaz de usuario desarrollada en Flutter."
+        "name": "Asistencia por Voz",
+        "desc": "Push-to-Talk con botón físico arcade de 30mm conectado a GPIO. Interacción natural sin necesidad de tocar la pantalla."
       },
       {
-        "name": "Servidor (Backend)",
-        "desc": "Toda la carga de procesamiento pesado (IA, microservicios) se delega a mi servidor principal (Ryzen) para garantizar tiempos de respuesta óptimos."
+        "name": "Karaoke de Subtítulos",
+        "desc": "Resaltado de palabras en tiempo real sincronizado con el audio TTS reproducido — mejora la accesibilidad y la comprensión."
+      },
+      {
+        "name": "Teclado Virtual",
+        "desc": "Entrada de texto alternativa en pantalla táctil para usuarios que prefieren no usar la voz."
+      },
+      {
+        "name": "Mapa del Campus",
+        "desc": "Vista interactiva del campus universitario con navegación visual para orientar a los estudiantes."
+      },
+      {
+        "name": "Base de Conocimiento RAG",
+        "desc": "El sistema responde sobre horarios, trámites, ubicaciones y regulaciones basándose en documentos oficiales del ITT procesados con ChromaDB."
+      },
+      {
+        "name": "Accesibilidad Universal",
+        "desc": "Diseñado para usuarios con discapacidad visual o motora: respuestas completamente auditivas sin dependencia de la vista."
       }
+    ],
+
+    "stack_title": "Stack Tecnológico Completo",
+    "stack_categories": [
+      {
+        "name": "Frontend (Edge)",
+        "items": ["Flutter 3.x (Dart)", "Linux Desktop ARM64", "WebSockets Client", "GPIO (dart_periphery)"]
+      },
+      {
+        "name": "Backend (Fog)",
+        "items": ["Python FastAPI", "faster-whisper (Whisper ASR)", "Ollama + Llama 3 Q4_K_M", "ChromaDB", "Sentence-Transformers", "PiperTTS (es_MX)"]
+      },
+      {
+        "name": "Infraestructura",
+        "items": ["systemd (ada-backend.service)", "Red Local LAN", "Ubuntu Server", "Docker (planeado)"]
+      },
+      {
+        "name": "Hardware",
+        "items": ["Raspberry Pi 5 (8GB)", "AMD Ryzen 5 9600X + 64GB DDR5", "Pantalla Táctil 10\"", "Botón Arcade 30mm (GPIO)", "Micrófono USB", "Bocina Amplificada"]
+      }
+    ],
+
+    "testing_title": "Resultados de Pruebas",
+    "testing_items": [
+      { "label": "Tiempo de respuesta promedio", "value": "< 8 segundos", "note": "desde presionar el botón hasta audio reproducido" },
+      { "label": "Precisión de transcripción", "value": "~95%", "note": "en condiciones de ruido ambiental moderado (WER)" },
+      { "label": "Precisión de respuestas RAG", "value": "Alta", "note": "validado en pruebas con estudiantes reales del ITT" },
+      { "label": "Casos de error cubiertos", "value": "10+ códigos", "note": "manejo de red caída, modelo no disponible, timeout" }
+    ],
+
+    "roadmap_title": "Roadmap — Próximas Etapas",
+    "roadmap_items": [
+      { "phase": "Fase Actual", "desc": "Despliegue funcional del kiosco en campus ITT. Pruebas de usuario en escenario real." },
+      { "phase": "Corto Plazo", "desc": "Módulo administrativo web para actualizar la base de conocimiento sin intervención técnica. Soporte multilingüe (inglés)." },
+      { "phase": "Mediano Plazo", "desc": "Cámara de visión computacional para detectar presencia del usuario y activar el sistema automáticamente." },
+      { "phase": "Largo Plazo", "desc": "Red de kioscos distribuidos en distintos edificios del campus con sincronización centralizada de base de conocimiento." }
     ]
   },
   "iris_details": {
@@ -262,31 +353,106 @@
   },
   "kanua_details": {
     "title": "Kanua Petto",
+    "subtitle": "Mascota Virtual Persistente & Multidispositivo",
     "status": "Base Terminada (Sept 2025 - Dic 2025)",
     "back": "Volver al Portafolio",
+    "official_site_btn": "Visitar Sitio Oficial",
+    "download_btn": "Descargar el Juego",
+
     "description_title": "Descripción y Visión",
-    "description": "Proyecto que busca revolucionar la 'mascota virtual' tradicional para convertirla en un compañero digital persistente multiplataforma (PC, Móvil, Smartwatch).",
-    "stack_title": "Stack Tecnológico",
-    "stack": [
-      "Godot Engine 4.5",
-      "C# (.NET)",
-      "Arquitectura Cloud"
+    "description": "Kanua Petto es una re-imaginación moderna de la mascota virtual. A diferencia de los Tamagotchis clásicos atrapados en un solo dispositivo, Kanua Petto es omnipresente: su existencia persiste en la nube y viaja al instante entre tu PC y tu móvil. Puedes alimentarlo mientras estudias en la computadora y, segundos después, seguir jugando con él desde el teléfono en el autobús. Rompe la barrera del dispositivo para crear una experiencia de compañía verdadera y continua.",
+
+    "platforms_title": "Plataformas Disponibles",
+    "platforms": [
+      { "name": "PC (Windows)", "req": "Windows 10/11 · 4 GB RAM · OpenGL 3.3" },
+      { "name": "Móvil (Android)", "req": "Android 8.0+ · 3 GB RAM · 150 MB libres" }
     ],
-    "architecture_title": "Objetivos Estratégicos",
-    "architecture_items": [
+
+    "features_title": "Características y Mecánicas",
+    "features": [
       {
         "name": "Sincronización en la Nube",
-        "desc": "El estado de la mascota se mantiene en tiempo real entre plataformas."
+        "desc": "El estado completo de la mascota (hambre, felicidad, salud, inventario) se guarda en MongoDB y se sincroniza automáticamente entre PC y Android mediante la API REST con autenticación JWT."
       },
       {
-        "name": "IA Adaptativa (Roadmap)",
-        "desc": "Implementación de algoritmos para personalidad única basada en los patrones de interacción."
+        "name": "Sistema de Personalidad / Afinidad",
+        "desc": "La mascota no es un robot estático. Su humor cambia según el trato recibido a lo largo del tiempo. Un cuidado constante desbloquea una personalidad amorosa, mientras que el descuido lo vuelve arisco y distante."
       },
       {
-        "name": "Hardware Dedicado (Roadmap)",
-        "desc": "Desarrollo y producción a futuro de un dispositivo físico exclusivo para la mascota."
+        "name": "Gastronomía Cultural",
+        "desc": "La tienda integra alimentos culturales identificables: desde Leche con Chocolate y Croissants hasta Tamales, Burritos y Tacos. Un exceso de Maruchan afecta negativamente la salud."
+      },
+      {
+        "name": "Economía Lúdica (Tic-Tac-Toe)",
+        "desc": "Las monedas no caen del cielo. El jugador debe ganarlas enfrentando a la IA en el clásico Gato (Tic-Tac-Toe). Cada victoria otorga monedas y aumenta la felicidad del compañero."
       }
-    ]
+    ],
+
+    "architecture_title": "Arquitectura del Proyecto",
+    "architecture_intro": "El sistema se divide en dos grandes capas: el cliente de juego nativo y el servidor en la nube, orquestados con Docker Compose.",
+    "architecture_items": [
+      {
+        "name": "Cliente — Godot 4.5 / C#",
+        "desc": "El juego corre nativamente en PC (Windows) y Android, compilado con Godot Engine 4.5 y scripting en C# (.NET). Se comunica con la API REST para cargar y sincronizar el estado de la mascota en cada sesión."
+      },
+      {
+        "name": "API REST — Node.js / Express",
+        "desc": "Backend con Express 4.18 que expone los endpoints de registro, login, sincronización y carga de estado. Las contraseñas se hashean con bcryptjs y la sesión se gestiona con tokens JWT (jsonwebtoken 9)."
+      },
+      {
+        "name": "Base de Datos — MongoDB / Mongoose",
+        "desc": "Persistencia NoSQL mediante MongoDB con Mongoose 7.0 como ODM. El modelo User guarda petState completo: hunger, happiness, health, coins, inventory (Map) y affinity, más timestamp lastSync."
+      },
+      {
+        "name": "Infraestructura — Docker Compose + Cloudflare",
+        "desc": "Tres servicios orquestados: mongo_db (volumen persistente), api (Node:18 Alpine, puerto 3005) y tunnel (Cloudflare Tunnel hacia kp.stellarbanana.com). Sin necesidad de IP pública."
+      }
+    ],
+
+    "stack_title": "Stack Tecnológico",
+    "stack_categories": [
+      {
+        "name": "Motor de Juego",
+        "items": ["Godot Engine 4.5", "C# (.NET)", "GDScript"]
+      },
+      {
+        "name": "Backend / API",
+        "items": ["Node.js", "Express 4.18", "JWT (jsonwebtoken 9)", "bcryptjs 2.4"]
+      },
+      {
+        "name": "Base de Datos",
+        "items": ["MongoDB", "Mongoose 7.0 (ODM)"]
+      },
+      {
+        "name": "Infraestructura",
+        "items": ["Docker & Docker Compose", "Cloudflare Tunnel", "Node:18 Alpine"]
+      }
+    ],
+
+    "roadmap_title": "Hoja de Ruta (Visión a Largo Plazo)",
+    "roadmap_items": [
+      { "phase": "Completado", "desc": "Sincronización en la nube PC↔Android, sistema de afinidad/personalidad, economía lúdica con Tic-Tac-Toe, tienda con gastronomía cultural." },
+      { "phase": "Corto Plazo", "desc": "Motor de IA Adaptativa: algoritmos que analicen patrones de interacción para moldear una personalidad evolutiva, única e irrepetible por usuario." },
+      { "phase": "Mediano Plazo", "desc": "Estudio de Creación: herramienta de escritorio para diseñar, importar y modificar sprites y personajes propios. Hub Comunitario online para compartir creaciones." },
+      { "phase": "Largo Plazo", "desc": "Dispositivo Físico Dedicado: hardware tipo Tamagotchi conectado que lleve la experiencia fuera del móvil, con sincronización total a la nube." }
+    ],
+
+    "justification_title": "Justificación del Proyecto",
+    "justification": "La fragmentación de las experiencias digitales actuales impide la formación de vínculos emocionales profundos con la tecnología. Cada juego o aplicación encierra el progreso del usuario en una sola plataforma, rompiendo la continuidad cuando cambia de dispositivo. Kanua Petto nació para resolver esta brecha: un compañero omnipresente que combate la soledad digital, fomenta el bienestar emocional y abre una plataforma creativa para artistas y diseñadores.",
+
+    "functional_title": "Funcionalidades Implementadas",
+    "functional_items": [
+      { "name": "Gestión de Cuentas", "desc": "Registro y autenticación segura con persistencia de sesión local (auto-login) para acceso rápido sin reintroducir credenciales." },
+      { "name": "Vida Persistente", "desc": "Decaimiento de estadísticas (Hambre, Felicidad, Salud) calculado en tiempo real desde la última hora de conexión registrada en el servidor." },
+      { "name": "Sincronización Cross-Platform", "desc": "El progreso e inventario se transfieren instantáneamente entre PC y Android al retomar sesión en cualquier dispositivo." },
+      { "name": "Economía e Inventario", "desc": "Tienda funcional con validación de fondos en servidor. Inventario de consumibles con efectos variables por tipo de alimento." },
+      { "name": "Personalidad Dinámica", "desc": "Diálogos y animaciones únicos basados en el nivel de 'Afinidad' acumulado. La mascota reacciona, recuerda y evoluciona según el trato recibido." }
+    ],
+
+    "github_btn": "Ver Código Fuente",
+    "presentation_title": "Presentación del Proyecto",
+    "presentation_label": "Presentación Kanua Petto (Canva)",
+    "screenshot_alt": "Pantalla principal de Kanua Petto — el hábitat donde la mascota vive, con barras de estadísticas y botones de interacción"
   },
   "about_details": {
     "title": "Conóceme a Fondo",

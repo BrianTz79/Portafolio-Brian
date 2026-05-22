@@ -199,27 +199,118 @@
   },
   "ada_details": {
     "title": "Project ADA",
+    "subtitle": "AI-Powered Interactive Kiosk — Instituto Tecnológico de Tijuana",
     "status": "Active Development (Started: Feb 2026)",
     "back": "Back to Portfolio",
-    "description_title": "Description & Objectives",
-    "description": "Multimodal interactive university assistance system built under the 'Fog Computing' paradigm, decentralizing processing.",
-    "stack_title": "Tech Stack",
-    "stack": [
-      "Raspberry Pi 5",
-      "Flutter",
-      "Python FastAPI",
-      "AI Middleware"
+    "team": "Brian Tellez & Fernando Urrea",
+    "context_label": "Institutional Context",
+
+    "problem_title": "The Problem",
+    "problem_body": "Every semester, hundreds of incoming students at ITT face the same obstacle: spatial disorientation and lack of immediate access to institutional information. Existing solutions — static maps, physical signage, and in-person queries — are slow, dependent on available staff, and inaccessible to students with visual or motor disabilities. ADA was built to solve this: a 24/7 intelligent voice assistant that answers real questions in natural language.",
+
+    "solution_title": "The Solution",
+    "solution_body": "ADA is an autonomous physical kiosk with a touchscreen and a push-to-talk button. The student presses the button, asks their question out loud, and the system transcribes the audio, understands the semantic intent, and responds with synthesized voice and real-time captions — all in under 8 seconds. Its knowledge base is built from official ITT documents using RAG (Retrieval-Augmented Generation), ensuring accurate and up-to-date answers.",
+
+    "interpreter_title": "ADA as a Dynamic Interpreter",
+    "interpreter_body": "ADA implements the paradigm of a dynamic language interpreter: each voice query passes through lexical analysis (Whisper ASR), syntactic analysis (semantic tokenization and chunking), semantic analysis (Llama 3 via Ollama), and immediate response execution. Unlike a compiler, it generates no persistent output — it processes and responds on the fly, resetting its state after 30 seconds of inactivity.",
+
+    "architecture_title": "Fog Computing Architecture",
+    "architecture_subtitle": "Two nodes, one unified experience",
+    "architecture_intro": "The design decentralizes processing between a lightweight Edge node and a high-capacity Fog node, connected over a local network to minimize latency.",
+
+    "edge_title": "Edge Node — Raspberry Pi 5",
+    "edge_desc": "The physical brain of the kiosk. Runs the graphical interface in Flutter (compiled for Linux ARM64), captures audio via USB microphone, manages the physical push-to-talk button via GPIO, and plays back synthesized audio responses. It is the sole point of contact with the user.",
+    "edge_specs": [
+      "Raspberry Pi 5 (8GB RAM)",
+      "Flutter Desktop (Linux ARM64)",
+      "10\" Touchscreen",
+      "30mm Arcade Button (GPIO)",
+      "Omnidirectional USB Microphone",
+      "Amplified Speaker"
     ],
-    "architecture_title": "Hybrid Architecture",
-    "architecture_items": [
+
+    "fog_title": "Fog Node — AMD Ryzen Server",
+    "fog_desc": "The intelligence engine of the system. Hosts all AI microservices in independent containers: the voice transcriber, the language model, the semantic search engine (RAG), and the voice synthesizer. Communicates with the Edge node via WebSockets over the local network.",
+    "fog_specs": [
+      "AMD Ryzen 5 9600X + 64GB DDR5",
+      "Whisper ASR (faster-whisper, Port 5000)",
+      "Ollama + Llama 3 Q4_K_M (Port 11434)",
+      "ChromaDB + Sentence-Transformers (RAG)",
+      "PiperTTS — es_MX voice (Port 5001)",
+      "Python FastAPI + WebSockets (Port 8000)"
+    ],
+
+    "pipeline_title": "Processing Pipeline",
+    "pipeline_steps": [
+      { "step": "1. Capture", "desc": "The user presses the physical button and speaks. Audio is captured in WAV format." },
+      { "step": "2. Transcription (Lexical)", "desc": "faster-whisper converts audio to text, identifying phonetic tokens in the language." },
+      { "step": "3. Retrieval (RAG)", "desc": "ChromaDB performs semantic search over ITT documents to retrieve relevant context." },
+      { "step": "4. Comprehension (Semantic)", "desc": "Llama 3 analyzes the user's intent and generates a contextualized response." },
+      { "step": "5. Synthesis & Karaoke", "desc": "PiperTTS converts the text to audio. The UI plays the audio and highlights each word in the subtitles in real time." }
+    ],
+
+    "features_title": "Key Features",
+    "features": [
       {
-        "name": "Edge Client",
-        "desc": "A Raspberry Pi 5 acting as an interactive node with a user interface developed in Flutter."
+        "name": "Voice Assistance",
+        "desc": "Push-to-Talk with a 30mm physical arcade button connected to GPIO. Natural interaction without needing to touch the screen."
       },
       {
-        "name": "Backend Server",
-        "desc": "All heavy processing load (AI, microservices) is delegated to my main server (Ryzen) to guarantee optimal response times."
+        "name": "Karaoke Subtitles",
+        "desc": "Real-time word highlighting synchronized with the TTS audio output — improves accessibility and comprehension."
+      },
+      {
+        "name": "Virtual Keyboard",
+        "desc": "Alternative text input on the touchscreen for users who prefer not to use voice."
+      },
+      {
+        "name": "Campus Map",
+        "desc": "Interactive view of the university campus with visual navigation to orient students."
+      },
+      {
+        "name": "RAG Knowledge Base",
+        "desc": "The system answers questions about schedules, procedures, locations, and regulations based on official ITT documents processed with ChromaDB."
+      },
+      {
+        "name": "Universal Accessibility",
+        "desc": "Designed for users with visual or motor disabilities: fully auditory responses without dependence on sight."
       }
+    ],
+
+    "stack_title": "Full Tech Stack",
+    "stack_categories": [
+      {
+        "name": "Frontend (Edge)",
+        "items": ["Flutter 3.x (Dart)", "Linux Desktop ARM64", "WebSockets Client", "GPIO (dart_periphery)"]
+      },
+      {
+        "name": "Backend (Fog)",
+        "items": ["Python FastAPI", "faster-whisper (Whisper ASR)", "Ollama + Llama 3 Q4_K_M", "ChromaDB", "Sentence-Transformers", "PiperTTS (es_MX)"]
+      },
+      {
+        "name": "Infrastructure",
+        "items": ["systemd (ada-backend.service)", "LAN Local Network", "Ubuntu Server", "Docker (planned)"]
+      },
+      {
+        "name": "Hardware",
+        "items": ["Raspberry Pi 5 (8GB)", "AMD Ryzen 5 9600X + 64GB DDR5", "10\" Touchscreen", "30mm Arcade Button (GPIO)", "USB Microphone", "Amplified Speaker"]
+      }
+    ],
+
+    "testing_title": "Testing Results",
+    "testing_items": [
+      { "label": "Average response time", "value": "< 8 seconds", "note": "from button press to audio playback" },
+      { "label": "Transcription accuracy", "value": "~95%", "note": "under moderate ambient noise conditions (WER)" },
+      { "label": "RAG answer accuracy", "value": "High", "note": "validated in tests with real ITT students" },
+      { "label": "Error cases handled", "value": "10+ codes", "note": "network failure, model unavailable, timeout" }
+    ],
+
+    "roadmap_title": "Roadmap — Next Phases",
+    "roadmap_items": [
+      { "phase": "Current Phase", "desc": "Functional kiosk deployment on ITT campus. User testing in real-world conditions." },
+      { "phase": "Short Term", "desc": "Web admin module to update the knowledge base without technical intervention. Multilingual support (English)." },
+      { "phase": "Mid Term", "desc": "Computer vision camera to detect user presence and automatically activate the system." },
+      { "phase": "Long Term", "desc": "Network of distributed kiosks across different campus buildings with centralized knowledge base synchronization." }
     ]
   },
   "iris_details": {
@@ -262,31 +353,106 @@
   },
   "kanua_details": {
     "title": "Kanua Petto",
+    "subtitle": "Persistent Multi-Device Virtual Pet",
     "status": "Base Finished (Sept 2025 - Dec 2025)",
     "back": "Back to Portfolio",
+    "official_site_btn": "Visit Official Site",
+    "download_btn": "Download the Game",
+
     "description_title": "Description & Vision",
-    "description": "A project that seeks to revolutionize the traditional 'virtual pet' into a multi-platform persistent digital companion (PC, Mobile, Smartwatch).",
-    "stack_title": "Tech Stack",
-    "stack": [
-      "Godot Engine 4.5",
-      "C# (.NET)",
-      "Cloud Architecture"
+    "description": "Kanua Petto is a modern reimagination of the virtual pet. Unlike classic Tamagotchis locked to a single device, Kanua Petto is omnipresent: its existence persists in the cloud and travels instantly between your PC and your phone. You can feed it while studying at your computer, and seconds later continue playing with it on your phone on the bus. It breaks the device barrier to create a true and continuous companionship experience.",
+
+    "platforms_title": "Available Platforms",
+    "platforms": [
+      { "name": "PC (Windows)", "req": "Windows 10/11 · 4 GB RAM · OpenGL 3.3" },
+      { "name": "Mobile (Android)", "req": "Android 8.0+ · 3 GB RAM · 150 MB free" }
     ],
-    "architecture_title": "Strategic Objectives",
-    "architecture_items": [
+
+    "features_title": "Features & Mechanics",
+    "features": [
       {
         "name": "Cloud Synchronization",
-        "desc": "The pet's state is maintained in real-time across platforms."
+        "desc": "The pet's full state (hunger, happiness, health, inventory) is saved in MongoDB and synced automatically between PC and Android via the REST API with JWT authentication."
       },
       {
-        "name": "Adaptive AI (Roadmap)",
-        "desc": "Implementation of algorithms for unique personalities based on interaction patterns."
+        "name": "Personality / Affinity System",
+        "desc": "The pet is not a static robot. Its mood changes based on how it's treated over time. Consistent care unlocks a loving personality, while neglect makes it grumpy and distant."
       },
       {
-        "name": "Dedicated Hardware (Roadmap)",
-        "desc": "Future development and production of an exclusive physical device."
+        "name": "Cultural Gastronomy",
+        "desc": "The shop integrates relatable cultural foods: from Chocolate Milk and Croissants to Tamales, Burritos, and Tacos. Too much Maruchan negatively affects the pet's health."
+      },
+      {
+        "name": "Ludic Economy (Tic-Tac-Toe)",
+        "desc": "Coins don't fall from the sky. Players earn them by facing the AI in classic Tic-Tac-Toe. Each victory grants coins and increases the companion's happiness."
       }
-    ]
+    ],
+
+    "architecture_title": "Project Architecture",
+    "architecture_intro": "The system is split into two major layers: the native game client and the cloud server, orchestrated with Docker Compose.",
+    "architecture_items": [
+      {
+        "name": "Client — Godot 4.5 / C#",
+        "desc": "The game runs natively on PC (Windows) and Android, compiled with Godot Engine 4.5 and C# (.NET) scripting. It communicates with the REST API to load and sync the pet's state each session."
+      },
+      {
+        "name": "REST API — Node.js / Express",
+        "desc": "Express 4.18 backend exposing endpoints for registration, login, state sync, and loading. Passwords are hashed with bcryptjs and sessions are managed via JWT tokens (jsonwebtoken 9)."
+      },
+      {
+        "name": "Database — MongoDB / Mongoose",
+        "desc": "NoSQL persistence via MongoDB with Mongoose 7.0 as ODM. The User model stores the full petState: hunger, happiness, health, coins, inventory (Map), and affinity, plus a lastSync timestamp."
+      },
+      {
+        "name": "Infrastructure — Docker Compose + Cloudflare",
+        "desc": "Three orchestrated services: mongo_db (persistent volume), api (Node:18 Alpine, port 3005), and tunnel (Cloudflare Tunnel to kp.stellarbanana.com). No public IP required."
+      }
+    ],
+
+    "stack_title": "Tech Stack",
+    "stack_categories": [
+      {
+        "name": "Game Engine",
+        "items": ["Godot Engine 4.5", "C# (.NET)", "GDScript"]
+      },
+      {
+        "name": "Backend / API",
+        "items": ["Node.js", "Express 4.18", "JWT (jsonwebtoken 9)", "bcryptjs 2.4"]
+      },
+      {
+        "name": "Database",
+        "items": ["MongoDB", "Mongoose 7.0 (ODM)"]
+      },
+      {
+        "name": "Infrastructure",
+        "items": ["Docker & Docker Compose", "Cloudflare Tunnel", "Node:18 Alpine"]
+      }
+    ],
+
+    "roadmap_title": "Roadmap (Long-Term Vision)",
+    "roadmap_items": [
+      { "phase": "Completed", "desc": "Cloud sync PC↔Android, affinity/personality system, ludic economy with Tic-Tac-Toe, shop with cultural gastronomy." },
+      { "phase": "Short Term", "desc": "Adaptive AI Engine: algorithms that analyze interaction patterns to shape a unique, evolving personality per user." },
+      { "phase": "Mid Term", "desc": "Creation Studio: desktop tool to design, import, and modify custom sprites. Online Community Hub to share creations." },
+      { "phase": "Long Term", "desc": "Dedicated Physical Device: connected Tamagotchi-style hardware that takes the experience off mobile, with full cloud sync." }
+    ],
+
+    "justification_title": "Project Justification",
+    "justification": "The fragmentation of today's digital experiences prevents the formation of deep emotional bonds with technology. Each game or app traps user progress on a single platform, breaking continuity when switching devices. Kanua Petto was built to close this gap: an omnipresent companion that combats digital loneliness, fosters emotional well-being, and opens a creative platform for artists and designers.",
+
+    "functional_title": "Implemented Features",
+    "functional_items": [
+      { "name": "Account Management", "desc": "Secure registration and authentication with local session persistence (auto-login) for quick access without re-entering credentials." },
+      { "name": "Persistent Life", "desc": "Real-time stat decay (Hunger, Happiness, Health) calculated from the last connection timestamp recorded on the server." },
+      { "name": "Cross-Platform Sync", "desc": "Progress and inventory transfer instantly between PC and Android when resuming a session on any device." },
+      { "name": "Economy & Inventory", "desc": "Functional shop with server-side funds validation. Consumable inventory with variable effects per food type." },
+      { "name": "Dynamic Personality", "desc": "Unique dialogues and animations driven by accumulated 'Affinity' level. The pet reacts, remembers, and evolves based on treatment received." }
+    ],
+
+    "github_btn": "View Source Code",
+    "presentation_title": "Project Presentation",
+    "presentation_label": "Kanua Petto Presentation (Canva)",
+    "screenshot_alt": "Kanua Petto main screen — the habitat where the pet lives, with stat bars and interaction buttons"
   },
   "about_details": {
     "title": "Get to Know Me Better",
