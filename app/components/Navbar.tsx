@@ -28,12 +28,12 @@ export default function Navbar() {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/40 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-zinc-950/60 transition-colors">
+    <nav aria-label="Navegación principal" className="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/40 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-zinc-950/60 transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Left: Brand + Desktop Links */}
           <div className="flex gap-6 md:gap-10">
-            <Link href="/" onClick={closeMenu} className="flex items-center space-x-2">
+            <Link href="/" onClick={closeMenu} aria-label="Brian Tellez - Inicio del portafolio" className="flex items-center space-x-2">
               <span className="inline-block font-bold text-lg text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                 {t.nav.brand}
               </span>
@@ -60,22 +60,27 @@ export default function Navbar() {
             <div className="relative group">
               <button
                 className="flex items-center justify-center p-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-                aria-label="Change language"
+                aria-label={locale === "es" ? "Cambiar idioma (actualmente Español)" : "Change language (currently English)"}
+                title={locale === "es" ? "Cambiar idioma" : "Change language"}
               >
-                <span className="text-xl">{locale === "es" ? "🇲🇽" : "🇺🇸"}</span>
+                <span className="text-xl" aria-hidden="true">{locale === "es" ? "🇲🇽" : "🇺🇸"}</span>
               </button>
-              <div className="absolute right-0 mt-2 w-32 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-zinc-200 dark:border-zinc-800">
+              <div className="absolute right-0 mt-2 w-32 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-zinc-200 dark:border-zinc-800" role="menu" aria-label="Seleccionar idioma">
                 <button
                   onClick={() => { setLocale("es"); closeMenu(); }}
                   className="flex w-full items-center px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors text-left"
+                  role="menuitem"
+                  aria-label="Cambiar idioma a Español"
                 >
-                  <span className="mr-2">🇲🇽</span> Español
+                  <span className="mr-2" aria-hidden="true">🇲🇽</span> Español
                 </button>
                 <button
                   onClick={() => { setLocale("en"); closeMenu(); }}
                   className="flex w-full items-center px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors text-left"
+                  role="menuitem"
+                  aria-label="Switch language to English"
                 >
-                  <span className="mr-2">🇺🇸</span> English
+                  <span className="mr-2" aria-hidden="true">🇺🇸</span> English
                 </button>
               </div>
             </div>
@@ -84,13 +89,14 @@ export default function Navbar() {
             <button
               onClick={() => { setTheme(theme === "dark" ? "light" : "dark"); closeMenu(); }}
               className="flex items-center justify-center p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
-              aria-label="Toggle theme"
+              aria-label={mounted ? (theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro") : "Cambiar tema"}
+              title={mounted ? (theme === "dark" ? "Modo claro" : "Modo oscuro") : "Cambiar tema"}
             >
               {mounted ? (
                 theme === "dark" ? (
-                  <Moon className="h-5 w-5" />
+                  <Moon className="h-5 w-5" aria-hidden="true" />
                 ) : (
-                  <Sun className="h-5 w-5" />
+                  <Sun className="h-5 w-5" aria-hidden="true" />
                 )
               ) : (
                 <div className="h-5 w-5" />
@@ -101,7 +107,9 @@ export default function Navbar() {
             <button
               className="md:hidden flex items-center justify-center p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle Menu"
+              aria-label={isMobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-nav"
             >
                {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -111,7 +119,7 @@ export default function Navbar() {
 
       {/* Mobile Nav Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800/40 bg-zinc-50 dark:bg-zinc-950 px-4 py-4 space-y-3">
+        <div id="mobile-nav" className="md:hidden border-t border-zinc-200 dark:border-zinc-800/40 bg-zinc-50 dark:bg-zinc-950 px-4 py-4 space-y-3">
            {navLinks.map((link) => (
              <Link 
                 key={link.href} 
