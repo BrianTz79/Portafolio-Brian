@@ -727,6 +727,115 @@
       { "phase": "Future", "desc": "TURN server for restrictive NATs that block the direct P2P connection." }
     ]
   },
+  "notecore_details": {
+    "title": "NoteCore",
+    "subtitle": "The core of your academic life",
+    "status": "In production · Play Store ready",
+    "back": "Back to projects",
+    "website_btn": "Open NoteCore",
+    "repo_btn": "View code",
+    "description_title": "The problem",
+    "description": "Students fail courses by racking up absences without noticing, and keep their assignments in scattered notes disconnected from their actual class schedule. NoteCore brings both together, with the schedule as the backbone.",
+    "features_title": "What it does",
+    "features": [
+      "Visual schedule, entered by hand or imported from a photo processed by AI",
+      "Absence tracking with a suggested limit based on the 80% attendance rule",
+      "Assignment and exam planner, linked to a course or standalone",
+      "Calendar combining classes and due dates in a single view",
+      "Reminders before each deadline and a heads-up before each class",
+      "Share schedules and activities by QR, code or link",
+      "Semesters and trimesters with a browsable archive",
+      "Offline access to everything already loaded"
+    ],
+    "architecture_title": "How it's built",
+    "architecture_items": [
+      { "name": "A single source of truth", "desc": "All business logic lives in the API. Clients never duplicate it, so app and web can't drift apart." },
+      { "name": "Three-layer monorepo", "desc": "Android app in React Native with Expo, web in Next.js 16 and API in Fastify, sharing types and utilities in strict TypeScript." },
+      { "name": "Native widgets", "desc": "A family of seven home-screen widgets written in Kotlin that refresh on their own without opening the app." },
+      { "name": "Shared design system", "desc": "Web and app derive their colors and spacing from the same tokens, so they read as one product." }
+    ],
+    "highlight_title": "The hardest part",
+    "highlight": "Verifying every feature on both platforms before calling it done. A phase doesn't close until it's checked on a real Android emulator and a real browser, marking on one and reading on the other.",
+    "stack_title": "Stack"
+  },
+  "zaga_details": {
+    "title": "ZAGA Distribuciones",
+    "subtitle": "Corporate site for a real client",
+    "status": "In production · Active client",
+    "back": "Back to projects",
+    "website_btn": "Visit the site",
+    "description_title": "The brief",
+    "description": "An electrical supply distributor in Tampico needed an online presence with a brand catalog and direct contact. The site had to load fast on any connection and work in Spanish and English.",
+    "features_title": "What it includes",
+    "features": [
+      "Brand catalog with category filters",
+      "Bilingual site with language-annotated sitemap",
+      "Color and typography presets the client can switch between",
+      "Contact form with a direct WhatsApp link",
+      "Technical SEO and structured business data"
+    ],
+    "architecture_title": "Technical decisions",
+    "architecture_items": [
+      { "name": "Genuinely static", "desc": "Static generation with Astro: zero JavaScript on pages that don't need it, and load times that don't depend on a server." },
+      { "name": "Self-hosted fonts", "desc": "Downloaded and bundled at build time, so production makes no third-party requests at all." },
+      { "name": "Deployed at the edge", "desc": "Cloudflare Pages serves the site from the global network, with no infrastructure to maintain." }
+    ],
+    "highlight_title": "What I learned",
+    "highlight": "Working with a real client changes the priorities. It doesn't matter how elegant the solution is if the business owner can't update their brands without calling me.",
+    "stack_title": "Stack"
+  },
+  "wander_details": {
+    "title": "Wander",
+    "subtitle": "Your identity as a player, in a single link",
+    "status": "In production",
+    "back": "Back to projects",
+    "website_btn": "Open Wander",
+    "description_title": "The idea",
+    "description": "Something like a professional profile for gamers: instead of work experience, the games you play, your hours, your achievements and your profiles on each platform, all on one page you share with a link.",
+    "features_title": "What it does",
+    "features": [
+      "Data pulls itself in: link Steam and your games and hours appear without typing anything",
+      "Block-based profile you can add to, remove from and reorder",
+      "Full theme control, down to your own CSS scoped to your profile",
+      "Real social features: follow people, activity feed, comments and group messaging",
+      "Interface in Spanish and English"
+    ],
+    "architecture_title": "Technical decisions",
+    "architecture_items": [
+      { "name": "Sessions that can't be stolen", "desc": "Passwords with argon2id and sessions in httpOnly cookies with refresh token rotation, plus rate limiting in two layers." },
+      { "name": "User CSS, with a safety net", "desc": "People who know CSS can write their own, but it's sanitized and scoped so it can't escape their own profile." },
+      { "name": "Explicit privacy", "desc": "Each linked account states what it reads and what it stores, with granular permissions and unlinking that genuinely deletes." }
+    ],
+    "highlight_title": "The challenge",
+    "highlight": "Making sure linking Steam didn't create a second account when the user already had one. Solving it meant rethinking how identities from different providers merge onto one person.",
+    "stack_title": "Stack"
+  },
+  "shokan_details": {
+    "title": "Shokan",
+    "subtitle": "Calling the group to play, with one button",
+    "status": "In production · Web and Android",
+    "back": "Back to projects",
+    "website_btn": "Open Shokan",
+    "description_title": "The problem",
+    "description": "Getting the group together to play meant tagging everyone on WhatsApp and waiting. Shokan reduces it to a button: someone taps it and everyone else's phone rings.",
+    "features_title": "What it does",
+    "features": [
+      "Groups with a six-character code, no email required",
+      "Each group sets its own game, icon and alert sound",
+      "Real push notifications, even with the app closed",
+      "Installable from the browser, plus a native Android app",
+      "A fixed group message, or whatever the sender writes"
+    ],
+    "architecture_title": "Technical decisions",
+    "architecture_items": [
+      { "name": "Push without Firebase", "desc": "Notifications using the Web Push standard with our own VAPID keys, depending on neither Google's services nor their quotas." },
+      { "name": "Two clients, one backend", "desc": "The server tells whether a request comes from a browser or the native app, and delivers the notification through the right channel." },
+      { "name": "Migration without downtime", "desc": "When moving domains, the tunnel served both hostnames at once so nobody lost access mid-way." }
+    ],
+    "highlight_title": "What I learned",
+    "highlight": "That browsers isolate by origin. When you change domains, neither the session nor the push subscriptions carry over: you have to say so clearly or people think the app broke.",
+    "stack_title": "Stack"
+  },
   "footer": {
     "text": "© 2026 Brian Tellez. All rights reserved."
   }
