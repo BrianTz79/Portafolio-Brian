@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 
 const BASE_URL = "https://briantellez.ourocore.net";
 
@@ -6,12 +6,25 @@ export const metadata: Metadata = {
   title: "Shokan",
   description:
     "PWA y app Android para convocar grupos de juego con notificaciones push sin Firebase. Por Brian Tellez.",
+  keywords: [
+    "Brian Tellez Shokan", "convocar grupo de juego", "notificaciones push sin Firebase",
+    "Web Push VAPID", "PWA app Android Kotlin"
+  ],
   alternates: { canonical: `${BASE_URL}/proyectos/shokan` },
   openGraph: {
-    title: "Shokan | Brian Tellez",
+    title: "Shokan | Brian Tellez - Convocatoria para Jugar",
     description:
-      "PWA y app Android para convocar grupos de juego con notificaciones push sin Firebase.",
+      "PWA y app Android para convocar grupos de juego con notificaciones push sin Firebase. Desarrollada por Brian Tellez.",
     url: `${BASE_URL}/proyectos/shokan`,
+    siteName: "Brian Tellez - Portafolio",
+    locale: "es_MX",
+    type: "article",
+    images: [{ url: `${BASE_URL}/og-image.png`, width: 1200, height: 630, alt: "Shokan de Brian Tellez - Convocatoria para Jugar" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Shokan | Brian Tellez",
+    description: "PWA y app Android para convocar grupos de juego con notificaciones push sin Firebase.",
     images: [`${BASE_URL}/og-image.png`],
   },
 };
