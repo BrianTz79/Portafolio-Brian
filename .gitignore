@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# estado de servicios, regenerado en cada build
+/data/servicios.json

@@ -4,13 +4,25 @@
     "home": "Inicio",
     "about": "Acerca de Mí",
     "projects": "Proyectos",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "cv": "CV"
   },
   "hero": {
     "title": "Brian Tellez",
-    "subtitle": "Ingeniero en Sistemas Computacionales | Full Stack & DevOps Explorer",
-    "view_projects": "Ver Proyectos",
-    "contact": "Contactar"
+    "titular": "Construyo y opero el stack completo.",
+    "subtitular": "Desde el hardware hasta el frontend.",
+    "ubicacion": "Tijuana · ITT, 9º semestre",
+    "view_projects": "Ver proyectos",
+    "contact": "Contactar",
+    "cv": "Ver CV"
+  },
+  "infra": {
+    "titulo": "ourocore-server",
+    "specs": "Ryzen 5 9600X · 64 GB DDR5 · Ubuntu Server",
+    "activos": "servicios respondiendo",
+    "verificado": "Verificado en el último despliegue",
+    "activo": "activo",
+    "inactivo": "sin respuesta"
   },
   "ui": {
     "read_more": "Conóceme mejor",
@@ -40,7 +52,7 @@
   "about": {
     "title": "Sobre Mí",
     "description": [
-      "Soy un apasionado estudiante de 8º semestre de Ingeniería en Sistemas Computacionales en el Instituto Tecnológico de Tijuana (ITT). Mi visión de la tecnología no se limita a escribir código; busco comprender y dominar todo el ecosistema, desde el hardware base hasta el despliegue en la nube. Esta curiosidad me impulsó a diseñar, ensamblar y administrar mi propio servidor bare-metal (homelab), el cual utilizo como mi laboratorio personal para dominar arquitecturas de Fog Computing, orquestación con Docker, administración de sistemas Linux y seguridad en redes.",
+      "Soy estudiante de 9º semestre de Ingeniería en Sistemas Computacionales en el Instituto Tecnológico de Tijuana, con promedio acumulado de 93.64/100. Mi visión de la tecnología no se limita a escribir código: busco comprender todo el ecosistema, desde el hardware hasta el despliegue. Esa curiosidad me llevó a diseñar, ensamblar y administrar mi propio servidor bare-metal, que hoy aloja ocho servicios en producción y me sirve de laboratorio para Fog Computing, orquestación con Docker, administración de Linux y seguridad de redes.",
       "Me destaco por mi capacidad de aprendizaje autónomo y mi enfoque de \"Deep Work\" (trabajo inmersivo), lo que me permite sumergirme en la resolución de retos complejos durante sesiones de alta concentración. Mi meta profesional a corto y mediano plazo es consolidar mi perfil como Ingeniero DevOps y Full-Stack, dominando el desarrollo de arquitecturas escalables.",
       "Actualmente, busco activamente una oportunidad laboral de nivel Junior o prácticas profesionales donde pueda aportar mi creatividad, mi ética de trabajo resolutiva y mi capacidad de adaptación, mientras sigo aprendiendo de equipos experimentados para construir soluciones que generen un impacto real."
     ]
@@ -52,7 +64,7 @@
         "title": "Cofundador y Desarrollador Full-Stack",
         "company": "OuroCore",
         "date": "Jun 2025 - Actualidad",
-        "description": "Desarrollo web (HTML/CSS/Python), infraestructura de hosting propio en Raspberry Pi 5 con Cloudflare Tunnels, y prototipado IoT."
+        "description": "Desarrollo web full-stack e infraestructura propia: servidor bare-metal Ryzen 5 9600X con Ubuntu Server, Docker y Cloudflare Tunnels, alojando ocho servicios en producción."
       },
       {
         "title": "Administrador de Servidor Doméstico",
@@ -70,13 +82,13 @@
         "title": "Ingeniería en Sistemas Computacionales",
         "company": "Instituto Tecnológico de Tijuana (ITT)",
         "date": "En curso",
-        "description": "Promedio acumulado: 9.1 / 10."
+        "description": "Promedio acumulado: 93.64 / 100. Cursando 9º semestre, con residencia profesional programada."
       },
       {
         "title": "Dibujo Arquitectónico",
         "company": "Preparatoria Federal Lázaro Cárdenas",
         "date": "Finalizado",
-        "description": "Promedio final: 8.6 / 10."
+        "description": "Promedio final: 86 / 100. Egresado en 2021."
       }
     ]
   },
@@ -85,23 +97,23 @@
     "categories": [
       {
         "name": "💻 Lenguajes de Programación",
-        "badges": ["Python", "C# (.NET)", "Kotlin", "JavaScript / TypeScript", "HTML / CSS", "Haskell", "Prolog"]
+        "badges": ["Python", "TypeScript / JavaScript", "C# (.NET)", "Kotlin", "Dart", "SQL", "HTML / CSS", "Haskell", "Prolog"]
       },
       {
         "name": "🌐 Desarrollo Web y Móvil",
-        "badges": ["React.js & Next.js", "Tailwind CSS", "FastAPI", "Node.js / Express", "Flutter", "WebSockets & REST APIs"]
+        "badges": ["React 19", "Next.js 16", "Astro", "Vite", "Tailwind CSS 4", "React Native / Expo", "Flutter", "Electron", "Zustand", "FastAPI", "Node.js / Express", "WebSockets", "WebRTC", "REST APIs"]
       },
       {
         "name": "🗄️ Bases de Datos",
-        "badges": ["PostgreSQL", "MongoDB", "Firebase Realtime Database"]
+        "badges": ["PostgreSQL", "MongoDB", "Prisma", "Drizzle ORM", "Firebase Realtime Database", "ChromaDB"]
       },
       {
         "name": "⚙️ Infraestructura, Redes y Adm.",
-        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Config. de Redes (Samba, FTP, SSH)", "Cloudflare Tunnels (Zero Trust)", "Nginx", "Git & GitHub"]
+        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Nginx", "Cloudflare Tunnels (Zero Trust)", "systemd", "Git & GitHub", "Redes (SSH, Samba, FTP)"]
       },
       {
         "name": "🔌 Hardware e IoT",
-        "badges": ["Ensamblaje de Servidores (Bare-Metal)", "Raspberry Pi", "Arduino, ESP32", "Arquitectura Fog Computing"]
+        "badges": ["Ensamblaje de servidores bare-metal", "Raspberry Pi 5", "Arduino / ESP32", "Arquitectura Fog Computing"]
       },
       {
         "name": "🎨 Creatividad y Diseño 3D",
@@ -112,8 +124,12 @@
         "badges": ["Visual Studio 2022", "VS Code", "Android Studio", "Godot Engine 4.5", "Entornos Windows", "Microsoft Office"]
       },
       {
+        "name": "🤖 IA y Datos",
+        "badges": ["RAG", "Embeddings", "Whisper (ASR)", "TTS", "LLMs (Ollama, Llama 3)", "Evaluación y anotación de datos"]
+      },
+      {
         "name": "🗣️ Idiomas",
-        "badges": ["Español: Nativo (Oral y Escrito)", "Inglés: Básico / Técnico (Oral y Escrito)"]
+        "badges": ["Español: Nativo (Oral y Escrito)", "Inglés: B1 — lectura y comprensión técnica avanzada"]
       },
       {
         "name": "🧠 Soft Skills (Interpersonales)",
@@ -178,12 +194,13 @@
     },
     "portfolio": {
       "name": "Portafolio Web (Este Sitio)",
-      "status": "Proyecto Actual (Abr 2026)",
+      "status": "Rediseñado (Sept 2026)",
       "description": "Plataforma interactiva One-Pager desarrollada implementando modernas prácticas de UI/UX, temas dinámicos e i18n sin dependencias nativas en SSG."
     }
   },
   "homelab_details": {
     "title": "Homelab e Infraestructura",
+    "subtitle": "Servidor propio bare-metal para pruebas reales y orquestación de contenedores",
     "status": "Manteniendo desde Agosto 2025",
     "back": "Volver al Portafolio",
     "description_title": "Descripción y Objetivos",
@@ -322,6 +339,7 @@
   },
   "iris_details": {
     "title": "Plataforma IRIS",
+    "subtitle": "Biblioteca virtual privada con economía digital y casino multijugador",
     "status": "En Desarrollo Continuo (Inicio: Septiembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción y Objetivos",
@@ -471,6 +489,7 @@
   },
   "sgv_details": {
     "title": "Sistema Gestor de Viviendas",
+    "subtitle": "SaaS multi-tenant para administración financiera de zonas residenciales",
     "status": "En Desarrollo (Diciembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción del Proyecto",
@@ -507,6 +526,7 @@
   },
   "clips_details": {
     "title": "ClipsBanana",
+    "subtitle": "Streaming autohospedado de clips de videojuegos con catalogación por IA",
     "status": "En Desarrollo (Diciembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción General",
@@ -538,6 +558,7 @@
   },
   "ourocore_details": {
     "title": "OuroCore Web",
+    "subtitle": "Sitio corporativo estático desplegado bajo Nginx Alpine",
     "status": "En Desarrollo (Septiembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción General",
@@ -569,6 +590,7 @@
   },
   "bots_details": {
     "title": "Ecosistema de Discord",
+    "subtitle": "Orquestación de audio en vivo para chats de voz vía OAuth2",
     "status": "Mantenimiento Continuo (Diciembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "TellezSound y Moderadores Híbridos",
@@ -600,18 +622,20 @@
   },
   "portafolio_details": {
     "title": "Portafolio Personal Web",
-    "status": "Versión Actual (Abril 2026)",
+    "subtitle": "App interactiva con React Server Components exportada a HTML/CSS estático",
+    "status": "Versión actual (septiembre 2026)",
     "back": "Volver al Portafolio",
     "description_title": "Sobre Esta Plataforma",
     "description": "Construir este sitio implicó ir mucho más allá que una simple plantilla web. Diseñado nativamente como una App interactiva bajo React Server Components que emite a un bundle de archivos HTML/CSS puros, representa un manifiesto estructurado de mis capacidades como Desarrollador Full-Stack.",
     "stack_title": "Stack Tecnológico",
     "stack": [
-      "Next.js 14 (SSG)",
-      "Tailwind CSS v4",
+      "Next.js 16 (SSG)",
+      "React 19",
+      "Tailwind CSS 4",
       "React Context (i18n)",
       "next-themes",
       "Docker Compose",
-      "Nginx Server"
+      "Nginx"
     ],
     "architecture_title": "Soluciones de Ingeniería",
     "architecture_items": [
@@ -661,6 +685,7 @@
 
     "connection_title": "Conexión P2P Directa",
     "connection_body": "La señalización SDP/ICE pasa por el servidor propio vía Cloudflare Tunnel. Una vez establecida la conexión, el video y todos los eventos viajan P2P directo entre los dos clientes — sin pasar por ningún servidor. El contenido nunca se almacena ni se registra. El cliente de Socket.io usa upgrade: false para mantenerse en HTTP polling, evitando que Cloudflare dropee eventos durante el upgrade a WebSocket.",
+    "diagrama": "[Usuario A]                              [Usuario B]\n  App ──────── Socket.io (señalización) ──────── App\n\n       ◄──────────── WebRTC P2P ───────────────►\n              (video + eventos directos)",
 
     "platforms_title": "Plataformas",
     "platforms": [
@@ -702,6 +727,134 @@
       { "phase": "Próximo", "desc": "Mascotas dibujadas a mano — la arquitectura ya soporta PNG en lugar de emojis CSS." },
       { "phase": "Futuro", "desc": "TURN server para NATs restrictivos que bloqueen la conexión P2P directa." }
     ]
+  },
+  "notecore_details": {
+    "title": "NoteCore",
+    "subtitle": "El núcleo de tu vida académica",
+    "status": "En producción · Listo para Play Store",
+    "back": "Volver a proyectos",
+    "website_btn": "Abrir NoteCore",
+    "repo_btn": "Ver código",
+    "description_title": "El problema",
+    "description": "Los estudiantes pierden materias por acumular faltas sin darse cuenta, y organizan sus tareas en notas dispersas que no están ligadas a su horario real. NoteCore junta las dos cosas, con el horario como eje.",
+    "features_title": "Qué hace",
+    "features": [
+      "Horario visual, capturado a mano o importado desde una foto procesada por IA",
+      "Control de faltas con límite sugerido según la norma de 80% de asistencia",
+      "Agenda de tareas y exámenes, ligados o no a una materia",
+      "Calendario que combina clases y vencimientos en una sola vista",
+      "Recordatorios antes de cada entrega y aviso antes de cada clase",
+      "Compartir horarios y actividades por QR, código o enlace",
+      "Semestres y cuatrimestres con archivo histórico consultable",
+      "Consulta sin conexión de lo ya cargado"
+    ],
+    "architecture_title": "Cómo está construido",
+    "architecture_items": [
+      { "name": "Una sola fuente de verdad", "desc": "Toda la lógica de negocio vive en la API. Los clientes nunca la duplican, así que app y web no pueden divergir." },
+      { "name": "Monorepo de tres capas", "desc": "App Android en React Native con Expo, web en Next.js 16 y API en Fastify, compartiendo tipos y utilidades en TypeScript estricto." },
+      { "name": "Widgets nativos", "desc": "Una familia de siete widgets de pantalla principal escritos en Kotlin, que se actualizan solos sin abrir la app." },
+      { "name": "Sistema de diseño común", "desc": "Web y app derivan sus colores y espaciados de los mismos tokens, así que se ven como el mismo producto." }
+    ],
+    "highlight_title": "Lo que más me costó",
+    "highlight": "Verificar cada función en las dos plataformas antes de darla por cerrada. Una fase no se cierra hasta comprobarla en un emulador Android y en un navegador reales, marcando en uno y leyendo en el otro.",
+    "stack_title": "Stack"
+  },
+  "zaga_details": {
+    "title": "ZAGA Distribuciones",
+    "subtitle": "Sitio corporativo para un cliente real",
+    "status": "En producción · Cliente activo",
+    "back": "Volver a proyectos",
+    "website_btn": "Visitar el sitio",
+    "description_title": "El encargo",
+    "description": "Una distribuidora de material eléctrico en Tampico necesitaba presencia en línea con catálogo de marcas y contacto directo. El sitio debía cargar rápido desde cualquier conexión y funcionar en español e inglés.",
+    "features_title": "Qué incluye",
+    "features": [
+      "Catálogo de marcas con filtros por categoría",
+      "Sitio bilingüe con sitemap anotado por idioma",
+      "Presets de paleta y tipografía que el cliente puede alternar",
+      "Formulario de contacto con enlace directo a WhatsApp",
+      "SEO técnico y datos estructurados del negocio"
+    ],
+    "architecture_title": "Decisiones técnicas",
+    "architecture_items": [
+      { "name": "Estático de verdad", "desc": "Generación estática con Astro: cero JavaScript en las páginas que no lo necesitan, y tiempos de carga que no dependen de un servidor." },
+      { "name": "Fuentes autoalojadas", "desc": "Se descargan y empaquetan en tiempo de build, así que en producción no hay ni una petición a terceros." },
+      { "name": "Despliegue en el borde", "desc": "Cloudflare Pages sirve el sitio desde la red global, sin infraestructura que mantener." }
+    ],
+    "highlight_title": "Lo que aprendí",
+    "highlight": "Trabajar con un cliente real cambia las prioridades. No importa qué tan elegante sea la solución si el dueño del negocio no puede actualizar sus marcas sin llamarme.",
+    "stack_title": "Stack"
+  },
+  "wander_details": {
+    "title": "Wander",
+    "subtitle": "Tu identidad como jugador, en un solo enlace",
+    "status": "En producción",
+    "back": "Volver a proyectos",
+    "website_btn": "Abrir Wander",
+    "description_title": "La idea",
+    "description": "Una especie de perfil profesional para jugadores: en vez de experiencia laboral, los juegos que juegas, tus horas, tus logros y tus perfiles en cada plataforma, todo en una página que se comparte con un enlace.",
+    "features_title": "Qué hace",
+    "features": [
+      "Los datos se traen solos: vinculas Steam y tus juegos y horas aparecen sin escribir nada",
+      "Perfil por bloques que se añaden, quitan y reordenan",
+      "Control total del tema, hasta CSS propio con alcance limitado al perfil",
+      "Social real: seguir gente, feed de actividad, comentarios y mensajería con grupos",
+      "Interfaz en español e inglés"
+    ],
+    "architecture_title": "Decisiones técnicas",
+    "architecture_items": [
+      { "name": "Sesiones que no se pueden robar", "desc": "Contraseñas con argon2id y sesión en cookies httpOnly con rotación del token de refresco, más límite de peticiones en dos capas." },
+      { "name": "CSS del usuario, con red de seguridad", "desc": "Quien sabe CSS puede escribir el suyo, pero se sanitiza y se le limita el alcance para que no pueda salirse de su propio perfil." },
+      { "name": "Privacidad explícita", "desc": "Cada vinculación dice qué lee y qué guarda, con permisos granulares y desvinculación que borra de verdad." }
+    ],
+    "highlight_title": "El reto",
+    "highlight": "Que vincular Steam no creara una segunda cuenta cuando el usuario ya tenía una. Resolverlo obligó a repensar cómo se unen identidades de distintos proveedores sobre una misma persona.",
+    "stack_title": "Stack"
+  },
+  "shokan_details": {
+    "title": "Shokan",
+    "subtitle": "Convocar a jugar con un botón",
+    "status": "En producción · Web y Android",
+    "back": "Volver a proyectos",
+    "website_btn": "Abrir Shokan",
+    "description_title": "El problema",
+    "description": "Juntar al grupo para jugar significaba etiquetar a todo el mundo en WhatsApp y esperar. Shokan lo reduce a un botón: alguien lo toca y a los demás les suena el celular.",
+    "features_title": "Qué hace",
+    "features": [
+      "Grupos con código de seis caracteres, sin necesidad de correo",
+      "Cada grupo configura su juego, su icono y su sonido de aviso",
+      "Notificaciones push reales, incluso con la app cerrada",
+      "App instalable desde el navegador y app nativa de Android",
+      "Mensaje fijo del grupo, o el que escriba quien manda la señal"
+    ],
+    "architecture_title": "Decisiones técnicas",
+    "architecture_items": [
+      { "name": "Push sin Firebase", "desc": "Notificaciones con el estándar Web Push y claves VAPID propias, sin depender de los servicios de Google ni de sus cuotas." },
+      { "name": "Dos clientes, un backend", "desc": "El servidor distingue si la petición viene de un navegador o de la app nativa, y entrega la notificación por el canal correcto." },
+      { "name": "Migración sin cortar el servicio", "desc": "Al mudar de dominio, el túnel sirvió los dos hostnames a la vez para que nadie perdiera acceso a medio camino." }
+    ],
+    "highlight_title": "Lo que aprendí",
+    "highlight": "Que el navegador aísla por origen. Al cambiar de dominio, ni la sesión ni las suscripciones de push se heredan: hay que avisarlo bien o la gente cree que la app se rompió.",
+    "stack_title": "Stack"
+  },
+  "cv": {
+    "title": "Currículum",
+    "descargar": "Descargar PDF",
+    "actualizado": "Actualizado en septiembre de 2026",
+    "perfil_title": "Perfil",
+    "perfil": "Estudiante de 9º semestre de Ingeniería en Sistemas Computacionales, con promedio de 93.64/100 y más de diez proyectos propios en producción, desde aplicaciones web full-stack hasta sistemas de IA e infraestructura autoalojada. Domino el ciclo completo: diseño y ensamblo el hardware del servidor, administro el sistema Linux, contenerizo la aplicación, la expongo de forma segura y escribo el backend y el frontend. Busco una residencia profesional o una posición junior donde aportar esta capacidad de ejecución de principio a fin.",
+    "educacion_title": "Educación",
+    "educacion": [
+      { "titulo": "Ingeniería en Sistemas Computacionales", "lugar": "Instituto Tecnológico de Tijuana", "fecha": "9º semestre en curso", "detalle": "Promedio acumulado 93.64/100. Residencia profesional programada." },
+      { "titulo": "Dibujo Arquitectónico", "lugar": "Preparatoria Federal Lázaro Cárdenas", "fecha": "2021", "detalle": "Promedio final 86/100." }
+    ],
+    "idiomas_title": "Idiomas",
+    "idiomas": [
+      { "idioma": "Español", "nivel": "Nativo, oral y escrito" },
+      { "idioma": "Inglés", "nivel": "B1 — lectura y comprensión técnica avanzada, producción oral en desarrollo" }
+    ],
+    "personales_title": "Competencias personales",
+    "personales": "Aprendizaje autónomo · Trabajo inmersivo · Resolución creativa de problemas · Pensamiento crítico · Adaptabilidad · Trabajo en equipo · Gestión de proyectos de principio a fin"
   },
   "footer": {
     "text": "© 2026 Brian Tellez. Todos los derechos reservados."

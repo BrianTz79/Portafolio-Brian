@@ -3,5 +3,5 @@
 import ProyectoPage from "@/app/components/ProyectoPage";
 
 export default function Page() {
-  return <ProyectoPage slug="ada" />;
+  return <ProyectoPage slug="zaga" />;
 }

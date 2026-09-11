@@ -23,28 +23,29 @@ export default function Navbar() {
     { href: "/proyectos", label: t.nav.projects },
     { href: "/sobre-mi", label: t.nav.about },
     { href: "/contacto", label: t.nav.contact },
+    { href: "/cv", label: t.nav.cv },
   ];
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <nav aria-label="Navegación principal" className="sticky top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/40 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md supports-[backdrop-filter]:bg-white/60 dark:supports-[backdrop-filter]:bg-zinc-950/60 transition-colors">
+    <nav aria-label="Navegación principal" className="sticky top-0 z-50 w-full border-b border-[var(--line)] bg-[var(--ink)]/80 backdrop-blur-md supports-[backdrop-filter]:bg-[var(--ink)]/60 transition-colors">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Left: Brand + Desktop Links */}
           <div className="flex gap-6 md:gap-10">
             <Link href="/" onClick={closeMenu} aria-label="Brian Tellez - Inicio del portafolio" className="flex items-center space-x-2">
-              <span className="inline-block font-bold text-lg text-zinc-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <span className="inline-block font-bold text-lg text-[var(--text)] hover:text-[var(--signal)] transition-colors">
                 {t.nav.brand}
               </span>
             </Link>
             <div className="hidden md:flex gap-6">
               {navLinks.map((link) => (
-                <Link 
-                  key={link.href} 
-                  href={link.href} 
-                  className={`flex items-center text-sm font-medium transition-colors hover:text-zinc-900 dark:hover:text-white ${
-                    pathname === link.href ? "text-zinc-900 dark:text-white" : "text-zinc-600 dark:text-zinc-400"
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`flex items-center text-sm font-medium transition-colors hover:text-[var(--text)] ${
+                    pathname === link.href ? "text-[var(--text)]" : "text-[var(--dim)]"
                   }`}
                 >
                   {link.label}
@@ -55,20 +56,20 @@ export default function Navbar() {
 
           {/* Right: Controls & Mobile Toggle */}
           <div className="flex items-center space-x-1 md:space-x-4">
-            
+
             {/* Lang Dropdown */}
             <div className="relative group">
               <button
-                className="flex items-center justify-center p-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+                className="flex items-center justify-center p-2 rounded-md hover:bg-[var(--surface)] transition-colors"
                 aria-label={locale === "es" ? "Cambiar idioma (actualmente Español)" : "Change language (currently English)"}
                 title={locale === "es" ? "Cambiar idioma" : "Change language"}
               >
                 <span className="text-xl" aria-hidden="true">{locale === "es" ? "🇲🇽" : "🇺🇸"}</span>
               </button>
-              <div className="absolute right-0 mt-2 w-32 rounded-md bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-zinc-200 dark:border-zinc-800" role="menu" aria-label="Seleccionar idioma">
+              <div className="absolute right-0 mt-2 w-32 rounded-md bg-[var(--ink)] text-[var(--text)] shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 border border-[var(--line)]" role="menu" aria-label="Seleccionar idioma">
                 <button
                   onClick={() => { setLocale("es"); closeMenu(); }}
-                  className="flex w-full items-center px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors text-left"
+                  className="flex w-full items-center px-4 py-2 text-sm hover:bg-[var(--surface)] hover:text-[var(--text)] transition-colors text-left"
                   role="menuitem"
                   aria-label="Cambiar idioma a Español"
                 >
@@ -76,7 +77,7 @@ export default function Navbar() {
                 </button>
                 <button
                   onClick={() => { setLocale("en"); closeMenu(); }}
-                  className="flex w-full items-center px-4 py-2 text-sm hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white transition-colors text-left"
+                  className="flex w-full items-center px-4 py-2 text-sm hover:bg-[var(--surface)] hover:text-[var(--text)] transition-colors text-left"
                   role="menuitem"
                   aria-label="Switch language to English"
                 >
@@ -88,7 +89,7 @@ export default function Navbar() {
             {/* Theme Toggle */}
             <button
               onClick={() => { setTheme(theme === "dark" ? "light" : "dark"); closeMenu(); }}
-              className="flex items-center justify-center p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              className="flex items-center justify-center p-2 rounded-md text-[var(--dim)] hover:text-[var(--text)] hover:bg-[var(--surface)] transition-colors"
               aria-label={mounted ? (theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro") : "Cambiar tema"}
               title={mounted ? (theme === "dark" ? "Modo claro" : "Modo oscuro") : "Cambiar tema"}
             >
@@ -105,7 +106,7 @@ export default function Navbar() {
 
             {/* Hamburger Mobile Menu Toggle */}
             <button
-              className="md:hidden flex items-center justify-center p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              className="md:hidden flex items-center justify-center p-2 rounded-md text-[var(--dim)] hover:text-[var(--text)] hover:bg-[var(--surface)] transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
               aria-expanded={isMobileMenuOpen}
@@ -119,16 +120,16 @@ export default function Navbar() {
 
       {/* Mobile Nav Dropdown */}
       {isMobileMenuOpen && (
-        <div id="mobile-nav" className="md:hidden border-t border-zinc-200 dark:border-zinc-800/40 bg-zinc-50 dark:bg-zinc-950 px-4 py-4 space-y-3">
+        <div id="mobile-nav" className="md:hidden border-t border-[var(--line)] bg-[var(--ink)] px-4 py-4 space-y-3">
            {navLinks.map((link) => (
-             <Link 
-                key={link.href} 
-                href={link.href} 
+             <Link
+                key={link.href}
+                href={link.href}
                 onClick={closeMenu}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
-                  pathname === link.href 
-                    ? "bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-white" 
-                    : "text-zinc-600 dark:text-zinc-400 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white"
+                  pathname === link.href
+                    ? "bg-[var(--surface)] text-[var(--text)]"
+                    : "text-[var(--dim)] hover:bg-[var(--surface)] hover:text-[var(--text)]"
                 }`}
               >
                {link.label}

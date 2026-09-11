@@ -8,16 +8,24 @@ export default function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer aria-label="Pie de página - Contacto y redes sociales de Brian Tellez" className="w-full border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 py-8 md:py-12 mt-auto">
+    <footer aria-label="Pie de página - Contacto y redes sociales de Brian Tellez" className="w-full border-t border-[var(--line)] bg-[var(--ink)] py-8 md:py-12 mt-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center gap-6">
-        <nav aria-label="Redes sociales de Brian Tellez">
-          <ul className="flex items-center gap-6 list-none m-0 p-0">
+        <nav aria-label="Enlaces del pie de página">
+          <ul className="flex flex-wrap items-center justify-center gap-6 list-none m-0 p-0">
+            <li>
+              <Link
+                href="/cv"
+                className="text-sm font-medium text-[var(--dim)] hover:text-[var(--text)] transition-colors"
+              >
+                {t.nav.cv}
+              </Link>
+            </li>
             <li>
               <Link
                 href="https://github.com/BrianTz79"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+                className="text-[var(--dim)] hover:text-[var(--text)] transition-colors"
                 aria-label="GitHub de Brian Tellez - Repositorios y código fuente"
                 title="GitHub de Brian Tellez"
               >
@@ -29,7 +37,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/brian-tellez-8b67b0359/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-500 transition-colors"
+                className="text-[var(--dim)] hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
                 aria-label="LinkedIn de Brian Tellez - Perfil profesional e Ingeniero en Sistemas Computacionales"
                 title="LinkedIn de Brian Tellez"
               >
@@ -41,7 +49,7 @@ export default function Footer() {
                 href="https://www.instagram.com/brian.tz97/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-zinc-500 hover:text-pink-600 dark:text-zinc-400 dark:hover:text-pink-500 transition-colors"
+                className="text-[var(--dim)] hover:text-pink-600 dark:hover:text-pink-500 transition-colors"
                 aria-label="Instagram de Brian Tellez - Setup y vida personal"
                 title="Instagram de Brian Tellez"
               >
@@ -51,7 +59,7 @@ export default function Footer() {
             <li>
               <Link
                 href="mailto:brian.tellez79@gmail.com"
-                className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white transition-colors"
+                className="text-[var(--dim)] hover:text-[var(--text)] transition-colors"
                 aria-label="Enviar correo a Brian Tellez - brian.tellez79@gmail.com"
                 title="Correo de Brian Tellez"
               >
@@ -60,7 +68,7 @@ export default function Footer() {
             </li>
           </ul>
         </nav>
-        <p className="text-sm text-zinc-500 dark:text-zinc-400 text-center font-medium">
+        <p className="text-sm text-[var(--dim)] text-center font-medium">
           {t.footer.text}
         </p>
       </div>

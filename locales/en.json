@@ -4,13 +4,25 @@
     "home": "Home",
     "about": "About Me",
     "projects": "Projects",
-    "contact": "Contact"
+    "contact": "Contact",
+    "cv": "CV"
   },
   "hero": {
     "title": "Brian Tellez",
-    "subtitle": "Computer Systems Engineer | Full Stack & DevOps Explorer",
-    "view_projects": "View Projects",
-    "contact": "Contact Me"
+    "titular": "I build and operate the whole stack.",
+    "subtitular": "From the hardware up to the frontend.",
+    "ubicacion": "Tijuana · ITT, 9th semester",
+    "view_projects": "View projects",
+    "contact": "Get in touch",
+    "cv": "View CV"
+  },
+  "infra": {
+    "titulo": "ourocore-server",
+    "specs": "Ryzen 5 9600X · 64 GB DDR5 · Ubuntu Server",
+    "activos": "services responding",
+    "verificado": "Checked at last deployment",
+    "activo": "up",
+    "inactivo": "no response"
   },
   "ui": {
     "read_more": "Get to know me better",
@@ -40,7 +52,7 @@
   "about": {
     "title": "About Me",
     "description": [
-      "I am a passionate 8th-semester Computer Systems Engineering student at the Instituto Tecnológico de Tijuana (ITT). My vision of technology is not limited to writing code; I seek to understand and master the entire ecosystem, from the base hardware to cloud deployment. This curiosity drove me to design, assemble, and manage my own bare-metal server (homelab), which I use as my personal laboratory to master Fog Computing architectures, Docker orchestration, Linux systems administration, and network security.",
+      "I'm a 9th-semester Computer Systems Engineering student at Instituto Tecnológico de Tijuana, with a 93.64/100 cumulative average. My view of technology isn't limited to writing code: I want to understand the whole ecosystem, from hardware to deployment. That curiosity led me to design, assemble and administer my own bare-metal server, which today hosts eight services in production and serves as my lab for Fog Computing, Docker orchestration, Linux administration and network security.",
       "I stand out for my capacity for self-directed learning and my focus on \"Deep Work\", which allows me to immerse myself in solving complex challenges during highly focused sessions. My short- and medium-term professional goal is to consolidate my profile as a DevOps and Full-Stack Engineer, mastering the development of scalable architectures.",
       "Currently, I am actively seeking a Junior-level job opportunity or professional internship where I can contribute my creativity, my problem-solving work ethic, and my adaptability, while continuing to learn from experienced teams to build solutions that generate real impact."
     ]
@@ -52,7 +64,7 @@
         "title": "Co-founder & Full-Stack Developer",
         "company": "OuroCore",
         "date": "Jun 2025 - Present",
-        "description": "Web development (HTML/CSS/Python), in-house hosting infrastructure on Raspberry Pi 5 with Cloudflare Tunnels, and IoT prototyping."
+        "description": "Full-stack web development and self-hosted infrastructure: bare-metal Ryzen 5 9600X server running Ubuntu Server, Docker and Cloudflare Tunnels, hosting eight services in production."
       },
       {
         "title": "Home Server Administrator",
@@ -70,13 +82,13 @@
         "title": "Computer Systems Engineering",
         "company": "Instituto Tecnológico de Tijuana (ITT)",
         "date": "In Progress",
-        "description": "Cumulative GPA: 9.1 / 10."
+        "description": "Cumulative average: 93.64 / 100. Currently in 9th semester, with professional residency scheduled."
       },
       {
         "title": "Architectural Drafting",
         "company": "Preparatoria Federal Lázaro Cárdenas",
         "date": "Graduated",
-        "description": "Final grade: 8.6 / 10."
+        "description": "Final average: 86 / 100. Graduated 2021."
       }
     ]
   },
@@ -85,23 +97,23 @@
     "categories": [
       {
         "name": "💻 Programming Languages",
-        "badges": ["Python", "C# (.NET)", "Kotlin", "JavaScript / TypeScript", "HTML / CSS", "Haskell", "Prolog"]
+        "badges": ["Python", "TypeScript / JavaScript", "C# (.NET)", "Kotlin", "Dart", "SQL", "HTML / CSS", "Haskell", "Prolog"]
       },
       {
         "name": "🌐 Web and Mobile Development",
-        "badges": ["React.js & Next.js", "Tailwind CSS", "FastAPI", "Node.js / Express", "Flutter", "WebSockets & REST APIs"]
+        "badges": ["React 19", "Next.js 16", "Astro", "Vite", "Tailwind CSS 4", "React Native / Expo", "Flutter", "Electron", "Zustand", "FastAPI", "Node.js / Express", "WebSockets", "WebRTC", "REST APIs"]
       },
       {
         "name": "🗄️ Databases",
-        "badges": ["PostgreSQL", "MongoDB", "Firebase Realtime Database"]
+        "badges": ["PostgreSQL", "MongoDB", "Prisma", "Drizzle ORM", "Firebase Realtime Database", "ChromaDB"]
       },
       {
         "name": "⚙️ Infrastructure, Networking & Admin.",
-        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Network Config (Samba, FTP, SSH)", "Cloudflare Tunnels (Zero Trust)", "Nginx", "Git & GitHub"]
+        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Nginx", "Cloudflare Tunnels (Zero Trust)", "systemd", "Git & GitHub", "Networking (SSH, Samba, FTP)"]
       },
       {
         "name": "🔌 Hardware and IoT",
-        "badges": ["Custom Server Assembly (Bare-Metal)", "Raspberry Pi", "Arduino, ESP32", "Fog Computing Architecture"]
+        "badges": ["Bare-metal server assembly", "Raspberry Pi 5", "Arduino / ESP32", "Fog Computing Architecture"]
       },
       {
         "name": "🎨 Creativity and 3D Design",
@@ -112,8 +124,12 @@
         "badges": ["Visual Studio 2022", "VS Code", "Android Studio", "Godot Engine 4.5", "Windows Environments", "Microsoft Office"]
       },
       {
+        "name": "🤖 AI and Data",
+        "badges": ["RAG", "Embeddings", "Whisper (ASR)", "TTS", "LLMs (Ollama, Llama 3)", "Data evaluation and annotation"]
+      },
+      {
         "name": "🗣️ Languages",
-        "badges": ["Spanish: Native (Oral and Written)", "English: Basic / Technical (Oral and Written)"]
+        "badges": ["Spanish: Native (Oral and Written)", "English: B1 — advanced technical reading and comprehension"]
       },
       {
         "name": "🧠 Soft Skills",
@@ -178,12 +194,13 @@
     },
     "portfolio": {
       "name": "Web Portfolio (This Site)",
-      "status": "Current Project (Apr 2026)",
+      "status": "Redesigned (Sept 2026)",
       "description": "Interactive One-Pager developed implementing modern UI/UX practices, dynamic themes, and native i18n without SSG dependencies."
     }
   },
   "homelab_details": {
     "title": "Homelab and Infrastructure",
+    "subtitle": "A bare-metal server of my own for real-world testing and container orchestration",
     "status": "Maintained since August 2025",
     "back": "Back to Portfolio",
     "description_title": "Description & Objectives",
@@ -322,6 +339,7 @@
   },
   "iris_details": {
     "title": "IRIS Platform",
+    "subtitle": "Private virtual library with a digital economy and multiplayer casino",
     "status": "Continuous Development (Started: Sept 2025)",
     "back": "Back to Portfolio",
     "description_title": "Description & Objectives",
@@ -471,6 +489,7 @@
   },
   "sgv_details": {
     "title": "Housing Management System",
+    "subtitle": "Multi-tenant SaaS for financial administration of residential areas",
     "status": "In Development (December 2025)",
     "back": "Back to Portfolio",
     "description_title": "Project Description",
@@ -507,6 +526,7 @@
   },
   "clips_details": {
     "title": "ClipsBanana",
+    "subtitle": "Self-hosted video game clip streaming with AI-driven cataloging",
     "status": "In Development (December 2025)",
     "back": "Back to Portfolio",
     "description_title": "General Overview",
@@ -538,6 +558,7 @@
   },
   "ourocore_details": {
     "title": "OuroCore Web",
+    "subtitle": "Static corporate site deployed under Nginx Alpine",
     "status": "In Development (September 2025)",
     "back": "Back to Portfolio",
     "description_title": "General Overview",
@@ -569,6 +590,7 @@
   },
   "bots_details": {
     "title": "Discord Ecosystem",
+    "subtitle": "Live audio orchestration for voice chats via OAuth2",
     "status": "Continuous Maintenance (December 2025)",
     "back": "Back to Portfolio",
     "description_title": "TellezSound and Hybrid Mods",
@@ -600,18 +622,20 @@
   },
   "portafolio_details": {
     "title": "Web Personal Portfolio",
-    "status": "Current Version (April 2026)",
+    "subtitle": "Interactive app with React Server Components exported to static HTML/CSS",
+    "status": "Current version (September 2026)",
     "back": "Back to Portfolio",
     "description_title": "About This Platform",
     "description": "Building this site meant going far beyond a simple web template. Natively designed as an interactive App under React Server Components emitting pure HTML/CSS, it represents a structured manifestation of my capabilities as a Full-Stack Developer.",
     "stack_title": "Tech Stack",
     "stack": [
-      "Next.js 14 (SSG)",
-      "Tailwind CSS v4",
+      "Next.js 16 (SSG)",
+      "React 19",
+      "Tailwind CSS 4",
       "React Context (i18n)",
       "next-themes",
       "Docker Compose",
-      "Nginx Server"
+      "Nginx"
     ],
     "architecture_title": "Engineering Solutions",
     "architecture_items": [
@@ -661,6 +685,7 @@
 
     "connection_title": "Direct P2P Connection",
     "connection_body": "SDP/ICE signaling goes through our own server via Cloudflare Tunnel. Once the connection is established, video and all events travel P2P directly between the two clients — without passing through any server. Content is never stored or logged. The Socket.io client uses upgrade: false to stay on HTTP polling, preventing Cloudflare from dropping events during the WebSocket upgrade.",
+    "diagrama": "[User A]                                  [User B]\n  App ──────── Socket.io (signaling) ─────────── App\n\n       ◄──────────── WebRTC P2P ───────────────►\n              (video + direct events)",
 
     "platforms_title": "Platforms",
     "platforms": [
@@ -702,6 +727,134 @@
       { "phase": "Next", "desc": "Hand-drawn pets — the architecture already supports PNG instead of CSS emojis." },
       { "phase": "Future", "desc": "TURN server for restrictive NATs that block the direct P2P connection." }
     ]
+  },
+  "notecore_details": {
+    "title": "NoteCore",
+    "subtitle": "The core of your academic life",
+    "status": "In production · Play Store ready",
+    "back": "Back to projects",
+    "website_btn": "Open NoteCore",
+    "repo_btn": "View code",
+    "description_title": "The problem",
+    "description": "Students fail courses by racking up absences without noticing, and keep their assignments in scattered notes disconnected from their actual class schedule. NoteCore brings both together, with the schedule as the backbone.",
+    "features_title": "What it does",
+    "features": [
+      "Visual schedule, entered by hand or imported from a photo processed by AI",
+      "Absence tracking with a suggested limit based on the 80% attendance rule",
+      "Assignment and exam planner, linked to a course or standalone",
+      "Calendar combining classes and due dates in a single view",
+      "Reminders before each deadline and a heads-up before each class",
+      "Share schedules and activities by QR, code or link",
+      "Semesters and trimesters with a browsable archive",
+      "Offline access to everything already loaded"
+    ],
+    "architecture_title": "How it's built",
+    "architecture_items": [
+      { "name": "A single source of truth", "desc": "All business logic lives in the API. Clients never duplicate it, so app and web can't drift apart." },
+      { "name": "Three-layer monorepo", "desc": "Android app in React Native with Expo, web in Next.js 16 and API in Fastify, sharing types and utilities in strict TypeScript." },
+      { "name": "Native widgets", "desc": "A family of seven home-screen widgets written in Kotlin that refresh on their own without opening the app." },
+      { "name": "Shared design system", "desc": "Web and app derive their colors and spacing from the same tokens, so they read as one product." }
+    ],
+    "highlight_title": "The hardest part",
+    "highlight": "Verifying every feature on both platforms before calling it done. A phase doesn't close until it's checked on a real Android emulator and a real browser, marking on one and reading on the other.",
+    "stack_title": "Stack"
+  },
+  "zaga_details": {
+    "title": "ZAGA Distribuciones",
+    "subtitle": "Corporate site for a real client",
+    "status": "In production · Active client",
+    "back": "Back to projects",
+    "website_btn": "Visit the site",
+    "description_title": "The brief",
+    "description": "An electrical supply distributor in Tampico needed an online presence with a brand catalog and direct contact. The site had to load fast on any connection and work in Spanish and English.",
+    "features_title": "What it includes",
+    "features": [
+      "Brand catalog with category filters",
+      "Bilingual site with language-annotated sitemap",
+      "Color and typography presets the client can switch between",
+      "Contact form with a direct WhatsApp link",
+      "Technical SEO and structured business data"
+    ],
+    "architecture_title": "Technical decisions",
+    "architecture_items": [
+      { "name": "Genuinely static", "desc": "Static generation with Astro: zero JavaScript on pages that don't need it, and load times that don't depend on a server." },
+      { "name": "Self-hosted fonts", "desc": "Downloaded and bundled at build time, so production makes no third-party requests at all." },
+      { "name": "Deployed at the edge", "desc": "Cloudflare Pages serves the site from the global network, with no infrastructure to maintain." }
+    ],
+    "highlight_title": "What I learned",
+    "highlight": "Working with a real client changes the priorities. It doesn't matter how elegant the solution is if the business owner can't update their brands without calling me.",
+    "stack_title": "Stack"
+  },
+  "wander_details": {
+    "title": "Wander",
+    "subtitle": "Your identity as a player, in a single link",
+    "status": "In production",
+    "back": "Back to projects",
+    "website_btn": "Open Wander",
+    "description_title": "The idea",
+    "description": "Something like a professional profile for gamers: instead of work experience, the games you play, your hours, your achievements and your profiles on each platform, all on one page you share with a link.",
+    "features_title": "What it does",
+    "features": [
+      "Data pulls itself in: link Steam and your games and hours appear without typing anything",
+      "Block-based profile you can add to, remove from and reorder",
+      "Full theme control, down to your own CSS scoped to your profile",
+      "Real social features: follow people, activity feed, comments and group messaging",
+      "Interface in Spanish and English"
+    ],
+    "architecture_title": "Technical decisions",
+    "architecture_items": [
+      { "name": "Sessions that can't be stolen", "desc": "Passwords with argon2id and sessions in httpOnly cookies with refresh token rotation, plus rate limiting in two layers." },
+      { "name": "User CSS, with a safety net", "desc": "People who know CSS can write their own, but it's sanitized and scoped so it can't escape their own profile." },
+      { "name": "Explicit privacy", "desc": "Each linked account states what it reads and what it stores, with granular permissions and unlinking that genuinely deletes." }
+    ],
+    "highlight_title": "The challenge",
+    "highlight": "Making sure linking Steam didn't create a second account when the user already had one. Solving it meant rethinking how identities from different providers merge onto one person.",
+    "stack_title": "Stack"
+  },
+  "shokan_details": {
+    "title": "Shokan",
+    "subtitle": "Calling the group to play, with one button",
+    "status": "In production · Web and Android",
+    "back": "Back to projects",
+    "website_btn": "Open Shokan",
+    "description_title": "The problem",
+    "description": "Getting the group together to play meant tagging everyone on WhatsApp and waiting. Shokan reduces it to a button: someone taps it and everyone else's phone rings.",
+    "features_title": "What it does",
+    "features": [
+      "Groups with a six-character code, no email required",
+      "Each group sets its own game, icon and alert sound",
+      "Real push notifications, even with the app closed",
+      "Installable from the browser, plus a native Android app",
+      "A fixed group message, or whatever the sender writes"
+    ],
+    "architecture_title": "Technical decisions",
+    "architecture_items": [
+      { "name": "Push without Firebase", "desc": "Notifications using the Web Push standard with our own VAPID keys, depending on neither Google's services nor their quotas." },
+      { "name": "Two clients, one backend", "desc": "The server tells whether a request comes from a browser or the native app, and delivers the notification through the right channel." },
+      { "name": "Migration without downtime", "desc": "When moving domains, the tunnel served both hostnames at once so nobody lost access mid-way." }
+    ],
+    "highlight_title": "What I learned",
+    "highlight": "That browsers isolate by origin. When you change domains, neither the session nor the push subscriptions carry over: you have to say so clearly or people think the app broke.",
+    "stack_title": "Stack"
+  },
+  "cv": {
+    "title": "Résumé",
+    "descargar": "Download PDF",
+    "actualizado": "Updated September 2026",
+    "perfil_title": "Profile",
+    "perfil": "Ninth-semester Computer Systems Engineering student with a 93.64/100 average and more than ten personal projects in production, from full-stack web applications to AI systems and self-hosted infrastructure. I cover the whole cycle: I design and assemble the server hardware, administer the Linux system, containerize the application, expose it securely and write both backend and frontend. I'm looking for a professional residency or a junior position where I can bring that end-to-end execution.",
+    "educacion_title": "Education",
+    "educacion": [
+      { "titulo": "Computer Systems Engineering", "lugar": "Instituto Tecnológico de Tijuana", "fecha": "9th semester, in progress", "detalle": "Cumulative average 93.64/100. Professional residency scheduled." },
+      { "titulo": "Architectural Drafting", "lugar": "Preparatoria Federal Lázaro Cárdenas", "fecha": "2021", "detalle": "Final average 86/100." }
+    ],
+    "idiomas_title": "Languages",
+    "idiomas": [
+      { "idioma": "Spanish", "nivel": "Native, spoken and written" },
+      { "idioma": "English", "nivel": "B1 — advanced technical reading and comprehension, speaking in development" }
+    ],
+    "personales_title": "Personal skills",
+    "personales": "Self-directed learning · Deep work · Creative problem solving · Critical thinking · Adaptability · Teamwork · Running projects end to end"
   },
   "footer": {
     "text": "© 2026 Brian Tellez. All rights reserved."
