@@ -158,7 +158,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="min-h-screen bg-background text-foreground antialiased flex flex-col">
+      <body className="min-h-screen antialiased flex flex-col">
         <I18nProvider>
           <ThemeProvider
             attribute="class"
