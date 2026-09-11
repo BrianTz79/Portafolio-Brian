@@ -140,6 +140,12 @@
       "status": "Continuous Development",
       "description": "Private comprehensive web platform integrating gamification and interactive multiplayer library features.",
       "view_more": "Explore IRIS"
+    },
+    "koko": {
+      "name": "Koko",
+      "status": "Version 0.9.0 — Actively Used",
+      "description": "Co-presence desktop app for couples and friends apart. A transparent pet that lives on the other person's screen, connected P2P in real time.",
+      "view_more": "Meet Koko"
     }
   },
   "general_projects": {
@@ -202,6 +208,7 @@
     "subtitle": "AI-Powered Interactive Kiosk — Instituto Tecnológico de Tijuana",
     "status": "Active Development (Started: Feb 2026)",
     "back": "Back to Portfolio",
+    "github_btn": "View Source Code",
     "team": "Brian Tellez & Fernando Urrea",
     "context_label": "Institutional Context",
 
@@ -620,6 +627,80 @@
         "name": "Multi-Page Architecture",
         "desc": "Organic scalability adapting the nested router to display enriched profiles for each project without slowing down the main root render."
       }
+    ]
+  },
+  "koko_details": {
+    "title": "Koko",
+    "subtitle": "Desktop Companion · Co-presence at a Distance",
+    "status": "Version 0.9.0 — Actively Used",
+    "back": "Back to Portfolio",
+    "website_btn": "Visit koko.ourocore.net",
+    "download_btn": "Download",
+
+    "origin_title": "The Origin",
+    "origin_body": "A friend wanted a way to feel close to someone special while working apart — without opening a chat, without starting a video call, without interrupting. Just... being there. That conversation gave birth to Koko: a small pet that lives transparently on the other person's desktop. The name comes from Kokoro (心) — heart in Japanese.",
+
+    "what_title": "What is Koko?",
+    "what_body": "Koko is a co-presence desktop application for couples, friends, and family at a distance. Two people connect with a 6-character code and each controls a pet that appears on the other's screen: transparent, always-on-top, without covering their work. It's not a productivity tool. It doesn't replace a chat. It's shared presence — the feeling that someone is there while each person goes about their day.",
+
+    "features_title": "What they can do together",
+    "features": [
+      { "name": "Shared Avatar", "desc": "Move the pet across the other person's screen by clicking and dragging, or with keyboard arrows." },
+      { "name": "Bubble Messages", "desc": "Send messages that float above the pet for a few seconds, without interrupting." },
+      { "name": "Sticky Notes", "desc": "Leave notes that stay on the other person's screen until they close them manually." },
+      { "name": "Images & GIFs", "desc": "Share images that appear floating large directly on the desktop." },
+      { "name": "Miniature Screen View", "desc": "See the other person's screen in real time to know where the pet is and what they're doing." },
+      { "name": "Five Avatars", "desc": "Turtle, chick, rabbit, kitten, and frog — each with its own CSS animations and AFK mode." }
+    ],
+
+    "design_title": "The Key Design Decision",
+    "design_body": "The most counterintuitive detail of the project: your avatar lives on the other person's screen, not yours. When you move the pet or send a message, the event travels across the network and renders in your companion's overlay. You see the result through their screen's video feed — there's inherent latency, and that's part of the shared experience.",
+
+    "overlay_title": "Transparent Overlay Window",
+    "overlay_body": "The Electron window is completely transparent, frameless, always-on-top, and click-through (setIgnoreMouseEvents). It lives above everything else on the screen without interrupting work. Avatars and bubbles are rendered in pure CSS with keyframes — PixiJS/WebGL was discarded because WebGL doesn't work in transparent Electron windows on Windows.",
+
+    "connection_title": "Direct P2P Connection",
+    "connection_body": "SDP/ICE signaling goes through our own server via Cloudflare Tunnel. Once the connection is established, video and all events travel P2P directly between the two clients — without passing through any server. Content is never stored or logged. The Socket.io client uses upgrade: false to stay on HTTP polling, preventing Cloudflare from dropping events during the WebSocket upgrade.",
+
+    "platforms_title": "Platforms",
+    "platforms": [
+      { "name": "Windows 10/11", "desc": "Silent NSIS installer, per-user installation (no UAC). Background auto-update with a subtle header notification." },
+      { "name": "Linux x64", "desc": "Portable AppImage — no installation needed. Forces X11 for transparent overlay in Wayland environments (via XWayland). Compatible with Ubuntu, Fedora, Arch, and derivatives." }
+    ],
+
+    "pride_title": "Details I'm proud of",
+    "pride_items": [
+      { "name": "No account, no registration", "desc": "Just a 6-character code. They exchange it once and stay connected." },
+      { "name": "Zero content storage", "desc": "Messages, notes, images, and video go P2P and never touch any server." },
+      { "name": "Transparent auto-update", "desc": "electron-updater with a self-hosted feed: users always have the latest version without visiting any website." },
+      { "name": "AFK Mode", "desc": "If no one moves the pet, the turtle retreats into its shell; others show 💤. A silent signal of presence or absence." }
+    ],
+
+    "stack_title": "Tech Stack",
+    "stack_categories": [
+      {
+        "name": "Desktop",
+        "items": ["Electron 39", "electron-vite 5", "React 19", "TypeScript"]
+      },
+      {
+        "name": "Networking & P2P",
+        "items": ["Native WebRTC (RTCPeerConnection)", "Socket.io (signaling)", "HTTP Polling (no WS upgrade)"]
+      },
+      {
+        "name": "Distribution",
+        "items": ["electron-builder (NSIS / AppImage)", "electron-updater", "Self-hosted feed with Range Requests"]
+      },
+      {
+        "name": "Infrastructure",
+        "items": ["Node.js (signaling server)", "Cloudflare Tunnel", "Nginx · Docker", "Static HTML/CSS/JS website"]
+      }
+    ],
+
+    "roadmap_title": "Status & Next Steps",
+    "roadmap_items": [
+      { "phase": "Current", "desc": "Version 0.9.0 actively in use. Windows 10/11 and Linux x64 with all core features complete." },
+      { "phase": "Next", "desc": "Hand-drawn pets — the architecture already supports PNG instead of CSS emojis." },
+      { "phase": "Future", "desc": "TURN server for restrictive NATs that block the direct P2P connection." }
     ]
   },
   "footer": {

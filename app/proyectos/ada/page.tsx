@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, Cpu, Server, Mic, MonitorPlay, Layers, Database, Clock } from "lucide-react";
+import Image from "next/image";
+import { ArrowLeft, Code2, Cpu, Server, Mic, Layers, Database, Clock } from "lucide-react";
 import { useTranslation } from "@/lib/i18n";
 
 export default function AdaPage() {
@@ -36,6 +37,17 @@ export default function AdaPage() {
             </span>
             <span className="text-sm text-zinc-400 dark:text-zinc-500">{data.team}</span>
           </div>
+          <div className="flex flex-wrap gap-3 mt-2">
+            <a
+              href="https://github.com/BrianTz79/ADA"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-zinc-800 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-white rounded-full text-sm font-semibold transition-colors"
+            >
+              <Code2 className="h-3.5 w-3.5" />
+              {data.github_btn}
+            </a>
+          </div>
         </div>
       </div>
 
@@ -67,11 +79,28 @@ export default function AdaPage() {
             </p>
           </section>
 
-          {/* Kiosk Screenshot Placeholder */}
+          {/* Kiosk Screenshot */}
           <section>
-            <div className="w-full aspect-video rounded-2xl border-2 border-dashed border-zinc-300 dark:border-zinc-700 bg-zinc-100 dark:bg-zinc-900 flex flex-col items-center justify-center gap-3 text-zinc-400 dark:text-zinc-600">
-              <MonitorPlay className="h-12 w-12" />
-              <span className="text-sm font-medium">Espacio para captura de pantalla del Kiosko</span>
+            <div className="w-full aspect-video rounded-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 shadow-sm relative">
+              <Image
+                src="/pantallaInicioADA.png"
+                alt="Pantalla de inicio del Kiosko ADA"
+                fill
+                className="object-cover"
+              />
+            </div>
+          </section>
+
+          {/* Canva Slides */}
+          <section>
+            <div style={{ position: "relative", width: "100%", height: 0, paddingTop: "56.25%", boxShadow: "0 2px 8px 0 rgba(63,69,81,0.16)", marginTop: "1.6em", marginBottom: "0.9em", overflow: "hidden", borderRadius: "8px", willChange: "transform" }}>
+              <iframe
+                loading="lazy"
+                style={{ position: "absolute", width: "100%", height: "100%", top: 0, left: 0, border: "none", padding: 0, margin: 0 }}
+                src="https://www.canva.com/design/DAHEzUk5yVA/2mTH8aQ-tKncIRvypHVBuw/view?embed"
+                allowFullScreen
+                allow="fullscreen"
+              />
             </div>
           </section>
 
@@ -242,6 +271,19 @@ export default function AdaPage() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* GitHub Link */}
+            <div className="flex flex-col gap-3">
+              <a
+                href="https://github.com/BrianTz79/ADA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-zinc-800 hover:bg-zinc-700 dark:bg-zinc-700 dark:hover:bg-zinc-600 text-white rounded-xl text-sm font-semibold transition-colors"
+              >
+                <Code2 className="h-4 w-4" />
+                {data.github_btn}
+              </a>
             </div>
 
           </div>

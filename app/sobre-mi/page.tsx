@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
-import { User, Code2, Terminal, Server } from "lucide-react";
+import { Code2, Terminal, Server } from "lucide-react";
+
 
 export default function SobreMiPage() {
   const { t } = useTranslation();
@@ -21,10 +23,13 @@ export default function SobreMiPage() {
           
           {/* Avatar Placeholder */}
           <div className="w-full max-w-sm lg:w-1/3 flex flex-col items-center">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-xl flex items-center justify-center relative overflow-hidden group">
-              {/* This is the placeholder, the user can replace it with an img tag later */}
-              <User className="w-32 h-32 text-zinc-300 dark:text-zinc-700 group-hover:scale-110 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-zinc-200 dark:border-zinc-800 shadow-xl relative overflow-hidden">
+              <Image
+                src="/BrianTellez.jpg"
+                alt="Brian Tellez"
+                fill
+                className="object-cover"
+              />
             </div>
             
             {/* Quick Badges below photo */}

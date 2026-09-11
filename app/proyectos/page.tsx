@@ -60,7 +60,7 @@ export default function ProyectosPage() {
     );
   };
 
-  const featuredProjects = ["homelab", "ada", "iris"];
+  const featuredProjects = ["homelab", "ada", "iris", "koko"];
   const generalProjects = ["sgv", "clips", "ourocore", "bots", "kanua", "portfolio"];
 
   return (

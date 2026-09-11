@@ -140,6 +140,12 @@
       "status": "En Desarrollo Continuo",
       "description": "Plataforma web integral de gamificación y biblioteca interactiva multijugador.",
       "view_more": "Explorar IRIS"
+    },
+    "koko": {
+      "name": "Koko",
+      "status": "Versión 0.9.0 — En Uso Activo",
+      "description": "Aplicación de co-presencia para parejas y amigos a distancia. Una mascota transparente que vive sobre el escritorio del otro, conectadas P2P en tiempo real.",
+      "view_more": "Conocer Koko"
     }
   },
   "general_projects": {
@@ -202,6 +208,7 @@
     "subtitle": "Kiosco Interactivo con IA — Instituto Tecnológico de Tijuana",
     "status": "En Desarrollo Activo (Inicio: Febrero 2026)",
     "back": "Volver al Portafolio",
+    "github_btn": "Ver Código Fuente",
     "team": "Brian Tellez & Fernando Urrea",
     "context_label": "Contexto Institucional",
 
@@ -620,6 +627,80 @@
         "name": "Arquitectura Multi-Page",
         "desc": "Escalabilidad orgánica implementada adaptando el enrutador anidado para desplegar perfiles enriquecidos de cada proyecto sin saturar ni ralentizar el render base principal."
       }
+    ]
+  },
+  "koko_details": {
+    "title": "Koko",
+    "subtitle": "Compañía de Escritorio · Co-presencia a Distancia",
+    "status": "Versión 0.9.0 — En Uso Activo",
+    "back": "Volver al Portafolio",
+    "website_btn": "Visitar koko.ourocore.net",
+    "download_btn": "Descargar",
+
+    "origin_title": "El Origen",
+    "origin_body": "Un amigo quería sentirse cerca de alguien especial mientras trabajaban a la distancia — sin abrir un chat, sin hacer una videollamada, sin interrumpir. Solo estar ahí. De esa conversación nació Koko: una pequeña mascota que vive de forma transparente sobre el escritorio de otra persona. El nombre viene de Kokoro (心) — corazón en japonés.",
+
+    "what_title": "¿Qué es Koko?",
+    "what_body": "Koko es una aplicación de escritorio de co-presencia para parejas, amigos y familiares a distancia. Dos personas se conectan con un código de 6 caracteres y cada una controla una mascota que aparece sobre la pantalla del otro: transparente, always-on-top, sin tapar el trabajo. No es una herramienta de productividad. No reemplaza a un chat. Es presencia compartida — la sensación de que alguien está ahí mientras cada quien hace lo suyo.",
+
+    "features_title": "Qué pueden hacer juntos",
+    "features": [
+      { "name": "Avatar Compartido", "desc": "Mueve la mascota por la pantalla del otro con clic y arrastre o con las flechas del teclado." },
+      { "name": "Mensajes en Burbuja", "desc": "Envía mensajes que aparecen flotando sobre la mascota durante unos segundos, sin interrumpir." },
+      { "name": "Notas Adhesivas", "desc": "Deja notas que se quedan en la pantalla hasta que el otro las cierre manualmente." },
+      { "name": "Imágenes y GIFs", "desc": "Comparte imágenes que aparecen flotando en grande directamente sobre el escritorio." },
+      { "name": "Vista en Miniatura", "desc": "Ve la pantalla del otro en tiempo real para saber dónde está la mascota y qué está haciendo." },
+      { "name": "Cinco Avatares", "desc": "Tortuga, pollito, conejo, gatito y ranita — cada uno con animaciones CSS propias y modo AFK." }
+    ],
+
+    "design_title": "La Decisión de Diseño Clave",
+    "design_body": "El detalle más contraintuitivo del proyecto: tu avatar vive en la pantalla del otro, no en la tuya. Cuando mueves la mascota o mandas un mensaje, el evento viaja por la red y se renderiza en el overlay del compañero. Tú ves el resultado por el video feed de su pantalla — hay latencia inherente, y eso forma parte de la experiencia compartida.",
+
+    "overlay_title": "Ventana Overlay Transparente",
+    "overlay_body": "La ventana de Electron es completamente transparente, sin frame, always-on-top y con click-through (setIgnoreMouseEvents). Vive sobre todo lo demás sin interrumpir el trabajo. Los avatares y burbujas se renderizan en CSS puro con keyframes — PixiJS/WebGL fue descartado porque WebGL no funciona en ventanas transparentes de Electron en Windows.",
+
+    "connection_title": "Conexión P2P Directa",
+    "connection_body": "La señalización SDP/ICE pasa por el servidor propio vía Cloudflare Tunnel. Una vez establecida la conexión, el video y todos los eventos viajan P2P directo entre los dos clientes — sin pasar por ningún servidor. El contenido nunca se almacena ni se registra. El cliente de Socket.io usa upgrade: false para mantenerse en HTTP polling, evitando que Cloudflare dropee eventos durante el upgrade a WebSocket.",
+
+    "platforms_title": "Plataformas",
+    "platforms": [
+      { "name": "Windows 10/11", "desc": "Instalador NSIS silencioso, instalación por usuario (sin UAC). Auto-update en segundo plano con aviso discreto en el header." },
+      { "name": "Linux x64", "desc": "AppImage portátil — ejecutable sin instalación. Fuerza X11 para overlay transparente en entornos Wayland (via XWayland). Compatible con Ubuntu, Fedora, Arch y derivados." }
+    ],
+
+    "pride_title": "Detalles que me enorgullecen",
+    "pride_items": [
+      { "name": "Sin cuenta, sin registro", "desc": "Solo un código de 6 caracteres. Los intercambian una vez y quedan conectados." },
+      { "name": "Cero almacenamiento de contenido", "desc": "Mensajes, notas, imágenes y video van P2P y nunca tocan ningún servidor." },
+      { "name": "Auto-update transparente", "desc": "electron-updater con feed self-hosted: los usuarios siempre tienen la versión más reciente sin visitar ninguna web." },
+      { "name": "Modo AFK", "desc": "Si nadie mueve la mascota, la tortuga se mete en su caparazón; los demás muestran 💤. Una señal silenciosa de presencia/ausencia." }
+    ],
+
+    "stack_title": "Stack Tecnológico",
+    "stack_categories": [
+      {
+        "name": "Escritorio",
+        "items": ["Electron 39", "electron-vite 5", "React 19", "TypeScript"]
+      },
+      {
+        "name": "Red & P2P",
+        "items": ["WebRTC nativo (RTCPeerConnection)", "Socket.io (señalización)", "HTTP Polling (sin upgrade a WS)"]
+      },
+      {
+        "name": "Distribución",
+        "items": ["electron-builder (NSIS / AppImage)", "electron-updater", "Feed self-hosted con Range Requests"]
+      },
+      {
+        "name": "Infraestructura",
+        "items": ["Node.js (servidor de señalización)", "Cloudflare Tunnel", "Nginx · Docker", "Sitio web HTML/CSS/JS estático"]
+      }
+    ],
+
+    "roadmap_title": "Estado y Próximos Pasos",
+    "roadmap_items": [
+      { "phase": "Actual", "desc": "Versión 0.9.0 en uso activo. Windows 10/11 y Linux x64 con todas las funciones principales completas." },
+      { "phase": "Próximo", "desc": "Mascotas dibujadas a mano — la arquitectura ya soporta PNG en lugar de emojis CSS." },
+      { "phase": "Futuro", "desc": "TURN server para NATs restrictivos que bloqueen la conexión P2P directa." }
     ]
   },
   "footer": {
