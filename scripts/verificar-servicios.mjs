@@ -30,12 +30,18 @@ async function comprobar({ nombre, url }) {
 const servicios = await Promise.all(DOMINIOS.map(comprobar));
 const activos = servicios.filter((s) => s.estado === "activo").length;
 
-mkdirSync("data", { recursive: true });
-writeFileSync(
-  "data/servicios.json",
-  JSON.stringify({ verificadoEn: new Date().toISOString(), servicios }, null, 2)
-);
+try {
+  mkdirSync("data", { recursive: true });
+  writeFileSync(
+    "data/servicios.json",
+    JSON.stringify({ verificadoEn: new Date().toISOString(), servicios }, null, 2)
+  );
+  console.log(`Servicios verificados: ${activos}/${servicios.length} activos.`);
+} catch (error) {
+  // Escribir el estado es lo unico que puede fallar aqui, y no vale tumbar el
+  // despliegue por eso: el build sigue, sin panel actualizado.
+  console.error(`No se pudo escribir data/servicios.json: ${error.message}`);
+}
 
-console.log(`Servicios verificados: ${activos}/${servicios.length} activos.`);
 // Nunca falla el build: un servicio caido se marca inactivo y ya.
 process.exit(0);
