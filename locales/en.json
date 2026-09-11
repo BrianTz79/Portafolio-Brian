@@ -40,7 +40,7 @@
   "about": {
     "title": "About Me",
     "description": [
-      "I am a passionate 8th-semester Computer Systems Engineering student at the Instituto Tecnológico de Tijuana (ITT). My vision of technology is not limited to writing code; I seek to understand and master the entire ecosystem, from the base hardware to cloud deployment. This curiosity drove me to design, assemble, and manage my own bare-metal server (homelab), which I use as my personal laboratory to master Fog Computing architectures, Docker orchestration, Linux systems administration, and network security.",
+      "I'm a 9th-semester Computer Systems Engineering student at Instituto Tecnológico de Tijuana, with a 93.64/100 cumulative average. My view of technology isn't limited to writing code: I want to understand the whole ecosystem, from hardware to deployment. That curiosity led me to design, assemble and administer my own bare-metal server, which today hosts eight services in production and serves as my lab for Fog Computing, Docker orchestration, Linux administration and network security.",
       "I stand out for my capacity for self-directed learning and my focus on \"Deep Work\", which allows me to immerse myself in solving complex challenges during highly focused sessions. My short- and medium-term professional goal is to consolidate my profile as a DevOps and Full-Stack Engineer, mastering the development of scalable architectures.",
       "Currently, I am actively seeking a Junior-level job opportunity or professional internship where I can contribute my creativity, my problem-solving work ethic, and my adaptability, while continuing to learn from experienced teams to build solutions that generate real impact."
     ]
@@ -52,7 +52,7 @@
         "title": "Co-founder & Full-Stack Developer",
         "company": "OuroCore",
         "date": "Jun 2025 - Present",
-        "description": "Web development (HTML/CSS/Python), in-house hosting infrastructure on Raspberry Pi 5 with Cloudflare Tunnels, and IoT prototyping."
+        "description": "Full-stack web development and self-hosted infrastructure: bare-metal Ryzen 5 9600X server running Ubuntu Server, Docker and Cloudflare Tunnels, hosting eight services in production."
       },
       {
         "title": "Home Server Administrator",
@@ -70,13 +70,13 @@
         "title": "Computer Systems Engineering",
         "company": "Instituto Tecnológico de Tijuana (ITT)",
         "date": "In Progress",
-        "description": "Cumulative GPA: 9.1 / 10."
+        "description": "Cumulative average: 93.64 / 100. Currently in 9th semester, with professional residency scheduled."
       },
       {
         "title": "Architectural Drafting",
         "company": "Preparatoria Federal Lázaro Cárdenas",
         "date": "Graduated",
-        "description": "Final grade: 8.6 / 10."
+        "description": "Final average: 86 / 100. Graduated 2021."
       }
     ]
   },
@@ -85,23 +85,23 @@
     "categories": [
       {
         "name": "💻 Programming Languages",
-        "badges": ["Python", "C# (.NET)", "Kotlin", "JavaScript / TypeScript", "HTML / CSS", "Haskell", "Prolog"]
+        "badges": ["Python", "TypeScript / JavaScript", "C# (.NET)", "Kotlin", "Dart", "SQL", "HTML / CSS", "Haskell", "Prolog"]
       },
       {
         "name": "🌐 Web and Mobile Development",
-        "badges": ["React.js & Next.js", "Tailwind CSS", "FastAPI", "Node.js / Express", "Flutter", "WebSockets & REST APIs"]
+        "badges": ["React 19", "Next.js 16", "Astro", "Vite", "Tailwind CSS 4", "React Native / Expo", "Flutter", "Electron", "Zustand", "FastAPI", "Node.js / Express", "WebSockets", "WebRTC", "REST APIs"]
       },
       {
         "name": "🗄️ Databases",
-        "badges": ["PostgreSQL", "MongoDB", "Firebase Realtime Database"]
+        "badges": ["PostgreSQL", "MongoDB", "Prisma", "Drizzle ORM", "Firebase Realtime Database", "ChromaDB"]
       },
       {
         "name": "⚙️ Infrastructure, Networking & Admin.",
-        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Network Config (Samba, FTP, SSH)", "Cloudflare Tunnels (Zero Trust)", "Nginx", "Git & GitHub"]
+        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Nginx", "Cloudflare Tunnels (Zero Trust)", "systemd", "Git & GitHub", "Networking (SSH, Samba, FTP)"]
       },
       {
         "name": "🔌 Hardware and IoT",
-        "badges": ["Custom Server Assembly (Bare-Metal)", "Raspberry Pi", "Arduino, ESP32", "Fog Computing Architecture"]
+        "badges": ["Bare-metal server assembly", "Raspberry Pi 5", "Arduino / ESP32", "Fog Computing Architecture"]
       },
       {
         "name": "🎨 Creativity and 3D Design",
@@ -112,8 +112,12 @@
         "badges": ["Visual Studio 2022", "VS Code", "Android Studio", "Godot Engine 4.5", "Windows Environments", "Microsoft Office"]
       },
       {
+        "name": "🤖 AI and Data",
+        "badges": ["RAG", "Embeddings", "Whisper (ASR)", "TTS", "LLMs (Ollama, Llama 3)", "Data evaluation and annotation"]
+      },
+      {
         "name": "🗣️ Languages",
-        "badges": ["Spanish: Native (Oral and Written)", "English: Basic / Technical (Oral and Written)"]
+        "badges": ["Spanish: Native (Oral and Written)", "English: B1 — advanced technical reading and comprehension"]
       },
       {
         "name": "🧠 Soft Skills",
@@ -178,7 +182,7 @@
     },
     "portfolio": {
       "name": "Web Portfolio (This Site)",
-      "status": "Current Project (Apr 2026)",
+      "status": "Redesigned (Sept 2026)",
       "description": "Interactive One-Pager developed implementing modern UI/UX practices, dynamic themes, and native i18n without SSG dependencies."
     }
   },
@@ -600,18 +604,19 @@
   },
   "portafolio_details": {
     "title": "Web Personal Portfolio",
-    "status": "Current Version (April 2026)",
+    "status": "Current version (September 2026)",
     "back": "Back to Portfolio",
     "description_title": "About This Platform",
     "description": "Building this site meant going far beyond a simple web template. Natively designed as an interactive App under React Server Components emitting pure HTML/CSS, it represents a structured manifestation of my capabilities as a Full-Stack Developer.",
     "stack_title": "Tech Stack",
     "stack": [
-      "Next.js 14 (SSG)",
-      "Tailwind CSS v4",
+      "Next.js 16 (SSG)",
+      "React 19",
+      "Tailwind CSS 4",
       "React Context (i18n)",
       "next-themes",
       "Docker Compose",
-      "Nginx Server"
+      "Nginx"
     ],
     "architecture_title": "Engineering Solutions",
     "architecture_items": [
