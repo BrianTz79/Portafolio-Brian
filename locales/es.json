@@ -8,9 +8,20 @@
   },
   "hero": {
     "title": "Brian Tellez",
-    "subtitle": "Ingeniero en Sistemas Computacionales | Full Stack & DevOps Explorer",
-    "view_projects": "Ver Proyectos",
-    "contact": "Contactar"
+    "titular": "Construyo y opero el stack completo.",
+    "subtitular": "Desde el hardware hasta el frontend.",
+    "ubicacion": "Tijuana · ITT, 9º semestre",
+    "view_projects": "Ver proyectos",
+    "contact": "Contactar",
+    "cv": "Ver CV"
+  },
+  "infra": {
+    "titulo": "ourocore-server",
+    "specs": "Ryzen 5 9600X · 64 GB DDR5 · Ubuntu Server",
+    "activos": "servicios respondiendo",
+    "verificado": "Verificado en el último despliegue",
+    "activo": "activo",
+    "inactivo": "sin respuesta"
   },
   "ui": {
     "read_more": "Conóceme mejor",
