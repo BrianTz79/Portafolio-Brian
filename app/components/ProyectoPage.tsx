@@ -157,12 +157,14 @@ export default function ProyectoPage({ slug }: { slug: string }) {
         </div>
       )}
 
-      <section className="mt-10">
-        <h2 className="font-display text-2xl font-semibold text-[var(--text)]">
-          {datos.description_title}
-        </h2>
-        <p className="mt-3 max-w-[65ch] leading-relaxed text-[var(--dim)]">{datos.description}</p>
-      </section>
+      {datos.description_title && datos.description && (
+        <section className="mt-10">
+          <h2 className="font-display text-2xl font-semibold text-[var(--text)]">
+            {datos.description_title}
+          </h2>
+          <p className="mt-3 max-w-[65ch] leading-relaxed text-[var(--dim)]">{datos.description}</p>
+        </section>
+      )}
 
       {/* Patrón 1: pares título + cuerpo (problema, solución, intérprete, origen, diseño, overlay, conexión, justificación, plan, orquestación...) */}
       {PARES_TEXTO.map(([claveTitulo, claveCuerpo]) => {
@@ -254,9 +256,11 @@ export default function ProyectoPage({ slug }: { slug: string }) {
       )}
 
       <section className="mt-10 border-t border-[var(--line)] pt-8">
-        <h2 className="font-mono text-sm uppercase tracking-wide text-[var(--dim)]">
-          {datos.stack_title}
-        </h2>
+        {datos.stack_title && (
+          <h2 className="font-mono text-sm uppercase tracking-wide text-[var(--dim)]">
+            {datos.stack_title}
+          </h2>
+        )}
         {Array.isArray(datos.stack_categories) && datos.stack_categories.length > 0 ? (
           <div className="mt-4 space-y-4">
             {datos.stack_categories.map((cat: CategoriaStack) => (
