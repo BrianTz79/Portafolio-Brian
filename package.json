@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "validar:locales": "node scripts/validar-locales.mjs",
-    "verificar:servicios": "node scripts/verificar-servicios.mjs"
+    "verificar:servicios": "node scripts/verificar-servicios.mjs",
+    "generar:cv": "node scripts/generar-cv-pdf.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.2",

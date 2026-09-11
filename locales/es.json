@@ -836,6 +836,25 @@
     "highlight": "Que el navegador aísla por origen. Al cambiar de dominio, ni la sesión ni las suscripciones de push se heredan: hay que avisarlo bien o la gente cree que la app se rompió.",
     "stack_title": "Stack"
   },
+  "cv": {
+    "title": "Currículum",
+    "descargar": "Descargar PDF",
+    "actualizado": "Actualizado en septiembre de 2026",
+    "perfil_title": "Perfil",
+    "perfil": "Estudiante de 9º semestre de Ingeniería en Sistemas Computacionales, con promedio de 93.64/100 y más de diez proyectos propios en producción, desde aplicaciones web full-stack hasta sistemas de IA e infraestructura autoalojada. Domino el ciclo completo: diseño y ensamblo el hardware del servidor, administro el sistema Linux, contenerizo la aplicación, la expongo de forma segura y escribo el backend y el frontend. Busco una residencia profesional o una posición junior donde aportar esta capacidad de ejecución de principio a fin.",
+    "educacion_title": "Educación",
+    "educacion": [
+      { "titulo": "Ingeniería en Sistemas Computacionales", "lugar": "Instituto Tecnológico de Tijuana", "fecha": "9º semestre en curso", "detalle": "Promedio acumulado 93.64/100. Residencia profesional programada." },
+      { "titulo": "Dibujo Arquitectónico", "lugar": "Preparatoria Federal Lázaro Cárdenas", "fecha": "2021", "detalle": "Promedio final 86/100." }
+    ],
+    "idiomas_title": "Idiomas",
+    "idiomas": [
+      { "idioma": "Español", "nivel": "Nativo, oral y escrito" },
+      { "idioma": "Inglés", "nivel": "B1 — lectura y comprensión técnica avanzada, producción oral en desarrollo" }
+    ],
+    "personales_title": "Competencias personales",
+    "personales": "Aprendizaje autónomo · Trabajo inmersivo · Resolución creativa de problemas · Pensamiento crítico · Adaptabilidad · Trabajo en equipo · Gestión de proyectos de principio a fin"
+  },
   "footer": {
     "text": "© 2026 Brian Tellez. Todos los derechos reservados."
   }

@@ -836,6 +836,25 @@
     "highlight": "That browsers isolate by origin. When you change domains, neither the session nor the push subscriptions carry over: you have to say so clearly or people think the app broke.",
     "stack_title": "Stack"
   },
+  "cv": {
+    "title": "Résumé",
+    "descargar": "Download PDF",
+    "actualizado": "Updated September 2026",
+    "perfil_title": "Profile",
+    "perfil": "Ninth-semester Computer Systems Engineering student with a 93.64/100 average and more than ten personal projects in production, from full-stack web applications to AI systems and self-hosted infrastructure. I cover the whole cycle: I design and assemble the server hardware, administer the Linux system, containerize the application, expose it securely and write both backend and frontend. I'm looking for a professional residency or a junior position where I can bring that end-to-end execution.",
+    "educacion_title": "Education",
+    "educacion": [
+      { "titulo": "Computer Systems Engineering", "lugar": "Instituto Tecnológico de Tijuana", "fecha": "9th semester, in progress", "detalle": "Cumulative average 93.64/100. Professional residency scheduled." },
+      { "titulo": "Architectural Drafting", "lugar": "Preparatoria Federal Lázaro Cárdenas", "fecha": "2021", "detalle": "Final average 86/100." }
+    ],
+    "idiomas_title": "Languages",
+    "idiomas": [
+      { "idioma": "Spanish", "nivel": "Native, spoken and written" },
+      { "idioma": "English", "nivel": "B1 — advanced technical reading and comprehension, speaking in development" }
+    ],
+    "personales_title": "Personal skills",
+    "personales": "Self-directed learning · Deep work · Creative problem solving · Critical thinking · Adaptability · Teamwork · Running projects end to end"
+  },
   "footer": {
     "text": "© 2026 Brian Tellez. All rights reserved."
   }
