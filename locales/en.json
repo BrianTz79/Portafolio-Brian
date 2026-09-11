@@ -96,44 +96,117 @@
     "title": "Skills and Tools",
     "categories": [
       {
-        "name": "💻 Programming Languages",
-        "badges": ["Python", "TypeScript / JavaScript", "C# (.NET)", "Kotlin", "Dart", "SQL", "HTML / CSS", "Haskell", "Prolog"]
+        "name": "Programming Languages",
+        "badges": [
+          "Python",
+          "TypeScript / JavaScript",
+          "C# (.NET)",
+          "Kotlin",
+          "Dart",
+          "SQL",
+          "HTML / CSS",
+          "Haskell",
+          "Prolog"
+        ]
       },
       {
-        "name": "🌐 Web and Mobile Development",
-        "badges": ["React 19", "Next.js 16", "Astro", "Vite", "Tailwind CSS 4", "React Native / Expo", "Flutter", "Electron", "Zustand", "FastAPI", "Node.js / Express", "WebSockets", "WebRTC", "REST APIs"]
+        "name": "Web and Mobile Development",
+        "badges": [
+          "React 19",
+          "Next.js 16",
+          "Astro",
+          "Vite",
+          "Tailwind CSS 4",
+          "React Native / Expo",
+          "Flutter",
+          "Electron",
+          "Zustand",
+          "FastAPI",
+          "Node.js / Express",
+          "WebSockets",
+          "WebRTC",
+          "REST APIs"
+        ]
       },
       {
-        "name": "🗄️ Databases",
-        "badges": ["PostgreSQL", "MongoDB", "Prisma", "Drizzle ORM", "Firebase Realtime Database", "ChromaDB"]
+        "name": "Databases",
+        "badges": [
+          "PostgreSQL",
+          "MongoDB",
+          "Prisma",
+          "Drizzle ORM",
+          "Firebase Realtime Database",
+          "ChromaDB"
+        ]
       },
       {
-        "name": "⚙️ Infrastructure, Networking & Admin.",
-        "badges": ["Ubuntu Server & Linux", "Docker & Docker Compose", "Nginx", "Cloudflare Tunnels (Zero Trust)", "systemd", "Git & GitHub", "Networking (SSH, Samba, FTP)"]
+        "name": "Infrastructure, Networking & Admin.",
+        "badges": [
+          "Ubuntu Server & Linux",
+          "Docker & Docker Compose",
+          "Nginx",
+          "Cloudflare Tunnels (Zero Trust)",
+          "systemd",
+          "Git & GitHub",
+          "Networking (SSH, Samba, FTP)"
+        ]
       },
       {
-        "name": "🔌 Hardware and IoT",
-        "badges": ["Bare-metal server assembly", "Raspberry Pi 5", "Arduino / ESP32", "Fog Computing Architecture"]
+        "name": "Hardware and IoT",
+        "badges": [
+          "Bare-metal server assembly",
+          "Raspberry Pi 5",
+          "Arduino / ESP32",
+          "Fog Computing Architecture"
+        ]
       },
       {
-        "name": "🎨 Creativity and 3D Design",
-        "badges": ["3D Modeling & Animation (Blender)", "3D Printing"]
+        "name": "Creativity and 3D Design",
+        "badges": [
+          "3D Modeling & Animation (Blender)",
+          "3D Printing"
+        ]
       },
       {
-        "name": "🛠️ Development Environments & Tools",
-        "badges": ["Visual Studio 2022", "VS Code", "Android Studio", "Godot Engine 4.5", "Windows Environments", "Microsoft Office"]
+        "name": "Development Environments & Tools",
+        "badges": [
+          "Visual Studio 2022",
+          "VS Code",
+          "Android Studio",
+          "Godot Engine 4.5",
+          "Windows Environments",
+          "Microsoft Office"
+        ]
       },
       {
-        "name": "🤖 AI and Data",
-        "badges": ["RAG", "Embeddings", "Whisper (ASR)", "TTS", "LLMs (Ollama, Llama 3)", "Data evaluation and annotation"]
+        "name": "AI and Data",
+        "badges": [
+          "RAG",
+          "Embeddings",
+          "Whisper (ASR)",
+          "TTS",
+          "LLMs (Ollama, Llama 3)",
+          "Data evaluation and annotation"
+        ]
       },
       {
-        "name": "🗣️ Languages",
-        "badges": ["Spanish: Native (Oral and Written)", "English: B1 — advanced technical reading and comprehension"]
+        "name": "Languages",
+        "badges": [
+          "Spanish: Native (Oral and Written)",
+          "English: B1 — advanced technical reading and comprehension"
+        ]
       },
       {
-        "name": "🧠 Soft Skills",
-        "badges": ["Self-directed Learning", "Deep Work (Immersive focus)", "Creative Problem Solving", "Critical and Analytical Thinking", "Adaptability and Resilience", "Teamwork and Collaboration", "Proactivity and Project Management"]
+        "name": "Soft Skills",
+        "badges": [
+          "Self-directed Learning",
+          "Deep Work (Immersive focus)",
+          "Creative Problem Solving",
+          "Critical and Analytical Thinking",
+          "Adaptability and Resilience",
+          "Teamwork and Collaboration",
+          "Proactivity and Project Management"
+        ]
       }
     ]
   },
@@ -228,20 +301,15 @@
     "github_btn": "View Source Code",
     "team": "Brian Tellez & Fernando Urrea",
     "context_label": "Institutional Context",
-
     "problem_title": "The Problem",
     "problem_body": "Every semester, hundreds of incoming students at ITT face the same obstacle: spatial disorientation and lack of immediate access to institutional information. Existing solutions — static maps, physical signage, and in-person queries — are slow, dependent on available staff, and inaccessible to students with visual or motor disabilities. ADA was built to solve this: a 24/7 intelligent voice assistant that answers real questions in natural language.",
-
     "solution_title": "The Solution",
     "solution_body": "ADA is an autonomous physical kiosk with a touchscreen and a push-to-talk button. The student presses the button, asks their question out loud, and the system transcribes the audio, understands the semantic intent, and responds with synthesized voice and real-time captions — all in under 8 seconds. Its knowledge base is built from official ITT documents using RAG (Retrieval-Augmented Generation), ensuring accurate and up-to-date answers.",
-
     "interpreter_title": "ADA as a Dynamic Interpreter",
     "interpreter_body": "ADA implements the paradigm of a dynamic language interpreter: each voice query passes through lexical analysis (Whisper ASR), syntactic analysis (semantic tokenization and chunking), semantic analysis (Llama 3 via Ollama), and immediate response execution. Unlike a compiler, it generates no persistent output — it processes and responds on the fly, resetting its state after 30 seconds of inactivity.",
-
     "architecture_title": "Fog Computing Architecture",
     "architecture_subtitle": "Two nodes, one unified experience",
     "architecture_intro": "The design decentralizes processing between a lightweight Edge node and a high-capacity Fog node, connected over a local network to minimize latency.",
-
     "edge_title": "Edge Node — Raspberry Pi 5",
     "edge_desc": "The physical brain of the kiosk. Runs the graphical interface in Flutter (compiled for Linux ARM64), captures audio via USB microphone, manages the physical push-to-talk button via GPIO, and plays back synthesized audio responses. It is the sole point of contact with the user.",
     "edge_specs": [
@@ -252,7 +320,6 @@
       "Omnidirectional USB Microphone",
       "Amplified Speaker"
     ],
-
     "fog_title": "Fog Node — AMD Ryzen Server",
     "fog_desc": "The intelligence engine of the system. Hosts all AI microservices in independent containers: the voice transcriber, the language model, the semantic search engine (RAG), and the voice synthesizer. Communicates with the Edge node via WebSockets over the local network.",
     "fog_specs": [
@@ -263,16 +330,29 @@
       "PiperTTS — es_MX voice (Port 5001)",
       "Python FastAPI + WebSockets (Port 8000)"
     ],
-
     "pipeline_title": "Processing Pipeline",
     "pipeline_steps": [
-      { "step": "1. Capture", "desc": "The user presses the physical button and speaks. Audio is captured in WAV format." },
-      { "step": "2. Transcription (Lexical)", "desc": "faster-whisper converts audio to text, identifying phonetic tokens in the language." },
-      { "step": "3. Retrieval (RAG)", "desc": "ChromaDB performs semantic search over ITT documents to retrieve relevant context." },
-      { "step": "4. Comprehension (Semantic)", "desc": "Llama 3 analyzes the user's intent and generates a contextualized response." },
-      { "step": "5. Synthesis & Karaoke", "desc": "PiperTTS converts the text to audio. The UI plays the audio and highlights each word in the subtitles in real time." }
+      {
+        "step": "1. Capture",
+        "desc": "The user presses the physical button and speaks. Audio is captured in WAV format."
+      },
+      {
+        "step": "2. Transcription (Lexical)",
+        "desc": "faster-whisper converts audio to text, identifying phonetic tokens in the language."
+      },
+      {
+        "step": "3. Retrieval (RAG)",
+        "desc": "ChromaDB performs semantic search over ITT documents to retrieve relevant context."
+      },
+      {
+        "step": "4. Comprehension (Semantic)",
+        "desc": "Llama 3 analyzes the user's intent and generates a contextualized response."
+      },
+      {
+        "step": "5. Synthesis & Karaoke",
+        "desc": "PiperTTS converts the text to audio. The UI plays the audio and highlights each word in the subtitles in real time."
+      }
     ],
-
     "features_title": "Key Features",
     "features": [
       {
@@ -300,41 +380,90 @@
         "desc": "Designed for users with visual or motor disabilities: fully auditory responses without dependence on sight."
       }
     ],
-
     "stack_title": "Full Tech Stack",
     "stack_categories": [
       {
         "name": "Frontend (Edge)",
-        "items": ["Flutter 3.x (Dart)", "Linux Desktop ARM64", "WebSockets Client", "GPIO (dart_periphery)"]
+        "items": [
+          "Flutter 3.x (Dart)",
+          "Linux Desktop ARM64",
+          "WebSockets Client",
+          "GPIO (dart_periphery)"
+        ]
       },
       {
         "name": "Backend (Fog)",
-        "items": ["Python FastAPI", "faster-whisper (Whisper ASR)", "Ollama + Llama 3 Q4_K_M", "ChromaDB", "Sentence-Transformers", "PiperTTS (es_MX)"]
+        "items": [
+          "Python FastAPI",
+          "faster-whisper (Whisper ASR)",
+          "Ollama + Llama 3 Q4_K_M",
+          "ChromaDB",
+          "Sentence-Transformers",
+          "PiperTTS (es_MX)"
+        ]
       },
       {
         "name": "Infrastructure",
-        "items": ["systemd (ada-backend.service)", "LAN Local Network", "Ubuntu Server", "Docker (planned)"]
+        "items": [
+          "systemd (ada-backend.service)",
+          "LAN Local Network",
+          "Ubuntu Server",
+          "Docker (planned)"
+        ]
       },
       {
         "name": "Hardware",
-        "items": ["Raspberry Pi 5 (8GB)", "AMD Ryzen 5 9600X + 64GB DDR5", "10\" Touchscreen", "30mm Arcade Button (GPIO)", "USB Microphone", "Amplified Speaker"]
+        "items": [
+          "Raspberry Pi 5 (8GB)",
+          "AMD Ryzen 5 9600X + 64GB DDR5",
+          "10\" Touchscreen",
+          "30mm Arcade Button (GPIO)",
+          "USB Microphone",
+          "Amplified Speaker"
+        ]
       }
     ],
-
     "testing_title": "Testing Results",
     "testing_items": [
-      { "label": "Average response time", "value": "< 8 seconds", "note": "from button press to audio playback" },
-      { "label": "Transcription accuracy", "value": "~95%", "note": "under moderate ambient noise conditions (WER)" },
-      { "label": "RAG answer accuracy", "value": "High", "note": "validated in tests with real ITT students" },
-      { "label": "Error cases handled", "value": "10+ codes", "note": "network failure, model unavailable, timeout" }
+      {
+        "label": "Average response time",
+        "value": "< 8 seconds",
+        "note": "from button press to audio playback"
+      },
+      {
+        "label": "Transcription accuracy",
+        "value": "~95%",
+        "note": "under moderate ambient noise conditions (WER)"
+      },
+      {
+        "label": "RAG answer accuracy",
+        "value": "High",
+        "note": "validated in tests with real ITT students"
+      },
+      {
+        "label": "Error cases handled",
+        "value": "10+ codes",
+        "note": "network failure, model unavailable, timeout"
+      }
     ],
-
     "roadmap_title": "Roadmap — Next Phases",
     "roadmap_items": [
-      { "phase": "Current Phase", "desc": "Functional kiosk deployment on ITT campus. User testing in real-world conditions." },
-      { "phase": "Short Term", "desc": "Web admin module to update the knowledge base without technical intervention. Multilingual support (English)." },
-      { "phase": "Mid Term", "desc": "Computer vision camera to detect user presence and automatically activate the system." },
-      { "phase": "Long Term", "desc": "Network of distributed kiosks across different campus buildings with centralized knowledge base synchronization." }
+      {
+        "phase": "Current Phase",
+        "desc": "Functional kiosk deployment on ITT campus. User testing in real-world conditions."
+      },
+      {
+        "phase": "Short Term",
+        "desc": "Web admin module to update the knowledge base without technical intervention. Multilingual support (English)."
+      },
+      {
+        "phase": "Mid Term",
+        "desc": "Computer vision camera to detect user presence and automatically activate the system."
+      },
+      {
+        "phase": "Long Term",
+        "desc": "Network of distributed kiosks across different campus buildings with centralized knowledge base synchronization."
+      }
     ]
   },
   "iris_details": {
@@ -383,16 +512,19 @@
     "back": "Back to Portfolio",
     "official_site_btn": "Visit Official Site",
     "download_btn": "Download the Game",
-
     "description_title": "Description & Vision",
     "description": "Kanua Petto is a modern reimagination of the virtual pet. Unlike classic Tamagotchis locked to a single device, Kanua Petto is omnipresent: its existence persists in the cloud and travels instantly between your PC and your phone. You can feed it while studying at your computer, and seconds later continue playing with it on your phone on the bus. It breaks the device barrier to create a true and continuous companionship experience.",
-
     "platforms_title": "Available Platforms",
     "platforms": [
-      { "name": "PC (Windows)", "req": "Windows 10/11 · 4 GB RAM · OpenGL 3.3" },
-      { "name": "Mobile (Android)", "req": "Android 8.0+ · 3 GB RAM · 150 MB free" }
+      {
+        "name": "PC (Windows)",
+        "req": "Windows 10/11 · 4 GB RAM · OpenGL 3.3"
+      },
+      {
+        "name": "Mobile (Android)",
+        "req": "Android 8.0+ · 3 GB RAM · 150 MB free"
+      }
     ],
-
     "features_title": "Features & Mechanics",
     "features": [
       {
@@ -412,7 +544,6 @@
         "desc": "Coins don't fall from the sky. Players earn them by facing the AI in classic Tic-Tac-Toe. Each victory grants coins and increases the companion's happiness."
       }
     ],
-
     "architecture_title": "Project Architecture",
     "architecture_intro": "The system is split into two major layers: the native game client and the cloud server, orchestrated with Docker Compose.",
     "architecture_items": [
@@ -433,47 +564,85 @@
         "desc": "Three orchestrated services: mongo_db (persistent volume), api (Node:18 Alpine, port 3005), and tunnel (Cloudflare Tunnel to kp.stellarbanana.com). No public IP required."
       }
     ],
-
     "stack_title": "Tech Stack",
     "stack_categories": [
       {
         "name": "Game Engine",
-        "items": ["Godot Engine 4.5", "C# (.NET)", "GDScript"]
+        "items": [
+          "Godot Engine 4.5",
+          "C# (.NET)",
+          "GDScript"
+        ]
       },
       {
         "name": "Backend / API",
-        "items": ["Node.js", "Express 4.18", "JWT (jsonwebtoken 9)", "bcryptjs 2.4"]
+        "items": [
+          "Node.js",
+          "Express 4.18",
+          "JWT (jsonwebtoken 9)",
+          "bcryptjs 2.4"
+        ]
       },
       {
         "name": "Database",
-        "items": ["MongoDB", "Mongoose 7.0 (ODM)"]
+        "items": [
+          "MongoDB",
+          "Mongoose 7.0 (ODM)"
+        ]
       },
       {
         "name": "Infrastructure",
-        "items": ["Docker & Docker Compose", "Cloudflare Tunnel", "Node:18 Alpine"]
+        "items": [
+          "Docker & Docker Compose",
+          "Cloudflare Tunnel",
+          "Node:18 Alpine"
+        ]
       }
     ],
-
     "roadmap_title": "Roadmap (Long-Term Vision)",
     "roadmap_items": [
-      { "phase": "Completed", "desc": "Cloud sync PC↔Android, affinity/personality system, ludic economy with Tic-Tac-Toe, shop with cultural gastronomy." },
-      { "phase": "Short Term", "desc": "Adaptive AI Engine: algorithms that analyze interaction patterns to shape a unique, evolving personality per user." },
-      { "phase": "Mid Term", "desc": "Creation Studio: desktop tool to design, import, and modify custom sprites. Online Community Hub to share creations." },
-      { "phase": "Long Term", "desc": "Dedicated Physical Device: connected Tamagotchi-style hardware that takes the experience off mobile, with full cloud sync." }
+      {
+        "phase": "Completed",
+        "desc": "Cloud sync PC↔Android, affinity/personality system, ludic economy with Tic-Tac-Toe, shop with cultural gastronomy."
+      },
+      {
+        "phase": "Short Term",
+        "desc": "Adaptive AI Engine: algorithms that analyze interaction patterns to shape a unique, evolving personality per user."
+      },
+      {
+        "phase": "Mid Term",
+        "desc": "Creation Studio: desktop tool to design, import, and modify custom sprites. Online Community Hub to share creations."
+      },
+      {
+        "phase": "Long Term",
+        "desc": "Dedicated Physical Device: connected Tamagotchi-style hardware that takes the experience off mobile, with full cloud sync."
+      }
     ],
-
     "justification_title": "Project Justification",
     "justification": "The fragmentation of today's digital experiences prevents the formation of deep emotional bonds with technology. Each game or app traps user progress on a single platform, breaking continuity when switching devices. Kanua Petto was built to close this gap: an omnipresent companion that combats digital loneliness, fosters emotional well-being, and opens a creative platform for artists and designers.",
-
     "functional_title": "Implemented Features",
     "functional_items": [
-      { "name": "Account Management", "desc": "Secure registration and authentication with local session persistence (auto-login) for quick access without re-entering credentials." },
-      { "name": "Persistent Life", "desc": "Real-time stat decay (Hunger, Happiness, Health) calculated from the last connection timestamp recorded on the server." },
-      { "name": "Cross-Platform Sync", "desc": "Progress and inventory transfer instantly between PC and Android when resuming a session on any device." },
-      { "name": "Economy & Inventory", "desc": "Functional shop with server-side funds validation. Consumable inventory with variable effects per food type." },
-      { "name": "Dynamic Personality", "desc": "Unique dialogues and animations driven by accumulated 'Affinity' level. The pet reacts, remembers, and evolves based on treatment received." }
+      {
+        "name": "Account Management",
+        "desc": "Secure registration and authentication with local session persistence (auto-login) for quick access without re-entering credentials."
+      },
+      {
+        "name": "Persistent Life",
+        "desc": "Real-time stat decay (Hunger, Happiness, Health) calculated from the last connection timestamp recorded on the server."
+      },
+      {
+        "name": "Cross-Platform Sync",
+        "desc": "Progress and inventory transfer instantly between PC and Android when resuming a session on any device."
+      },
+      {
+        "name": "Economy & Inventory",
+        "desc": "Functional shop with server-side funds validation. Consumable inventory with variable effects per food type."
+      },
+      {
+        "name": "Dynamic Personality",
+        "desc": "Unique dialogues and animations driven by accumulated 'Affinity' level. The pet reacts, remembers, and evolves based on treatment received."
+      }
     ],
-
     "github_btn": "View Source Code",
     "presentation_title": "Project Presentation",
     "presentation_label": "Kanua Petto Presentation (Canva)",
@@ -660,72 +829,125 @@
     "back": "Back to Portfolio",
     "website_btn": "Visit koko.ourocore.net",
     "download_btn": "Download",
-
     "origin_title": "The Origin",
     "origin_body": "A friend wanted a way to feel close to someone special while working apart — without opening a chat, without starting a video call, without interrupting. Just... being there. That conversation gave birth to Koko: a small pet that lives transparently on the other person's desktop. The name comes from Kokoro (心) — heart in Japanese.",
-
     "what_title": "What is Koko?",
     "what_body": "Koko is a co-presence desktop application for couples, friends, and family at a distance. Two people connect with a 6-character code and each controls a pet that appears on the other's screen: transparent, always-on-top, without covering their work. It's not a productivity tool. It doesn't replace a chat. It's shared presence — the feeling that someone is there while each person goes about their day.",
-
     "features_title": "What they can do together",
     "features": [
-      { "name": "Shared Avatar", "desc": "Move the pet across the other person's screen by clicking and dragging, or with keyboard arrows." },
-      { "name": "Bubble Messages", "desc": "Send messages that float above the pet for a few seconds, without interrupting." },
-      { "name": "Sticky Notes", "desc": "Leave notes that stay on the other person's screen until they close them manually." },
-      { "name": "Images & GIFs", "desc": "Share images that appear floating large directly on the desktop." },
-      { "name": "Miniature Screen View", "desc": "See the other person's screen in real time to know where the pet is and what they're doing." },
-      { "name": "Five Avatars", "desc": "Turtle, chick, rabbit, kitten, and frog — each with its own CSS animations and AFK mode." }
+      {
+        "name": "Shared Avatar",
+        "desc": "Move the pet across the other person's screen by clicking and dragging, or with keyboard arrows."
+      },
+      {
+        "name": "Bubble Messages",
+        "desc": "Send messages that float above the pet for a few seconds, without interrupting."
+      },
+      {
+        "name": "Sticky Notes",
+        "desc": "Leave notes that stay on the other person's screen until they close them manually."
+      },
+      {
+        "name": "Images & GIFs",
+        "desc": "Share images that appear floating large directly on the desktop."
+      },
+      {
+        "name": "Miniature Screen View",
+        "desc": "See the other person's screen in real time to know where the pet is and what they're doing."
+      },
+      {
+        "name": "Five Avatars",
+        "desc": "Turtle, chick, rabbit, kitten, and frog — each with its own CSS animations and AFK mode."
+      }
     ],
-
     "design_title": "The Key Design Decision",
     "design_body": "The most counterintuitive detail of the project: your avatar lives on the other person's screen, not yours. When you move the pet or send a message, the event travels across the network and renders in your companion's overlay. You see the result through their screen's video feed — there's inherent latency, and that's part of the shared experience.",
-
     "overlay_title": "Transparent Overlay Window",
     "overlay_body": "The Electron window is completely transparent, frameless, always-on-top, and click-through (setIgnoreMouseEvents). It lives above everything else on the screen without interrupting work. Avatars and bubbles are rendered in pure CSS with keyframes — PixiJS/WebGL was discarded because WebGL doesn't work in transparent Electron windows on Windows.",
-
     "connection_title": "Direct P2P Connection",
     "connection_body": "SDP/ICE signaling goes through our own server via Cloudflare Tunnel. Once the connection is established, video and all events travel P2P directly between the two clients — without passing through any server. Content is never stored or logged. The Socket.io client uses upgrade: false to stay on HTTP polling, preventing Cloudflare from dropping events during the WebSocket upgrade.",
     "diagrama": "[User A]                                  [User B]\n  App ──────── Socket.io (signaling) ─────────── App\n\n       ◄──────────── WebRTC P2P ───────────────►\n              (video + direct events)",
-
     "platforms_title": "Platforms",
     "platforms": [
-      { "name": "Windows 10/11", "desc": "Silent NSIS installer, per-user installation (no UAC). Background auto-update with a subtle header notification." },
-      { "name": "Linux x64", "desc": "Portable AppImage — no installation needed. Forces X11 for transparent overlay in Wayland environments (via XWayland). Compatible with Ubuntu, Fedora, Arch, and derivatives." }
+      {
+        "name": "Windows 10/11",
+        "desc": "Silent NSIS installer, per-user installation (no UAC). Background auto-update with a subtle header notification."
+      },
+      {
+        "name": "Linux x64",
+        "desc": "Portable AppImage — no installation needed. Forces X11 for transparent overlay in Wayland environments (via XWayland). Compatible with Ubuntu, Fedora, Arch, and derivatives."
+      }
     ],
-
     "pride_title": "Details I'm proud of",
     "pride_items": [
-      { "name": "No account, no registration", "desc": "Just a 6-character code. They exchange it once and stay connected." },
-      { "name": "Zero content storage", "desc": "Messages, notes, images, and video go P2P and never touch any server." },
-      { "name": "Transparent auto-update", "desc": "electron-updater with a self-hosted feed: users always have the latest version without visiting any website." },
-      { "name": "AFK Mode", "desc": "If no one moves the pet, the turtle retreats into its shell; others show 💤. A silent signal of presence or absence." }
+      {
+        "name": "No account, no registration",
+        "desc": "Just a 6-character code. They exchange it once and stay connected."
+      },
+      {
+        "name": "Zero content storage",
+        "desc": "Messages, notes, images, and video go P2P and never touch any server."
+      },
+      {
+        "name": "Transparent auto-update",
+        "desc": "electron-updater with a self-hosted feed: users always have the latest version without visiting any website."
+      },
+      {
+        "name": "AFK Mode",
+        "desc": "If no one moves the pet, the turtle retreats into its shell; others show 💤. A silent signal of presence or absence."
+      }
     ],
-
     "stack_title": "Tech Stack",
     "stack_categories": [
       {
         "name": "Desktop",
-        "items": ["Electron 39", "electron-vite 5", "React 19", "TypeScript"]
+        "items": [
+          "Electron 39",
+          "electron-vite 5",
+          "React 19",
+          "TypeScript"
+        ]
       },
       {
         "name": "Networking & P2P",
-        "items": ["Native WebRTC (RTCPeerConnection)", "Socket.io (signaling)", "HTTP Polling (no WS upgrade)"]
+        "items": [
+          "Native WebRTC (RTCPeerConnection)",
+          "Socket.io (signaling)",
+          "HTTP Polling (no WS upgrade)"
+        ]
       },
       {
         "name": "Distribution",
-        "items": ["electron-builder (NSIS / AppImage)", "electron-updater", "Self-hosted feed with Range Requests"]
+        "items": [
+          "electron-builder (NSIS / AppImage)",
+          "electron-updater",
+          "Self-hosted feed with Range Requests"
+        ]
       },
       {
         "name": "Infrastructure",
-        "items": ["Node.js (signaling server)", "Cloudflare Tunnel", "Nginx · Docker", "Static HTML/CSS/JS website"]
+        "items": [
+          "Node.js (signaling server)",
+          "Cloudflare Tunnel",
+          "Nginx · Docker",
+          "Static HTML/CSS/JS website"
+        ]
       }
     ],
-
     "roadmap_title": "Status & Next Steps",
     "roadmap_items": [
-      { "phase": "Current", "desc": "Version 0.9.0 actively in use. Windows 10/11 and Linux x64 with all core features complete." },
-      { "phase": "Next", "desc": "Hand-drawn pets — the architecture already supports PNG instead of CSS emojis." },
-      { "phase": "Future", "desc": "TURN server for restrictive NATs that block the direct P2P connection." }
+      {
+        "phase": "Current",
+        "desc": "Version 0.9.0 actively in use. Windows 10/11 and Linux x64 with all core features complete."
+      },
+      {
+        "phase": "Next",
+        "desc": "Hand-drawn pets — the architecture already supports PNG instead of CSS emojis."
+      },
+      {
+        "phase": "Future",
+        "desc": "TURN server for restrictive NATs that block the direct P2P connection."
+      }
     ]
   },
   "notecore_details": {
@@ -750,10 +972,22 @@
     ],
     "architecture_title": "How it's built",
     "architecture_items": [
-      { "name": "A single source of truth", "desc": "All business logic lives in the API. Clients never duplicate it, so app and web can't drift apart." },
-      { "name": "Three-layer monorepo", "desc": "Android app in React Native with Expo, web in Next.js 16 and API in Fastify, sharing types and utilities in strict TypeScript." },
-      { "name": "Native widgets", "desc": "A family of seven home-screen widgets written in Kotlin that refresh on their own without opening the app." },
-      { "name": "Shared design system", "desc": "Web and app derive their colors and spacing from the same tokens, so they read as one product." }
+      {
+        "name": "A single source of truth",
+        "desc": "All business logic lives in the API. Clients never duplicate it, so app and web can't drift apart."
+      },
+      {
+        "name": "Three-layer monorepo",
+        "desc": "Android app in React Native with Expo, web in Next.js 16 and API in Fastify, sharing types and utilities in strict TypeScript."
+      },
+      {
+        "name": "Native widgets",
+        "desc": "A family of seven home-screen widgets written in Kotlin that refresh on their own without opening the app."
+      },
+      {
+        "name": "Shared design system",
+        "desc": "Web and app derive their colors and spacing from the same tokens, so they read as one product."
+      }
     ],
     "highlight_title": "The hardest part",
     "highlight": "Verifying every feature on both platforms before calling it done. A phase doesn't close until it's checked on a real Android emulator and a real browser, marking on one and reading on the other.",
@@ -777,9 +1011,18 @@
     ],
     "architecture_title": "Technical decisions",
     "architecture_items": [
-      { "name": "Genuinely static", "desc": "Static generation with Astro: zero JavaScript on pages that don't need it, and load times that don't depend on a server." },
-      { "name": "Self-hosted fonts", "desc": "Downloaded and bundled at build time, so production makes no third-party requests at all." },
-      { "name": "Deployed at the edge", "desc": "Cloudflare Pages serves the site from the global network, with no infrastructure to maintain." }
+      {
+        "name": "Genuinely static",
+        "desc": "Static generation with Astro: zero JavaScript on pages that don't need it, and load times that don't depend on a server."
+      },
+      {
+        "name": "Self-hosted fonts",
+        "desc": "Downloaded and bundled at build time, so production makes no third-party requests at all."
+      },
+      {
+        "name": "Deployed at the edge",
+        "desc": "Cloudflare Pages serves the site from the global network, with no infrastructure to maintain."
+      }
     ],
     "highlight_title": "What I learned",
     "highlight": "Working with a real client changes the priorities. It doesn't matter how elegant the solution is if the business owner can't update their brands without calling me.",
@@ -803,9 +1046,18 @@
     ],
     "architecture_title": "Technical decisions",
     "architecture_items": [
-      { "name": "Sessions that can't be stolen", "desc": "Passwords with argon2id and sessions in httpOnly cookies with refresh token rotation, plus rate limiting in two layers." },
-      { "name": "User CSS, with a safety net", "desc": "People who know CSS can write their own, but it's sanitized and scoped so it can't escape their own profile." },
-      { "name": "Explicit privacy", "desc": "Each linked account states what it reads and what it stores, with granular permissions and unlinking that genuinely deletes." }
+      {
+        "name": "Sessions that can't be stolen",
+        "desc": "Passwords with argon2id and sessions in httpOnly cookies with refresh token rotation, plus rate limiting in two layers."
+      },
+      {
+        "name": "User CSS, with a safety net",
+        "desc": "People who know CSS can write their own, but it's sanitized and scoped so it can't escape their own profile."
+      },
+      {
+        "name": "Explicit privacy",
+        "desc": "Each linked account states what it reads and what it stores, with granular permissions and unlinking that genuinely deletes."
+      }
     ],
     "highlight_title": "The challenge",
     "highlight": "Making sure linking Steam didn't create a second account when the user already had one. Solving it meant rethinking how identities from different providers merge onto one person.",
@@ -829,9 +1081,18 @@
     ],
     "architecture_title": "Technical decisions",
     "architecture_items": [
-      { "name": "Push without Firebase", "desc": "Notifications using the Web Push standard with our own VAPID keys, depending on neither Google's services nor their quotas." },
-      { "name": "Two clients, one backend", "desc": "The server tells whether a request comes from a browser or the native app, and delivers the notification through the right channel." },
-      { "name": "Migration without downtime", "desc": "When moving domains, the tunnel served both hostnames at once so nobody lost access mid-way." }
+      {
+        "name": "Push without Firebase",
+        "desc": "Notifications using the Web Push standard with our own VAPID keys, depending on neither Google's services nor their quotas."
+      },
+      {
+        "name": "Two clients, one backend",
+        "desc": "The server tells whether a request comes from a browser or the native app, and delivers the notification through the right channel."
+      },
+      {
+        "name": "Migration without downtime",
+        "desc": "When moving domains, the tunnel served both hostnames at once so nobody lost access mid-way."
+      }
     ],
     "highlight_title": "What I learned",
     "highlight": "That browsers isolate by origin. When you change domains, neither the session nor the push subscriptions carry over: you have to say so clearly or people think the app broke.",
@@ -845,18 +1106,45 @@
     "perfil": "Ninth-semester Computer Systems Engineering student with a 93.64/100 average and more than ten personal projects in production, from full-stack web applications to AI systems and self-hosted infrastructure. I cover the whole cycle: I design and assemble the server hardware, administer the Linux system, containerize the application, expose it securely and write both backend and frontend. I'm looking for a professional residency or a junior position where I can bring that end-to-end execution.",
     "educacion_title": "Education",
     "educacion": [
-      { "titulo": "Computer Systems Engineering", "lugar": "Instituto Tecnológico de Tijuana", "fecha": "9th semester, in progress", "detalle": "Cumulative average 93.64/100. Professional residency scheduled." },
-      { "titulo": "Architectural Drafting", "lugar": "Preparatoria Federal Lázaro Cárdenas", "fecha": "2021", "detalle": "Final average 86/100." }
+      {
+        "titulo": "Computer Systems Engineering",
+        "lugar": "Instituto Tecnológico de Tijuana",
+        "fecha": "9th semester, in progress",
+        "detalle": "Cumulative average 93.64/100. Professional residency scheduled."
+      },
+      {
+        "titulo": "Architectural Drafting",
+        "lugar": "Preparatoria Federal Lázaro Cárdenas",
+        "fecha": "2021",
+        "detalle": "Final average 86/100."
+      }
     ],
     "idiomas_title": "Languages",
     "idiomas": [
-      { "idioma": "Spanish", "nivel": "Native, spoken and written" },
-      { "idioma": "English", "nivel": "B1 — advanced technical reading and comprehension, speaking in development" }
+      {
+        "idioma": "Spanish",
+        "nivel": "Native, spoken and written"
+      },
+      {
+        "idioma": "English",
+        "nivel": "B1 — advanced technical reading and comprehension, speaking in development"
+      }
     ],
     "personales_title": "Personal skills",
     "personales": "Self-directed learning · Deep work · Creative problem solving · Critical thinking · Adaptability · Teamwork · Running projects end to end"
   },
   "footer": {
     "text": "© 2026 Brian Tellez. All rights reserved."
+  },
+  "ficha": {
+    "estado_label": "Status",
+    "anio_label": "Year",
+    "stack_label": "Technologies",
+    "conteo_tecnologias": "{n} in total",
+    "estado_produccion": "In production",
+    "estado_desarrollo": "In development",
+    "estado_archivado": "Archived",
+    "en_vivo": "View live",
+    "diagrama_title": "How it connects"
   }
 }

@@ -37,7 +37,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/brian-tellez-8b67b0359/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--dim)] hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+                className="text-[var(--dim)] hover:text-[var(--signal)] transition-colors"
                 aria-label="LinkedIn de Brian Tellez - Perfil profesional e Ingeniero en Sistemas Computacionales"
                 title="LinkedIn de Brian Tellez"
               >
@@ -49,7 +49,7 @@ export default function Footer() {
                 href="https://www.instagram.com/brian.tz97/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[var(--dim)] hover:text-pink-600 dark:hover:text-pink-500 transition-colors"
+                className="text-[var(--dim)] hover:text-[var(--signal)] transition-colors"
                 aria-label="Instagram de Brian Tellez - Setup y vida personal"
                 title="Instagram de Brian Tellez"
               >

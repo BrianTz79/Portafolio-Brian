@@ -4,49 +4,65 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
 import { proyectosDestacados, proyectosSecundarios, type Proyecto } from "@/lib/proyectos";
+import MarcaProyecto from "./MarcaProyecto";
 
-function Fila({ proyecto }: { proyecto: Proyecto }) {
+/** Los bloques de locale se indexan por clave dinamica, asi que se leen como
+    diccionarios de texto en vez de por el tipo exacto de locales/es.json. */
+type Bloque = Record<string, unknown>;
+
+function texto(bloque: Bloque | undefined, clave: string): string | undefined {
+  const valor = bloque?.[clave];
+  return typeof valor === "string" ? valor : undefined;
+}
+
+function Fila({ proyecto, indice }: { proyecto: Proyecto; indice: number }) {
   const { t } = useTranslation();
-  const datos = (t as Record<string, any>)[`${proyecto.claveI18n}_details`];
-  const ficha = (t as Record<string, any>).projects?.[proyecto.claveI18n]
-    ?? (t as Record<string, any>).general_projects?.[proyecto.claveI18n];
+  const raiz = t as unknown as Bloque;
+  const datos = raiz[`${proyecto.claveI18n}_details`] as Bloque | undefined;
+  const catalogo = (raiz.projects ?? {}) as Bloque;
+  const generales = (raiz.general_projects ?? {}) as Bloque;
+  const ficha = (catalogo[proyecto.claveI18n] ?? generales[proyecto.claveI18n]) as
+    | Bloque
+    | undefined;
 
-  const titulo = datos?.title ?? ficha?.name ?? proyecto.slug;
-  const resumen = datos?.subtitle ?? ficha?.description ?? "";
-  const estado = datos?.status ?? ficha?.status ?? "";
+  const titulo = texto(datos, "title") ?? texto(ficha, "name") ?? proyecto.slug;
+  const resumen = texto(datos, "subtitle") ?? texto(ficha, "description") ?? "";
+  const estado = texto(datos, "status") ?? texto(ficha, "status") ?? "";
 
   return (
     <li>
       <Link
         href={`/proyectos/${proyecto.slug}`}
-        className="group flex flex-col gap-4 border-b border-[var(--line)] py-6 transition-colors hover:bg-[var(--surface)] sm:flex-row sm:items-center sm:gap-6"
+        className={`fila-proyecto emerge emerge-${Math.min(indice + 1, 6)} group grid gap-4 border-b border-[var(--line)] py-6 sm:grid-cols-[13rem_1fr] sm:gap-7`}
       >
-        {proyecto.imagen ? (
-          <div className="relative h-32 w-full shrink-0 overflow-hidden rounded border border-[var(--line)] sm:h-20 sm:w-32">
-            <Image src={proyecto.imagen} alt="" fill className="object-cover" />
-          </div>
-        ) : (
-          <div
-            aria-hidden="true"
-            className="flex h-32 w-full shrink-0 items-center justify-center rounded border border-[var(--line)] bg-[var(--surface)] font-mono text-xs text-[var(--dim)] sm:h-20 sm:w-32"
-          >
-            {proyecto.slug}
-          </div>
-        )}
+        <div className="relative aspect-video w-full overflow-hidden rounded border border-[var(--line)] bg-[var(--surface)]">
+          {proyecto.imagen ? (
+            <Image
+              src={proyecto.imagen}
+              alt=""
+              fill
+              sizes="(min-width: 640px) 13rem, 100vw"
+              className="object-cover object-top"
+            />
+          ) : (
+            <MarcaProyecto
+              proyecto={proyecto}
+              className="h-full w-full text-[var(--dim)] opacity-70 transition-opacity group-hover:opacity-100"
+            />
+          )}
+        </div>
 
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-            <h3 className="font-display text-xl font-medium text-[var(--text)]">{titulo}</h3>
-            {estado && <span className="font-mono text-xs text-[var(--signal)]">{estado}</span>}
+            <h3 className="text-[length:var(--text-display-m)] font-semibold text-[var(--text)]">
+              {titulo}
+            </h3>
+            {estado && <span className="etiqueta-mono text-[var(--signal-sur)]">{estado}</span>}
           </div>
-          <p className="mt-1 max-w-[60ch] text-sm text-[var(--dim)]">{resumen}</p>
-          <ul className="mt-2 flex flex-wrap gap-1.5">
-            {proyecto.stack.slice(0, 4).map((tec) => (
-              <li key={tec} className="font-mono text-xs text-[var(--dim)]">
-                {tec}
-              </li>
-            ))}
-          </ul>
+          <p className="mt-2 max-w-[60ch] text-[var(--dim)]">{resumen}</p>
+          <p className="mt-2 font-mono text-xs text-[var(--dim)]">
+            {proyecto.stack.slice(0, 4).join(" · ")}
+          </p>
         </div>
       </Link>
     </li>
@@ -55,24 +71,29 @@ function Fila({ proyecto }: { proyecto: Proyecto }) {
 
 export default function ListaProyectos() {
   const { t } = useTranslation();
+  const pagina = (t as unknown as Bloque).proyectos_page as Bloque | undefined;
+  const destacados = proyectosDestacados();
+  const secundarios = proyectosSecundarios();
+
   return (
     <div className="mx-auto w-full min-w-0 max-w-4xl px-5 py-12 md:py-16">
-      <h1 className="font-display text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
-        {(t as Record<string, any>).proyectos_page?.title}
+      <h1 className="titular-metal text-[length:var(--text-display-l)] font-bold">
+        {texto(pagina, "title")}
       </h1>
+      <p className="medida-lectura mt-4 text-lg text-[var(--dim)]">
+        {texto(pagina, "subtitle")}
+      </p>
 
       <ul className="mt-10">
-        {proyectosDestacados().map((p) => (
-          <Fila key={p.slug} proyecto={p} />
+        {destacados.map((p, i) => (
+          <Fila key={p.slug} proyecto={p} indice={i} />
         ))}
       </ul>
 
-      <h2 className="mt-14 font-mono text-sm uppercase tracking-wide text-[var(--dim)]">
-        {(t as Record<string, any>).proyectos_page?.others}
-      </h2>
+      <h2 className="etiqueta-mono mt-14">{texto(pagina, "others")}</h2>
       <ul className="mt-4">
-        {proyectosSecundarios().map((p) => (
-          <Fila key={p.slug} proyecto={p} />
+        {secundarios.map((p, i) => (
+          <Fila key={p.slug} proyecto={p} indice={i} />
         ))}
       </ul>
     </div>

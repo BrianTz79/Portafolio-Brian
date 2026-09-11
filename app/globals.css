@@ -3,38 +3,86 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+
+  --font-display: var(--fuente-display), "Archivo", system-ui, sans-serif;
+  --font-titular: var(--fuente-titular), "Archivo Narrow", system-ui, sans-serif;
+  --font-body: var(--fuente-body), system-ui, sans-serif;
+  --font-mono: var(--fuente-mono), ui-monospace, monospace;
+
+  --text-display-xl: clamp(2.5rem, 1.2rem + 5.6vw, 5rem);
+  --text-display-l: clamp(1.875rem, 1.2rem + 3vw, 3rem);
+  --text-display-m: clamp(1.375rem, 1.05rem + 1.6vw, 2rem);
+}
+
+/* Los colores que cambian con el tema van en @theme inline: genera una
+   referencia directa a la variable de runtime en vez de un salto extra. */
+@theme inline {
   --color-ink: var(--ink);
   --color-surface: var(--surface);
   --color-line: var(--line);
   --color-text: var(--text);
   --color-dim: var(--dim);
   --color-signal: var(--signal);
+  --color-signal-sur: var(--signal-sur);
   --color-live: var(--live);
-  --radius-lg: 0.5rem;
-  --radius-md: 0.375rem;
-  --radius-sm: 0.25rem;
-  --font-display: var(--fuente-display), system-ui, sans-serif;
-  --font-mono: var(--fuente-mono), ui-monospace, monospace;
 }
 
 :root {
-  --ink: #FFFFFF;
-  --surface: #F7F8F9;
-  --line: #E3E6EA;
-  --text: #14171A;
-  --dim: #5A6570;
-  --signal: #9A6207;
-  --live: #1A7F37;
+  /* Rampa de grises con sesgo frio: los escalones intermedios son lo que
+     faltaba cuando todo se veia "gris sobre gris" con solo cuatro variables. */
+  --steel-100: #F2F4F5;
+  --steel-200: #DCE0E3;
+  --steel-300: #BFC5CA;
+  --steel-400: #9AA2A9;
+  --steel-500: #7A838B;
+  --steel-600: #5C656D;
+  --steel-700: #414951;
+  --steel-800: #2A3036;
+  --steel-900: #191D21;
+  --steel-950: #121517;
+
+  --ink: #FBFBFA;
+  --surface: #F1F1EF;
+  --line: #E4E4E1;
+  --text: var(--steel-950);
+  --dim: var(--steel-600);
+  --signal: #A84E26;
+  /* El acento sobre superficie elevada: #A84E26 ahi da 4.91:1, el minimo
+     absoluto para mono de 12px. Este mide 6.41:1. */
+  --signal-sur: #8F3F1C;
+  --live: #126E33;
+
+  /* La rejilla NO usa --line: sobre --ink da 1.25:1 y desaparece. */
+  --rejilla: rgba(18, 21, 23, 0.10);
+
+  /* Paradas del degradado plateado del titular. El recorrido tiene que ser
+     amplio o a simple vista se lee como color solido: la parada final es la
+     mas clara que sigue midiendo mas de 4.5:1 sobre --ink. */
+  --metal-1: #121517;
+  --metal-2: #2A3036;
+  --metal-3: #4A535C;
+  --metal-4: #6E7880;
 }
 
 .dark {
-  --ink: #0C0E10;
-  --surface: #14171A;
+  --ink: #0B0D0F;
+  --surface: #121517;
   --line: #232830;
-  --text: #E4E7EB;
-  --dim: #8B95A1;
-  --signal: #F5A524;
+  --text: var(--steel-100);
+  --dim: var(--steel-400);
+  --signal: #D2673A;
+  --signal-sur: #E8814F;
   --live: #3FB950;
+
+  --rejilla: rgba(242, 244, 245, 0.07);
+
+  --metal-1: #FFFFFF;
+  --metal-2: #DCE0E3;
+  --metal-3: #AEB6BD;
+  --metal-4: #838D96;
 }
 
 @layer base {
@@ -44,6 +92,11 @@
   body {
     background-color: var(--ink);
     color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+  h1, h2, h3 {
     font-family: var(--font-display);
   }
   :focus-visible {
@@ -52,10 +105,158 @@
   }
 }
 
+@layer components {
+  /* Degradado plateado. El color solido va PRIMERO y el degradado solo se
+     aplica si el navegador soporta background-clip: si la imagen no llega,
+     el titular sigue siendo legible en vez de quedar invisible. */
+  .titular-metal {
+    font-family: var(--font-titular);
+    color: var(--text);
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+  }
+  @media (min-width: 768px) {
+    .titular-metal { line-height: 0.95; }
+  }
+  @supports ((background-clip: text) or (-webkit-background-clip: text)) {
+    .titular-metal {
+      background-image: linear-gradient(
+        165deg,
+        var(--metal-1) 0%,
+        var(--metal-2) 38%,
+        var(--metal-3) 62%,
+        var(--metal-4) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+  @media (forced-colors: active) {
+    .titular-metal {
+      background-image: none;
+      color: CanvasText;
+      -webkit-text-fill-color: CanvasText;
+    }
+  }
+
+  .rejilla-hero {
+    background-image:
+      linear-gradient(to right, var(--rejilla) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--rejilla) 1px, transparent 1px);
+    background-size: 32px 32px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 70% at 50% 0%, #000 35%, transparent 100%);
+    mask-image: radial-gradient(ellipse 85% 70% at 50% 0%, #000 35%, transparent 100%);
+  }
+
+  .etiqueta-mono {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .medida-lectura { max-width: 34rem; }
+}
+
+/* ---------------------------------------------------------------------
+   MOVIMIENTO
+
+   El estado de reposo es VISIBLE. Las animaciones se declaran dentro de
+   @media (prefers-reduced-motion: no-preference), de modo que quien pide
+   menos movimiento ve la pagina quieta y completa, y nada puede quedar
+   invisible si una animacion no llega a correr.
+
+   Curva mecanica, no elastica: es un sitio sobre infraestructura.
+   --------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes emerger {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes traza-rejilla {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes entra-fila {
+    from { opacity: 0; transform: translateX(-10px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes confirma-punto {
+    0%   { transform: scale(0.3); }
+    60%  { transform: scale(1.25); }
+    100% { transform: scale(1); }
+  }
+  /* Latido continuo del panel: los servicios siguen corriendo mientras lees.
+     Cada fila recibe una duracion prima distinta para que nunca sincronicen. */
+  @keyframes latido {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.45; }
+  }
+
+  .emerge {
+    animation: emerger 620ms cubic-bezier(0.2, 0, 0, 1) both;
+  }
+  .emerge-1 { animation-delay:  60ms; }
+  .emerge-2 { animation-delay: 130ms; }
+  .emerge-3 { animation-delay: 200ms; }
+  .emerge-4 { animation-delay: 270ms; }
+  .emerge-5 { animation-delay: 340ms; }
+  .emerge-6 { animation-delay: 410ms; }
+
+  .rejilla-hero {
+    opacity: 0;
+    animation: traza-rejilla 900ms cubic-bezier(0.2, 0, 0, 1) 80ms both;
+  }
+
+  .panel-infra .fila-servicio,
+  .panel-infra .pie-panel { opacity: 0; }
+
+  .panel-infra[data-reportando] .fila-servicio {
+    animation: entra-fila 420ms cubic-bezier(0.2, 0, 0, 1) var(--d) both;
+  }
+  .panel-infra[data-reportando] .fila-servicio .punto-estado {
+    animation:
+      confirma-punto 420ms cubic-bezier(0.2, 0, 0, 1) var(--d) backwards,
+      latido var(--periodo, 4s) ease-in-out calc(var(--d) + 600ms) infinite;
+  }
+  .panel-infra[data-reportando] .fila-servicio .veredicto {
+    opacity: 0;
+    animation: traza-rejilla 300ms cubic-bezier(0.2, 0, 0, 1) calc(var(--d) + 110ms) both;
+  }
+  .panel-infra[data-reportando] .pie-panel {
+    animation: traza-rejilla 420ms cubic-bezier(0.2, 0, 0, 1) var(--d) both;
+  }
+
+  .fila-servicio .punto-estado { transition: transform 160ms cubic-bezier(0.2, 0, 0, 1); }
+  @media (hover: hover) {
+    .fila-servicio:hover .punto-estado { transform: scale(1.35); }
+  }
+
+  /* El click navega hacia adelante: el hover empuja hacia adelante. */
+  .fila-proyecto {
+    padding-left: 0;
+    transition: background-color 180ms ease, padding-left 220ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  @media (hover: hover) {
+    .fila-proyecto:hover { background-color: var(--surface); padding-left: 12px; }
+  }
+  .fila-proyecto:focus-visible { background-color: var(--surface); padding-left: 12px; }
+
+  .accion-primaria, .accion-secundaria {
+    transition: opacity 160ms ease, background-color 160ms ease, transform 120ms cubic-bezier(0.4, 0, 1, 1);
+  }
+  .accion-primaria:active, .accion-secundaria:active { transform: scale(0.97); }
+}
+
+/* Red de seguridad para transiciones sueltas. No toca animation-duration:
+   eso dejaria a medias cualquier animacion que gobierne visibilidad. */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }

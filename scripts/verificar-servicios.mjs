@@ -14,6 +14,11 @@ const DOMINIOS = [
 ];
 
 async function comprobar({ nombre, url }) {
+  // La latencia medida aqui alimenta el panel de la portada: cada servicio
+  // entra en la animacion a su propio ritmo, asi que el numero tiene que ser
+  // real. Se mide la peticion completa, incluida la resolucion de DNS y TLS.
+  const inicio = performance.now();
+  const transcurrido = () => Math.round(performance.now() - inicio);
   try {
     const control = new AbortController();
     const temporizador = setTimeout(() => control.abort(), 10000);
@@ -23,8 +28,15 @@ async function comprobar({ nombre, url }) {
       signal: control.signal,
     });
     clearTimeout(temporizador);
-    return { nombre, url, estado: respuesta.ok ? "activo" : "inactivo" };
+    return {
+      nombre,
+      url,
+      estado: respuesta.ok ? "activo" : "inactivo",
+      ms: transcurrido(),
+    };
   } catch {
+    // Un servicio caido no tiene latencia que reportar: el tiempo medido seria
+    // el del timeout, no el suyo.
     return { nombre, url, estado: "inactivo" };
   }
 }

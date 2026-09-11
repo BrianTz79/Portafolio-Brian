@@ -1,21 +1,37 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Archivo, Archivo_Narrow, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
 import { I18nProvider } from "@/lib/i18n";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-const display = Space_Grotesk({
+/* Sin `weight`: las cuatro son variables y cubren su rango completo, asi que
+   los pesos se piden con font-weight en CSS. Declarar pesos estaticos junto a
+   un eje variable es justo lo que rechaza el validador de next/font. */
+
+const display = Archivo({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   variable: "--fuente-display",
+  display: "swap",
+});
+
+/* Familia aparte para el condensado del titular: el eje de anchura de Archivo
+   costaba 90 KB frente a 35 KB sin el. */
+const titular = Archivo_Narrow({
+  subsets: ["latin"],
+  variable: "--fuente-titular",
+  display: "swap",
+});
+
+const body = Instrument_Sans({
+  subsets: ["latin"],
+  variable: "--fuente-body",
   display: "swap",
 });
 
 const mono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
   variable: "--fuente-mono",
   display: "swap",
 });
@@ -81,7 +97,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning className={`${display.variable} ${mono.variable}`}>
+    <html
+      lang="es"
+      suppressHydrationWarning
+      className={`${display.variable} ${titular.variable} ${body.variable} ${mono.variable}`}
+    >
       <head>
         {/* Google tag (gtag.js) */}
         {process.env.NEXT_PUBLIC_GA_ID && (

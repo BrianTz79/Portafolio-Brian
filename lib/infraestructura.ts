@@ -2,6 +2,8 @@ export type Servicio = {
   nombre: string;
   url: string;
   estado: "activo" | "inactivo";
+  /** Latencia real de la comprobacion, en ms. Solo si el servicio respondio. */
+  ms?: number;
 };
 
 export type EstadoInfra = {

@@ -4,59 +4,60 @@ import Image from "next/image";
 import { useTranslation } from "@/lib/i18n";
 import { Code2, Terminal, Server } from "lucide-react";
 
-
 export default function SobreMiPage() {
   const { t } = useTranslation();
 
-  // Safeguard against missing translation keys during fast reloads
-  const title = t.about_details?.title || "Conóceme a Fondo";
-  const story = t.about_details?.story || [];
+  const titulo = t.about_details?.title || "Conóceme a Fondo";
+  const historia: string[] = t.about_details?.story || [];
+
+  const marcas = [
+    { icono: <Terminal className="h-3.5 w-3.5" aria-hidden="true" />, texto: "Linux" },
+    { icono: <Server className="h-3.5 w-3.5" aria-hidden="true" />, texto: "Homelab" },
+    { icono: <Code2 className="h-3.5 w-3.5" aria-hidden="true" />, texto: "Full Stack" },
+  ];
 
   return (
-    <div className="min-h-screen bg-[var(--ink)] py-20 transition-colors">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-16 text-center text-[var(--text)]">
-          {title}
-        </h1>
+    <div className="mx-auto w-full max-w-4xl px-5 py-12 md:py-16">
+      <h1 className="titular-metal emerge emerge-1 text-[length:var(--text-display-l)] font-bold">
+        {titulo}
+      </h1>
 
-        <div className="flex flex-col lg:flex-row gap-16 items-center lg:items-start">
-
-          <div className="w-full max-w-sm lg:w-1/3 flex flex-col items-center">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-[var(--line)] shadow-xl relative overflow-hidden">
-              <Image
-                src="/BrianTellez.jpg"
-                alt="Brian Tellez"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            {/* Quick Badges below photo */}
-            <div className="mt-8 flex flex-wrap justify-center gap-3 w-full">
-               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
-                 <Terminal className="w-3 h-3 mr-2" /> Linux
-               </span>
-               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
-                 <Server className="w-3 h-3 mr-2" /> Homelab
-               </span>
-               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
-                 <Code2 className="w-3 h-3 mr-2" /> Full Stack
-               </span>
-            </div>
+      <div className="mt-10 grid gap-10 md:grid-cols-[16rem_1fr] md:gap-12">
+        <div className="emerge emerge-2">
+          <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-[var(--line)]">
+            <Image
+              src="/BrianTellez.jpg"
+              alt="Brian Tellez"
+              fill
+              sizes="(min-width: 768px) 16rem, 100vw"
+              className="object-cover"
+              priority
+            />
           </div>
-
-          {/* Story Content */}
-          <div className="w-full lg:w-2/3 space-y-6">
-            {story.map((paragraph: string, index: number) => (
-              <div
-                key={index}
-                className="bg-[var(--surface)] border border-[var(--line)] p-6 md:p-8 rounded-2xl shadow-sm text-[var(--dim)] leading-relaxed text-lg"
-              >
-                <p>{paragraph}</p>
-              </div>
+          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+            {marcas.map((m) => (
+              <li key={m.texto} className="flex items-center gap-2 font-mono text-xs text-[var(--dim)]">
+                {m.icono}
+                {m.texto}
+              </li>
             ))}
-          </div>
+          </ul>
+        </div>
 
+        {/* Lectura corrida: la historia es prosa, no fichas apiladas. */}
+        <div className="emerge emerge-3 space-y-5">
+          {historia.map((parrafo, i) => (
+            <p
+              key={i}
+              className={
+                i === 0
+                  ? "medida-lectura text-xl leading-relaxed text-[var(--text)]"
+                  : "medida-lectura leading-relaxed text-[var(--dim)]"
+              }
+            >
+              {parrafo}
+            </p>
+          ))}
         </div>
       </div>
     </div>

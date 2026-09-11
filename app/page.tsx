@@ -9,101 +9,119 @@ import type { EstadoInfra } from "@/lib/infraestructura";
 
 const estadoInfra = estadoInfraJson as EstadoInfra;
 
+type CategoriaHabilidad = { name: string; badges: string[] };
+type ItemExperiencia = { date: string; company: string; title: string; description: string };
+
 export default function Home() {
   const { t } = useTranslation();
+  const habilidades = t.skills.categories as CategoriaHabilidad[];
+  const experiencia = t.experience.items as ItemExperiencia[];
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--ink)] transition-colors">
-      {/* Hero Section */}
-      <section className="border-b border-[var(--line)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-5 md:gap-12 md:py-24">
-          <div className="md:col-span-3 md:pt-6">
-            <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-[var(--text)] md:text-6xl">
+    <div className="flex flex-col bg-[var(--ink)]">
+      {/* Portada: rejilla de fondo + titular con degradado plateado */}
+      <section className="relative overflow-hidden border-b border-[var(--line)]">
+        <div aria-hidden="true" className="rejilla-hero pointer-events-none absolute inset-0" />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-5 py-16 md:grid-cols-[1.35fr_1fr] md:gap-14 md:py-28">
+          <div>
+            <h1 className="titular-metal emerge emerge-1 text-[length:var(--text-display-xl)] font-bold">
               {t.hero.titular}
             </h1>
-            <p className="mt-3 font-display text-2xl font-light text-[var(--dim)] md:text-4xl">
+            <p className="emerge emerge-2 mt-4 max-w-[24ch] text-[length:var(--text-display-m)] font-light leading-snug text-[var(--dim)]">
               {t.hero.subtitular}
             </p>
-            <p className="mt-6 font-mono text-sm text-[var(--dim)]">{t.hero.ubicacion}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <p className="emerge emerge-3 etiqueta-mono mt-6">{t.hero.ubicacion}</p>
+            <div className="emerge emerge-4 mt-8 flex flex-wrap gap-3">
               <Link
                 href="/proyectos"
-                className="rounded-md bg-[var(--text)] px-5 py-2.5 text-sm font-medium text-[var(--ink)] transition-opacity hover:opacity-90"
+                className="accion-primaria rounded-md bg-[var(--text)] px-5 py-2.5 text-sm font-medium text-[var(--ink)] hover:opacity-90"
               >
                 {t.hero.view_projects}
               </Link>
               <Link
                 href="/cv"
-                className="rounded-md border border-[var(--line)] px-5 py-2.5 text-sm font-medium text-[var(--text)] transition-colors hover:bg-[var(--surface)]"
+                className="accion-secundaria rounded-md border border-[var(--line)] px-5 py-2.5 text-sm font-medium text-[var(--text)] hover:bg-[var(--surface)]"
               >
                 {t.hero.cv}
               </Link>
             </div>
           </div>
-          <div className="md:col-span-2">
+          <div className="emerge emerge-5">
             <PanelInfra estado={estadoInfra} />
           </div>
         </div>
       </section>
 
-      {/* Sobre Mí Section (Resumen) */}
-      <section className="py-20 bg-[var(--surface)] border-y border-[var(--line)]">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
-          <h2 className="text-3xl font-bold mb-8 text-[var(--text)]">{t.about.title}</h2>
-          <div className="space-y-6 text-lg text-[var(--dim)] leading-relaxed max-w-3xl mx-auto">
-            {/* Solo mostramos el primer parrafo y sugerimos continuar a la ruta /sobre-mi */}
-            <p>{t.about.description[0]}</p>
-          </div>
-          <div className="mt-10">
-             <Link href="/sobre-mi" className="inline-flex items-center text-sm font-semibold text-[var(--signal)] hover:opacity-80 transition-opacity group">
-               {t.ui?.read_more} <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-             </Link>
-          </div>
+      {/* Resumen biografico */}
+      <section className="border-b border-[var(--line)] bg-[var(--surface)]">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+          <h2 className="text-[length:var(--text-display-l)] font-semibold tracking-tight text-[var(--text)]">
+            {t.about.title}
+          </h2>
+          <p className="medida-lectura mt-6 text-lg leading-relaxed text-[var(--dim)]">
+            {t.about.description[0]}
+          </p>
+          <Link
+            href="/sobre-mi"
+            className="group mt-8 inline-flex items-center text-sm font-semibold text-[var(--signal-sur)] hover:opacity-80"
+          >
+            {t.ui?.read_more}
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
       </section>
 
-      {/* Habilidades Section */}
-      <section className="py-20 bg-[var(--surface)] border-y border-[var(--line)]">
-        <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[var(--text)]">{t.skills.title}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {t.skills.categories.map((cat: any, idx: number) => (
-              <div key={idx} className="p-6 rounded-2xl bg-[var(--ink)] border border-[var(--line)] shadow-sm">
-                <h3 className="text-lg font-semibold mb-6 flex items-center border-b border-[var(--line)] pb-3 text-[var(--text)]">
-                  {cat.name}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {cat.badges.map((badge: string, bidx: number) => (
-                    <span key={bidx} className="px-3 py-1.5 rounded-full text-sm font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
-                      {badge}
-                    </span>
-                  ))}
-                </div>
+      {/* Aptitudes: rejilla con filetes, sin tarjetas */}
+      <section className="border-b border-[var(--line)]">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+          <h2 className="text-[length:var(--text-display-l)] font-semibold tracking-tight text-[var(--text)]">
+            {t.skills.title}
+          </h2>
+          <div className="mt-10 grid gap-x-10 gap-y-9 md:grid-cols-2 lg:grid-cols-3">
+            {habilidades.map((cat) => (
+              <div key={cat.name} className="border-t border-[var(--line)] pt-5">
+                <h3 className="etiqueta-mono">{cat.name}</h3>
+                <p className="mt-3 leading-relaxed text-[var(--dim)]">
+                  {cat.badges.join(" · ")}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Experiencia y Educación Section */}
-      <section className="py-20 bg-[var(--ink)]">
-        <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center text-[var(--text)]">{t.experience.title}</h2>
-           <div className="space-y-6 flex flex-col items-center">
-            {t.experience.items.map((item: any, idx: number) => (
-              <div key={idx} className="w-full relative flex flex-col md:flex-row gap-6 p-6 md:p-8 rounded-2xl bg-[var(--surface)] border border-[var(--line)] shadow-sm">
-                <div className="md:w-1/3 flex flex-col justify-start">
-                  <span className="text-sm font-mono text-[var(--signal)] mb-2">{item.date}</span>
-                  <div className="flex items-center gap-2 font-medium text-[var(--dim)]">
-                    {idx >= 3 ? <GraduationCap className="h-4 w-4 text-[var(--dim)]" /> : <Briefcase className="h-4 w-4 text-[var(--dim)]" />}
+      {/* Trayectoria: lectura vertical, sin tarjetas centradas */}
+      <section>
+        <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+          <h2 className="text-[length:var(--text-display-l)] font-semibold tracking-tight text-[var(--text)]">
+            {t.experience.title}
+          </h2>
+          <div className="mt-10 space-y-10">
+            {experiencia.map((item, idx) => (
+              <article
+                key={`${item.company}-${item.title}`}
+                className="grid gap-3 border-l-2 border-[var(--line)] pl-6 md:grid-cols-[14rem_1fr] md:gap-8"
+              >
+                <div>
+                  <p className="etiqueta-mono text-[var(--signal-sur)]">{item.date}</p>
+                  <p className="mt-2 flex items-center gap-2 font-medium text-[var(--dim)]">
+                    {idx >= 3 ? (
+                      <GraduationCap className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    ) : (
+                      <Briefcase className="h-4 w-4 shrink-0" aria-hidden="true" />
+                    )}
                     {item.company}
-                  </div>
+                  </p>
                 </div>
-                <div className="md:w-2/3 md:border-l border-[var(--line)] md:pl-8 mt-4 md:mt-0">
-                  <h3 className="text-xl font-bold mb-3 text-[var(--text)]">{item.title}</h3>
-                  <p className="text-[var(--dim)] leading-relaxed">{item.description}</p>
+                <div>
+                  <h3 className="text-[length:var(--text-display-m)] font-semibold text-[var(--text)]">
+                    {item.title}
+                  </h3>
+                  <p className="medida-lectura mt-2 leading-relaxed text-[var(--dim)]">
+                    {item.description}
+                  </p>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

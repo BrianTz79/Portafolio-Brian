@@ -3,117 +3,145 @@
 import { useTranslation } from "@/lib/i18n";
 import { Mail, ArrowRight, Copy, Check } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+
+const IconoGitHub = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+);
+
+const IconoLinkedIn = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+);
+
+const IconoInstagram = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+);
+
+/** Una sola forma para los cuatro canales: filete arriba, sin tarjetas ni
+    sombras de color. El acento aparece solo al apuntar, igual que en la lista
+    de proyectos. */
+function Canal({
+  href,
+  icono,
+  nombre,
+  descripcion,
+  accion,
+  indice,
+  children,
+}: {
+  href: string;
+  icono: ReactNode;
+  nombre: string;
+  descripcion?: string;
+  accion?: string;
+  indice: number;
+  children?: ReactNode;
+}) {
+  const externo = href.startsWith("http");
+  return (
+    <div className={`emerge emerge-${Math.min(indice + 1, 6)} border-t border-[var(--line)] pt-6`}>
+      <Link
+        href={href}
+        {...(externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        className="group block"
+      >
+        <div className="flex items-center gap-3 text-[var(--text)]">
+          <span className="text-[var(--dim)] transition-colors group-hover:text-[var(--signal)]">
+            {icono}
+          </span>
+          <h2 className="text-[length:var(--text-display-m)] font-semibold">{nombre}</h2>
+        </div>
+        {descripcion && (
+          <p className="mt-3 max-w-[46ch] leading-relaxed text-[var(--dim)]">{descripcion}</p>
+        )}
+        {accion && (
+          <span className="mt-4 inline-flex items-center text-sm font-medium text-[var(--signal-sur)]">
+            {accion}
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </span>
+        )}
+      </Link>
+      {children}
+    </div>
+  );
+}
 
 export default function ContactoPage() {
   const { t } = useTranslation();
-  const [copied, setCopied] = useState(false);
+  const [copiado, setCopiado] = useState(false);
 
-  const handleCopyEmail = (e: React.MouseEvent) => {
-    e.preventDefault(); // Evitamos que el <Link> ejecute su acción
+  const copiarCorreo = () => {
     navigator.clipboard.writeText("brian.tellez79@gmail.com");
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopiado(true);
+    setTimeout(() => setCopiado(false), 2000);
   };
 
   return (
-    <div className="min-h-screen bg-[var(--ink)] py-20 transition-colors">
-      <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 text-[var(--text)]">
-            {t.contacto?.title}
-          </h1>
-          <p className="text-xl text-[var(--dim)] max-w-2xl mx-auto">
-            {t.contacto?.subtitle}
-          </p>
-        </div>
+    <div className="mx-auto w-full max-w-4xl px-5 py-12 md:py-16">
+      <h1 className="titular-metal text-[length:var(--text-display-l)] font-bold">
+        {t.contacto?.title}
+      </h1>
+      <p className="medida-lectura mt-4 text-lg text-[var(--dim)]">{t.contacto?.subtitle}</p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-          {/* GitHub */}
-          <Link href="https://github.com/BrianTz79" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--dim)] hover:shadow-md flex flex-col items-start h-full">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-[var(--text)] text-[var(--ink)]">
-                {/* SVG Github Icon */}
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-              </div>
-              <h2 className="text-2xl font-bold text-[var(--text)]">GitHub</h2>
-            </div>
-            <p className="text-[var(--dim)] font-medium mb-6 flex-1 text-lg">
-              {t.contacto?.github_desc}
+      <div className="mt-12 grid gap-10 md:grid-cols-2">
+        <Canal
+          href="mailto:brian.tellez79@gmail.com"
+          icono={<Mail className="h-5 w-5" />}
+          nombre="Email"
+          descripcion={t.contacto?.mail_desc}
+          accion={t.contacto?.mail_btn}
+          indice={0}
+        >
+          <div className="mt-4 flex items-center justify-between gap-3 rounded-md border border-[var(--line)] bg-[var(--surface)] px-3 py-2">
+            <span className="truncate font-mono text-sm text-[var(--text)]">
+              brian.tellez79@gmail.com
+            </span>
+            <button
+              onClick={copiarCorreo}
+              className="shrink-0 rounded p-1.5 text-[var(--dim)] transition-colors hover:bg-[var(--ink)] hover:text-[var(--text)]"
+              title={t.contacto?.mail_copy}
+              aria-label={t.contacto?.mail_copy}
+            >
+              {copiado ? (
+                <Check className="h-4 w-4 text-[var(--live)]" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
+            </button>
+          </div>
+          {copiado && (
+            <p role="status" className="mt-2 font-mono text-xs text-[var(--live)]">
+              {t.contacto?.mail_copied}
             </p>
-            <div className="mt-auto flex items-center text-[var(--dim)] group-hover:text-[var(--text)] transition-colors font-semibold">
-              {t.contacto?.github_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
+          )}
+        </Canal>
 
-          {/* LinkedIn */}
-          <Link href="https://www.linkedin.com/in/brian-tellez-8b67b0359/" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md hover:shadow-blue-900/20 flex flex-col items-start h-full">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-blue-100 dark:bg-blue-600 text-blue-700 dark:text-white">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-              </div>
-              <h2 className="text-2xl font-bold text-[var(--text)]">LinkedIn</h2>
-            </div>
-            <p className="text-[var(--dim)] font-medium mb-6 flex-1 text-lg">
-              {t.contacto?.linkedin_desc}
-            </p>
-            <div className="mt-auto flex items-center text-[var(--dim)] group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-semibold">
-              {t.contacto?.linkedin_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
+        <Canal
+          href="https://www.linkedin.com/in/brian-tellez-8b67b0359/"
+          icono={IconoLinkedIn}
+          nombre="LinkedIn"
+          descripcion={t.contacto?.linkedin_desc}
+          accion={t.contacto?.linkedin_btn}
+          indice={1}
+        />
 
-          {/* Correo Personal */}
-          <Link href="mailto:brian.tellez79@gmail.com" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-900/20 flex flex-col items-start h-full">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-emerald-100 dark:bg-emerald-600 text-emerald-700 dark:text-white">
-                 <Mail className="h-6 w-6" />
-              </div>
-              <h2 className="text-2xl font-bold text-[var(--text)]">Email</h2>
-            </div>
-            <p className="text-[var(--dim)] font-medium mb-4 text-lg">
-               {t.contacto?.mail_desc}
-            </p>
-            {/* Visualización del correo explícita con botón de copiar */}
-            <div className="w-full flex items-center justify-between bg-[var(--ink)] rounded-lg p-3 mb-6 border border-[var(--line)]">
-               <span className="text-sm font-mono text-[var(--text)]">brian.tellez79@gmail.com</span>
-               <button
-                 onClick={handleCopyEmail}
-                 className="p-2 rounded-md hover:bg-[var(--surface)] text-[var(--dim)] transition-colors tooltip group-hover/btn relative flex items-center justify-center"
-                 title={t.contacto?.mail_copy}
-                 aria-label={t.contacto?.mail_copy}
-               >
-                 {copied ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-                 {copied && (
-                    <span className="absolute -top-8 bg-[var(--text)] text-[var(--ink)] text-xs px-2 py-1 rounded shadow-lg whitespace-nowrap">
-                       {t.contacto?.mail_copied}
-                    </span>
-                 )}
-               </button>
-            </div>
+        <Canal
+          href="https://github.com/BrianTz79"
+          icono={IconoGitHub}
+          nombre="GitHub"
+          descripcion={t.contacto?.github_desc}
+          accion={t.contacto?.github_btn}
+          indice={2}
+        />
 
-             <div className="mt-auto flex items-center text-[var(--dim)] group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors font-semibold">
-              {t.contacto?.mail_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-
-          {/* Instagram */}
-          <Link href="https://www.instagram.com/brian.tz97/" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-[var(--line)] bg-[var(--surface)] p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-pink-400 dark:hover:border-pink-500 hover:shadow-md hover:shadow-pink-900/20 flex flex-col items-start h-full">
-            <div className="flex items-center gap-4 mb-4">
-              <div className="flex items-center justify-center h-14 w-14 rounded-full bg-pink-100 dark:bg-pink-600 text-pink-700 dark:text-white">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              </div>
-              <h2 className="text-2xl font-bold text-[var(--text)]">Instagram</h2>
-            </div>
-            <p className="text-[var(--dim)] font-medium mb-6 flex-1 text-lg">
-               {t.contacto?.instagram_desc}
-            </p>
-             <div className="mt-auto flex items-center text-[var(--dim)] group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors font-semibold">
-              {t.contacto?.instagram_btn} <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </Link>
-
-        </div>
+        <Canal
+          href="https://www.instagram.com/brian.tz97/"
+          icono={IconoInstagram}
+          nombre="Instagram"
+          descripcion={t.contacto?.instagram_desc}
+          accion={t.contacto?.instagram_btn}
+          indice={3}
+        />
       </div>
     </div>
   );
