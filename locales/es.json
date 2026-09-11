@@ -199,6 +199,7 @@
   },
   "homelab_details": {
     "title": "Homelab e Infraestructura",
+    "subtitle": "Servidor propio bare-metal para pruebas reales y orquestación de contenedores",
     "status": "Manteniendo desde Agosto 2025",
     "back": "Volver al Portafolio",
     "description_title": "Descripción y Objetivos",
@@ -337,6 +338,7 @@
   },
   "iris_details": {
     "title": "Plataforma IRIS",
+    "subtitle": "Biblioteca virtual privada con economía digital y casino multijugador",
     "status": "En Desarrollo Continuo (Inicio: Septiembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción y Objetivos",
@@ -486,6 +488,7 @@
   },
   "sgv_details": {
     "title": "Sistema Gestor de Viviendas",
+    "subtitle": "SaaS multi-tenant para administración financiera de zonas residenciales",
     "status": "En Desarrollo (Diciembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción del Proyecto",
@@ -522,6 +525,7 @@
   },
   "clips_details": {
     "title": "ClipsBanana",
+    "subtitle": "Streaming autohospedado de clips de videojuegos con catalogación por IA",
     "status": "En Desarrollo (Diciembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción General",
@@ -553,6 +557,7 @@
   },
   "ourocore_details": {
     "title": "OuroCore Web",
+    "subtitle": "Sitio corporativo estático desplegado bajo Nginx Alpine",
     "status": "En Desarrollo (Septiembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción General",
@@ -584,6 +589,7 @@
   },
   "bots_details": {
     "title": "Ecosistema de Discord",
+    "subtitle": "Orquestación de audio en vivo para chats de voz vía OAuth2",
     "status": "Mantenimiento Continuo (Diciembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "TellezSound y Moderadores Híbridos",
@@ -615,6 +621,7 @@
   },
   "portafolio_details": {
     "title": "Portafolio Personal Web",
+    "subtitle": "App interactiva con React Server Components exportada a HTML/CSS estático",
     "status": "Versión actual (septiembre 2026)",
     "back": "Volver al Portafolio",
     "description_title": "Sobre Esta Plataforma",
@@ -677,6 +684,7 @@
 
     "connection_title": "Conexión P2P Directa",
     "connection_body": "La señalización SDP/ICE pasa por el servidor propio vía Cloudflare Tunnel. Una vez establecida la conexión, el video y todos los eventos viajan P2P directo entre los dos clientes — sin pasar por ningún servidor. El contenido nunca se almacena ni se registra. El cliente de Socket.io usa upgrade: false para mantenerse en HTTP polling, evitando que Cloudflare dropee eventos durante el upgrade a WebSocket.",
+    "diagrama": "[Usuario A]                              [Usuario B]\n  App ──────── Socket.io (señalización) ──────── App\n\n       ◄──────────── WebRTC P2P ───────────────►\n              (video + eventos directos)",
 
     "platforms_title": "Plataformas",
     "platforms": [

@@ -199,6 +199,7 @@
   },
   "homelab_details": {
     "title": "Homelab and Infrastructure",
+    "subtitle": "A bare-metal server of my own for real-world testing and container orchestration",
     "status": "Maintained since August 2025",
     "back": "Back to Portfolio",
     "description_title": "Description & Objectives",
@@ -337,6 +338,7 @@
   },
   "iris_details": {
     "title": "IRIS Platform",
+    "subtitle": "Private virtual library with a digital economy and multiplayer casino",
     "status": "Continuous Development (Started: Sept 2025)",
     "back": "Back to Portfolio",
     "description_title": "Description & Objectives",
@@ -486,6 +488,7 @@
   },
   "sgv_details": {
     "title": "Housing Management System",
+    "subtitle": "Multi-tenant SaaS for financial administration of residential areas",
     "status": "In Development (December 2025)",
     "back": "Back to Portfolio",
     "description_title": "Project Description",
@@ -522,6 +525,7 @@
   },
   "clips_details": {
     "title": "ClipsBanana",
+    "subtitle": "Self-hosted video game clip streaming with AI-driven cataloging",
     "status": "In Development (December 2025)",
     "back": "Back to Portfolio",
     "description_title": "General Overview",
@@ -553,6 +557,7 @@
   },
   "ourocore_details": {
     "title": "OuroCore Web",
+    "subtitle": "Static corporate site deployed under Nginx Alpine",
     "status": "In Development (September 2025)",
     "back": "Back to Portfolio",
     "description_title": "General Overview",
@@ -584,6 +589,7 @@
   },
   "bots_details": {
     "title": "Discord Ecosystem",
+    "subtitle": "Live audio orchestration for voice chats via OAuth2",
     "status": "Continuous Maintenance (December 2025)",
     "back": "Back to Portfolio",
     "description_title": "TellezSound and Hybrid Mods",
@@ -615,6 +621,7 @@
   },
   "portafolio_details": {
     "title": "Web Personal Portfolio",
+    "subtitle": "Interactive app with React Server Components exported to static HTML/CSS",
     "status": "Current version (September 2026)",
     "back": "Back to Portfolio",
     "description_title": "About This Platform",
@@ -677,6 +684,7 @@
 
     "connection_title": "Direct P2P Connection",
     "connection_body": "SDP/ICE signaling goes through our own server via Cloudflare Tunnel. Once the connection is established, video and all events travel P2P directly between the two clients — without passing through any server. Content is never stored or logged. The Socket.io client uses upgrade: false to stay on HTTP polling, preventing Cloudflare from dropping events during the WebSocket upgrade.",
+    "diagrama": "[User A]                                  [User B]\n  App ──────── Socket.io (signaling) ─────────── App\n\n       ◄──────────── WebRTC P2P ───────────────►\n              (video + direct events)",
 
     "platforms_title": "Platforms",
     "platforms": [
