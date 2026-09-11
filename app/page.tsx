@@ -13,7 +13,7 @@ export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className="flex flex-col min-h-screen bg-zinc-50 dark:bg-zinc-950 transition-colors">
+    <div className="flex flex-col min-h-screen bg-[var(--ink)] transition-colors">
       {/* Hero Section */}
       <section className="border-b border-[var(--line)]">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-5 md:gap-12 md:py-24">
@@ -47,15 +47,15 @@ export default function Home() {
       </section>
 
       {/* Sobre Mí Section (Resumen) */}
-      <section className="py-20 bg-white dark:bg-zinc-900/30 border-y border-zinc-200 dark:border-zinc-800/50">
+      <section className="py-20 bg-[var(--surface)] border-y border-[var(--line)]">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
-          <h2 className="text-3xl font-bold mb-8 text-zinc-900 dark:text-white">{t.about.title}</h2>
-          <div className="space-y-6 text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-[var(--text)]">{t.about.title}</h2>
+          <div className="space-y-6 text-lg text-[var(--dim)] leading-relaxed max-w-3xl mx-auto">
             {/* Solo mostramos el primer parrafo y sugerimos continuar a la ruta /sobre-mi */}
             <p>{t.about.description[0]}</p>
           </div>
           <div className="mt-10">
-             <Link href="/sobre-mi" className="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors group">
+             <Link href="/sobre-mi" className="inline-flex items-center text-sm font-semibold text-[var(--signal)] hover:opacity-80 transition-opacity group">
                {t.ui?.read_more} <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
              </Link>
           </div>
@@ -63,18 +63,18 @@ export default function Home() {
       </section>
 
       {/* Habilidades Section */}
-      <section className="py-20 bg-white dark:bg-zinc-900/30 border-y border-zinc-200 dark:border-zinc-800/50">
+      <section className="py-20 bg-[var(--surface)] border-y border-[var(--line)]">
         <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-          <h2 className="text-3xl font-bold mb-12 text-center text-zinc-900 dark:text-white">{t.skills.title}</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[var(--text)]">{t.skills.title}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {t.skills.categories.map((cat: any, idx: number) => (
-              <div key={idx} className="p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800/60 shadow-sm">
-                <h3 className="text-lg font-semibold mb-6 flex items-center border-b border-zinc-200 dark:border-zinc-800 pb-3 text-zinc-900 dark:text-white">
+              <div key={idx} className="p-6 rounded-2xl bg-[var(--ink)] border border-[var(--line)] shadow-sm">
+                <h3 className="text-lg font-semibold mb-6 flex items-center border-b border-[var(--line)] pb-3 text-[var(--text)]">
                   {cat.name}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {cat.badges.map((badge: string, bidx: number) => (
-                    <span key={bidx} className="px-3 py-1.5 rounded-full text-sm font-medium bg-zinc-200 dark:bg-zinc-900/80 text-zinc-800 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-800">
+                    <span key={bidx} className="px-3 py-1.5 rounded-full text-sm font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
                       {badge}
                     </span>
                   ))}
@@ -86,22 +86,22 @@ export default function Home() {
       </section>
 
       {/* Experiencia y Educación Section */}
-      <section className="py-20 bg-zinc-50 dark:bg-zinc-950">
+      <section className="py-20 bg-[var(--ink)]">
         <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-          <h2 className="text-3xl font-bold mb-12 text-center text-zinc-900 dark:text-white">{t.experience.title}</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center text-[var(--text)]">{t.experience.title}</h2>
            <div className="space-y-6 flex flex-col items-center">
             {t.experience.items.map((item: any, idx: number) => (
-              <div key={idx} className="w-full relative flex flex-col md:flex-row gap-6 p-6 md:p-8 rounded-2xl bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 shadow-sm">
+              <div key={idx} className="w-full relative flex flex-col md:flex-row gap-6 p-6 md:p-8 rounded-2xl bg-[var(--surface)] border border-[var(--line)] shadow-sm">
                 <div className="md:w-1/3 flex flex-col justify-start">
-                  <span className="text-sm font-mono text-blue-600 dark:text-blue-400 mb-2">{item.date}</span>
-                  <div className="flex items-center gap-2 font-medium text-zinc-700 dark:text-zinc-300">
-                    {idx >= 3 ? <GraduationCap className="h-4 w-4 text-zinc-400" /> : <Briefcase className="h-4 w-4 text-zinc-400" />}
+                  <span className="text-sm font-mono text-[var(--signal)] mb-2">{item.date}</span>
+                  <div className="flex items-center gap-2 font-medium text-[var(--dim)]">
+                    {idx >= 3 ? <GraduationCap className="h-4 w-4 text-[var(--dim)]" /> : <Briefcase className="h-4 w-4 text-[var(--dim)]" />}
                     {item.company}
                   </div>
                 </div>
-                <div className="md:w-2/3 md:border-l border-zinc-200 dark:border-zinc-800 md:pl-8 mt-4 md:mt-0">
-                  <h3 className="text-xl font-bold mb-3 text-zinc-900 dark:text-white">{item.title}</h3>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed">{item.description}</p>
+                <div className="md:w-2/3 md:border-l border-[var(--line)] md:pl-8 mt-4 md:mt-0">
+                  <h3 className="text-xl font-bold mb-3 text-[var(--text)]">{item.title}</h3>
+                  <p className="text-[var(--dim)] leading-relaxed">{item.description}</p>
                 </div>
               </div>
             ))}

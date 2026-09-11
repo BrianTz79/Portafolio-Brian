@@ -13,17 +13,16 @@ export default function SobreMiPage() {
   const story = t.about_details?.story || [];
 
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-zinc-950 py-20 transition-colors">
+    <div className="min-h-screen bg-[var(--ink)] py-20 transition-colors">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-zinc-900 to-zinc-500 dark:from-zinc-100 dark:to-zinc-500">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-16 text-center text-[var(--text)]">
           {title}
         </h1>
 
         <div className="flex flex-col lg:flex-row gap-16 items-center lg:items-start">
-          
-          {/* Avatar Placeholder */}
+
           <div className="w-full max-w-sm lg:w-1/3 flex flex-col items-center">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-zinc-200 dark:border-zinc-800 shadow-xl relative overflow-hidden">
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-[var(--line)] shadow-xl relative overflow-hidden">
               <Image
                 src="/BrianTellez.jpg"
                 alt="Brian Tellez"
@@ -31,16 +30,16 @@ export default function SobreMiPage() {
                 className="object-cover"
               />
             </div>
-            
+
             {/* Quick Badges below photo */}
             <div className="mt-8 flex flex-wrap justify-center gap-3 w-full">
-               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-200 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700">
+               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
                  <Terminal className="w-3 h-3 mr-2" /> Linux
                </span>
-               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-200 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700">
+               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
                  <Server className="w-3 h-3 mr-2" /> Homelab
                </span>
-               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-zinc-200 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-zinc-700">
+               <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-[var(--surface)] text-[var(--dim)] border border-[var(--line)]">
                  <Code2 className="w-3 h-3 mr-2" /> Full Stack
                </span>
             </div>
@@ -49,9 +48,9 @@ export default function SobreMiPage() {
           {/* Story Content */}
           <div className="w-full lg:w-2/3 space-y-6">
             {story.map((paragraph: string, index: number) => (
-              <div 
-                key={index} 
-                className="bg-white dark:bg-zinc-900/40 border border-zinc-200 dark:border-zinc-800/60 p-6 md:p-8 rounded-2xl shadow-sm text-zinc-700 dark:text-zinc-300 leading-relaxed text-lg"
+              <div
+                key={index}
+                className="bg-[var(--surface)] border border-[var(--line)] p-6 md:p-8 rounded-2xl shadow-sm text-[var(--dim)] leading-relaxed text-lg"
               >
                 <p>{paragraph}</p>
               </div>
