@@ -7,6 +7,11 @@ import type { EstadoInfra } from "@/lib/infraestructura";
 export default function PanelInfra({ estado }: { estado: EstadoInfra }) {
   const { t, locale } = useTranslation();
   const [encendidos, setEncendidos] = useState(0);
+  const [montado, setMontado] = useState(false);
+
+  useEffect(() => {
+    setMontado(true);
+  }, []);
 
   useEffect(() => {
     const prefiereQuieto = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -41,7 +46,7 @@ export default function PanelInfra({ estado }: { estado: EstadoInfra }) {
             <li
               key={servicio.nombre}
               className="flex items-center gap-3 py-1.5 transition-opacity duration-300"
-              style={{ opacity: visible ? 1 : 0 }}
+              style={montado ? { opacity: visible ? 1 : 0 } : undefined}
             >
               <span
                 aria-hidden="true"
