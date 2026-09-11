@@ -1,4 +1,6 @@
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, readFileSync, existsSync } from "node:fs";
+
+const SALIDA = "data/servicios.json";
 
 const DOMINIOS = [
   { nombre: "notecore", url: "https://notecore.ourocore.net" },
@@ -30,10 +32,26 @@ async function comprobar({ nombre, url }) {
 const servicios = await Promise.all(DOMINIOS.map(comprobar));
 const activos = servicios.filter((s) => s.estado === "activo").length;
 
+// Si TODOS fallan, casi siempre es la red de quien construye, no ocho servicios
+// caidos a la vez: conservamos la ultima medicion buena en vez de publicar ceros.
+if (activos === 0 && existsSync(SALIDA)) {
+  try {
+    const previo = JSON.parse(readFileSync(SALIDA, "utf8"));
+    if (previo?.servicios?.some((s) => s.estado === "activo")) {
+      console.error(
+        `Ningun servicio respondio; conservo la verificacion de ${previo.verificadoEn}.`
+      );
+      process.exit(0);
+    }
+  } catch {
+    // Si el estado previo no se puede leer, seguimos y escribimos el actual.
+  }
+}
+
 try {
   mkdirSync("data", { recursive: true });
   writeFileSync(
-    "data/servicios.json",
+    SALIDA,
     JSON.stringify({ verificadoEn: new Date().toISOString(), servicios }, null, 2)
   );
   console.log(`Servicios verificados: ${activos}/${servicios.length} activos.`);
