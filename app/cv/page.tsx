@@ -39,7 +39,7 @@ export default function Page() {
 
       <section className="mt-10">
         <h2 className="font-display text-2xl font-semibold text-[var(--text)]">
-          {(t as Record<string, any>).proyectos_page?.title ?? "Proyectos"}
+          {(t as Record<string, any>).proyectos_page?.title}
         </h2>
         <ul className="mt-4 space-y-3">
           {PROYECTOS.filter((p) => p.destacado).map((p) => {

@@ -58,7 +58,7 @@ export default function ListaProyectos() {
   return (
     <div className="mx-auto w-full min-w-0 max-w-4xl px-5 py-12 md:py-16">
       <h1 className="font-display text-4xl font-semibold tracking-tight text-[var(--text)] md:text-5xl">
-        {(t as Record<string, any>).proyectos_page?.title ?? "Proyectos"}
+        {(t as Record<string, any>).proyectos_page?.title}
       </h1>
 
       <ul className="mt-10">
@@ -68,7 +68,7 @@ export default function ListaProyectos() {
       </ul>
 
       <h2 className="mt-14 font-mono text-sm uppercase tracking-wide text-[var(--dim)]">
-        {(t as Record<string, any>).proyectos_page?.others_title ?? "Otros desarrollos"}
+        {(t as Record<string, any>).proyectos_page?.others}
       </h2>
       <ul className="mt-4">
         {proyectosSecundarios().map((p) => (

@@ -281,14 +281,16 @@ export default function ProyectoPage({ slug }: { slug: string }) {
           </div>
         ) : (
           <ul className="mt-3 flex flex-wrap gap-2">
-            {proyecto.stack.map((tec) => (
-              <li
-                key={tec}
-                className="rounded border border-[var(--line)] px-2.5 py-1 font-mono text-xs text-[var(--dim)]"
-              >
-                {tec}
-              </li>
-            ))}
+            {(Array.isArray(datos.stack) && datos.stack.length > 0 ? datos.stack : proyecto.stack).map(
+              (tec: string) => (
+                <li
+                  key={tec}
+                  className="rounded border border-[var(--line)] px-2.5 py-1 font-mono text-xs text-[var(--dim)]"
+                >
+                  {tec}
+                </li>
+              )
+            )}
           </ul>
         )}
       </section>
