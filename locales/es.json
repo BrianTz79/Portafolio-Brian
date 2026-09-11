@@ -232,7 +232,7 @@
     },
     "koko": {
       "name": "Koko",
-      "status": "Versión 0.9.0 — En Uso Activo",
+      "status": "Versión 0.11.0 — En Uso Activo",
       "description": "Aplicación de co-presencia para parejas y amigos a distancia. Una mascota transparente que vive sobre el escritorio del otro, conectadas P2P en tiempo real.",
       "view_more": "Conocer Koko"
     }
@@ -472,7 +472,7 @@
     "status": "En Desarrollo Continuo (Inicio: Septiembre 2025)",
     "back": "Volver al Portafolio",
     "description_title": "Descripción y Objetivos",
-    "description": "Plataforma web integral de acceso privado (frieren.idolrevenant.com). Trasciende el concepto de una biblioteca virtual, integrando una economía digital, minijuegos y un casino multijugador en tiempo real.",
+    "description": "Plataforma web integral de acceso privado. Trasciende el concepto de una biblioteca virtual, integrando una economía digital, minijuegos y un casino multijugador en tiempo real.",
     "stack_title": "Stack Tecnológico",
     "stack": [
       "React.js",
@@ -825,7 +825,7 @@
   "koko_details": {
     "title": "Koko",
     "subtitle": "Compañía de Escritorio · Co-presencia a Distancia",
-    "status": "Versión 0.9.0 — En Uso Activo",
+    "status": "Versión 0.11.0 — En Uso Activo",
     "back": "Volver al Portafolio",
     "website_btn": "Visitar koko.ourocore.net",
     "download_btn": "Descargar",
@@ -938,7 +938,7 @@
     "roadmap_items": [
       {
         "phase": "Actual",
-        "desc": "Versión 0.9.0 en uso activo. Windows 10/11 y Linux x64 con todas las funciones principales completas."
+        "desc": "Versión 0.11.0 en uso activo. Windows 10/11 y Linux x64 con todas las funciones principales completas."
       },
       {
         "phase": "Próximo",
