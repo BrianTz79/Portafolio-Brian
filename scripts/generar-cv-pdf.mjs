@@ -25,14 +25,19 @@ for (const variante of VARIANTES) {
   }
 
   const salidaTemporal = join(TEMPORAL, variante.temporal);
-  execFileSync("chromium", [
-    "--headless",
-    "--disable-gpu",
-    "--no-sandbox",
-    "--no-pdf-header-footer",
-    `--print-to-pdf=${salidaTemporal}`,
-    `file://${entrada}`,
-  ], { stdio: ["ignore", "ignore", "pipe"] });
+  try {
+    execFileSync("chromium", [
+      "--headless",
+      "--disable-gpu",
+      "--no-sandbox",
+      "--no-pdf-header-footer",
+      `--print-to-pdf=${salidaTemporal}`,
+      `file://${entrada}`,
+    ], { stdio: ["ignore", "ignore", "pipe"] });
+  } catch (error) {
+    console.error(`No se pudo ejecutar chromium (¿esta en el PATH?): ${error.message}`);
+    process.exit(1);
+  }
 
   if (!existsSync(salidaTemporal)) {
     console.error(`Chromium no genero ${salidaTemporal}`);
